@@ -180,7 +180,7 @@ export default function App() {
             case 'GRAND_UNIFIED': return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />
             case 'FREQUENCY': return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />
             case 'MATRIX': return <MatrixUniverse chaos={chaos} />
-            case 'DECODER': return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} interactions={interactions} viewMode={viewMode} />
+            case 'DECODER': return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} interactions={interactions} viewMode={viewMode} onNavigate={setViewMode} />
             default:
               return <ThinkingUniverse clusters={manifest?.clusters || []} onClusterSelect={setSelectedCluster} chaosLevel={chaos} />
           }

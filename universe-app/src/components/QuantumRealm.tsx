@@ -49,9 +49,8 @@ function WaveFunctionCore({ observer, entropy, isDecoding }: QuantumRealmProps) 
               vPos = position;
               vNormal = normalize(normalMatrix * normal);
               
-              // Vertex jitter based on quantum instability
-              vec3 glitchedPos = position + vNormal * sin(uTime * 10.0 + position.y * 5.0) * uEntropy * 0.5;
-              gl_Position = projectionMatrix * modelViewMatrix * vec4(glitchedPos, 1.0);
+              // Stable Vertex Position
+              gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
           }
         `,
         fragmentShader: `

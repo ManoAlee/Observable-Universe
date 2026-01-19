@@ -43,6 +43,7 @@ export default function UnifiedUniverse({ observer, entropy, depth, isDecoding =
     )
 }
 
+
 function Singularity({ observer, entropy, isDecoding, speed }: { observer: THREE.Vector2; entropy: number; isDecoding: boolean; speed: number }) {
     const meshRef = useRef<THREE.Mesh>(null)
     const material = useMemo(() => new THREE.ShaderMaterial({
@@ -105,12 +106,12 @@ function Singularity({ observer, entropy, isDecoding, speed }: { observer: THREE
                 
                 // Pulsating core
                 float pulse = sin(uTime * 4.0) * 0.15 + 0.85;
-                
+
                 // Observer interaction (Singularity distortion)
                 vec3 obsP = vec3(uObserver * 10.0, 0.0);
                 float obsDist = length(vPos - obsP);
                 float influence = 1.0 / (obsDist * 0.4 + 0.5);
-                
+
                 // Volumetric noise detail
                 float n = noise(vPos * 0.6 + uTime * 0.15);
                 
@@ -119,20 +120,21 @@ function Singularity({ observer, entropy, isDecoding, speed }: { observer: THREE
 
                 // Kinetic Decompilation logic
                 if (uIsDecoding > 0.5) {
-                    float noiseVal = fract(sin(dot(vPos ,vec3(12.9898,78.233,45.5432))) * 43758.5453);
+                    float noiseVal = fract(sin(dot(vPos, vec3(12.9898, 78.233, 45.5432))) * 43758.5453);
                     if (noiseVal < uSpeed * 4.0) {
                         float bit = step(0.5, fract(sin(vPos.x * 10.0 + uTime) * 43758.5453));
                         gl_FragColor = vec4(0.0, 1.0, 0.3, bit * 0.5);
                         return;
                     }
                 }
-                
+
                 gl_FragColor = vec4(finalColor * glow * pulse * (0.8 + interference * 0.2) + vec3(fresnel * 0.3), glow * 0.8);
             }
         `,
         transparent: true,
         blending: THREE.AdditiveBlending,
-        depthWrite: false
+        depthWrite: false,
+        side: THREE.DoubleSide
     }), [])
 
     useFrame((state) => {
@@ -166,11 +168,11 @@ function QuantumOrbital({ observer, entropy, isDecoding }: { observer: THREE.Vec
         },
         vertexShader: `
             varying vec3 vPos;
-            void main() {
-                vPos = position;
-                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-            }
-        `,
+void main() {
+    vPos = position;
+    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+}
+`,
         fragmentShader: `
             varying vec3 vPos;
             uniform float uTime;
@@ -178,32 +180,32 @@ function QuantumOrbital({ observer, entropy, isDecoding }: { observer: THREE.Vec
             uniform float uEntropy;
             uniform float uIsDecoding;
 
-            void main() {
+void main() {
                 float r = length(vPos);
                 float theta = acos(vPos.z / (r + 0.1));
                 float phi = atan(vPos.y, vPos.x);
-                
+
                 // Unified Wave Function: Bipolar Orbital
                 float wave = sin(2.0 * theta) * cos(phi + uTime);
                 float radial = exp(-r / 3.0) * pow(r, 2.0);
                 
                 float prob = abs(wave * radial);
-                
+
                 // Color shift based on entropy
                 vec3 color = mix(vec3(0.0, 0.8, 1.0), vec3(1.0, 1.0, 1.0), uEntropy);
-                
-                // Kinetic Decompilation logic (Simpler for orbitals)
-                if (uIsDecoding > 0.5) {
-                    float noise = fract(sin(vPos.y * 100.0 + uTime) * 43758.5453);
-                    if (noise > 0.95) {
-                        gl_FragColor = vec4(0.0, 1.0, 0.5, 0.8);
-                        return;
-                    }
-                }
 
-                gl_FragColor = vec4(color, prob * 0.1);
-            }
-        `,
+    // Kinetic Decompilation logic (Simpler for orbitals)
+    if (uIsDecoding > 0.5) {
+                    float noise = fract(sin(vPos.y * 100.0 + uTime) * 43758.5453);
+        if (noise > 0.95) {
+            gl_FragColor = vec4(0.0, 1.0, 0.5, 0.8);
+            return;
+        }
+    }
+
+    gl_FragColor = vec4(color, prob * 0.1);
+}
+`,
         transparent: true,
         blending: THREE.AdditiveBlending,
         side: THREE.DoubleSide,

@@ -30,22 +30,23 @@ export default function InformationSingularity({ isDecoding = false }: Singulari
           void main() {
               float r = length(vPos) * 0.05;
               vec3 viewDir = normalize(cameraPosition - vPos);
-              float fresnel = pow(1.0 - abs(dot(vNormal, viewDir)), 4.0);
+              float fresnel = pow(1.0 - abs(dot(vNormal, viewDir)), 3.0);
               
-              // Accretion Disk Simulation
-              float disk = sin(r * 20.0 - uTime * 5.0);
-              float ring = smoothstep(0.4, 0.5, r) * smoothstep(0.6, 0.5, r);
+              // Stable Data Sun Core
+              float core = smoothstep(0.4, 0.0, r);
               
-              // Event Horizon
-              float horizon = smoothstep(0.3, 0.25, r);
-              
-              vec3 blackHole = vec3(0.0);
-              vec3 accretion = mix(vec3(1.0, 0.5, 0.0), vec3(0.0, 1.0, 1.0), disk);
-              
-              vec3 finalColor = mix(accretion * ring * 2.0, blackHole, horizon);
-              finalColor += vec3(0.5, 0.8, 1.0) * fresnel * 0.5;
+              // Radiating Data Rays
+              float rays = max(0.0, sin(atan(vPos.y, vPos.x) * 20.0 + uTime) * sin(atan(vPos.z, vPos.x) * 20.0 + uTime * 0.5));
+              rays *= smoothstep(0.0, 1.0, r);
 
-              gl_FragColor = vec4(finalColor, 1.0); // Solid opacity
+              vec3 colorCore = vec3(0.0, 0.0, 0.0); // Black center
+              vec3 colorRays = vec3(1.0, 0.8, 0.2); // Gold rays
+              vec3 colorGlow = vec3(0.0, 0.8, 1.0); // Cyan glow
+              
+              vec3 finalColor = mix(colorCore, colorRays, rays);
+              finalColor += colorGlow * fresnel;
+
+              gl_FragColor = vec4(finalColor, 1.0);
           }
       `,
         transparent: true,

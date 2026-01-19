@@ -27,42 +27,25 @@ export default function InformationSingularity({ isDecoding = false }: Singulari
           varying vec3 vNormal;
           uniform float uTime;
 
-          // Hash function for random positioning
-          float hash(float n) { return fract(sin(n) * 43758.5453123); }
-          vec3 hash3(float n) { return vec3(hash(n), hash(n+1.0), hash(n+2.0)); }
-
           void main() {
-              vec3 p = vPos * 0.05;
-              float bubbleField = 0.0;
+              float r = length(vPos) * 0.05;
+              vec3 viewDir = normalize(cameraPosition - vPos);
+              float fresnel = pow(1.0 - abs(dot(vNormal, viewDir)), 4.0);
               
-              // Simulate 10 bubble universes emerging and merging
-              for(int i=0; i<10; i++) {
-                  float fi = float(i);
-                  vec3 offset = (hash3(fi * 123.45) - 0.5) * 20.0;
-                  // Dynamic movement based on time
-                  offset.x += sin(uTime * 0.1 + fi) * 5.0;
-                  offset.y += cos(uTime * 0.15 + fi * 1.5) * 5.0;
-                  offset.z += sin(uTime * 0.05 - fi * 2.0) * 5.0;
-                  
-                  float dist = length(p - offset);
-                  // Soft bubble edge using smoothstep
-                  float size = 3.0 + sin(uTime * 0.2 + fi) * 1.0;
-                  bubbleField += smoothstep(size, size - 1.0, dist);
-              }
+              // Accretion Disk Simulation
+              float disk = sin(r * 20.0 - uTime * 5.0);
+              float ring = smoothstep(0.4, 0.5, r) * smoothstep(0.6, 0.5, r);
               
-              // Color based on field intensity and distance
-              vec3 colorA = vec3(0.02, 0.0, 0.05); // Deeper Void
-              vec3 colorB = vec3(0.0, 0.6, 1.0); // Smoother Inflation
-              vec3 colorC = vec3(1.0, 0.2, 0.5); // Radiant Reality Birth
+              // Event Horizon
+              float horizon = smoothstep(0.3, 0.25, r);
               
-              vec3 finalColor = mix(colorA, colorB, smoothstep(0.0, 1.0, bubbleField));
-              finalColor = mix(finalColor, colorC, smoothstep(1.0, 2.0, bubbleField));
+              vec3 blackHole = vec3(0.0);
+              vec3 accretion = mix(vec3(1.0, 0.5, 0.0), vec3(0.0, 1.0, 1.0), disk);
               
-              // Add a rim glow effect
-              float rim = pow(1.0 - abs(dot(vNormal, vec3(0,0,1))), 3.0);
-              finalColor += rim * 0.5 * bubbleField;
+              vec3 finalColor = mix(accretion * ring * 2.0, blackHole, horizon);
+              finalColor += vec3(0.5, 0.8, 1.0) * fresnel * 0.5;
 
-              gl_FragColor = vec4(finalColor, clamp(bubbleField * 0.5, 0.0, 0.8));
+              gl_FragColor = vec4(finalColor, 1.0); // Solid opacity
           }
       `,
         transparent: true,

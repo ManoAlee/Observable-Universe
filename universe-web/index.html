@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Universo Zero-Entropy — Painel</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <h1>Universo Zero-Entropy</h1>
+      <p class="subtitle">Manifesto interativo e documentação dos clusters, agentes e tecnologias.</p>
+    </header>
+
+    <main class="container">
+      <nav class="sidebar">
+        <ul>
+          <li><a href="#overview">Visão Geral</a></li>
+          <li><a href="#clusters">Clusters</a></li>
+          <li><a href="#frontend">Front-end Agents & Tecnologias</a></li>
+          <li><a href="#docs">Documentação</a></li>
+          <li><a id="download-manifest" href="../universe/manifest.json" download>Baixar manifesto JSON</a></li>
+        </ul>
+      </nav>
+
+      <section class="content" id="overview">
+        <h2>Visão Geral</h2>
+        <div id="overview-body">Carregando manifesto...</div>
+      </section>
+
+      <section class="content" id="clusters">
+        <h2>Clusters</h2>
+        <div id="clusters-list">Carregando clusters...</div>
+      </section>
+
+      <section class="content" id="frontend">
+        <h2>Front-end Agents & Tecnologias</h2>
+        <div id="frontend-body"></div>
+      </section>
+
+      <section class="content" id="docs">
+        <h2>Documentação</h2>
+        <ul>
+          <li><a href="../universe/README.md">Manifesto README</a></li>
+          <li><a href="../universe/clusters/mainframe_nordico.md">Mainframe Nórdico</a></li>
+          <li><a href="../universe/clusters/olympo.md">Nuvem do Olimpo</a></li>
+          <li><a href="../universe/clusters/kratos_morfeus.md">Kratos & Morfeus</a></li>
+          <li><a href="../universe/expanded.md">Expansão Tecnológica</a></li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <small>Projeto gerado — abra `index.html` ou execute um servidor HTTP simples.</small>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+:root{--bg:#0f1720;--card:#0b1220;--accent:#22c55e;--muted:#94a3b8;--text:#e6eef8}
+*{box-sizing:border-box}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;margin:0;background:linear-gradient(180deg,#071027 0%,#071b2a 100%);color:var(--text)}
+header{padding:28px 36px;border-bottom:1px solid rgba(255,255,255,0.03)}
+header h1{margin:0;font-size:1.6rem}
+.subtitle{margin-top:6px;color:var(--muted)}
+.container{display:grid;grid-template-columns:220px 1fr;gap:20px;padding:24px}
+.sidebar{background:rgba(255,255,255,0.02);padding:16px;border-radius:8px;height:calc(100vh - 140px);position:sticky;top:80px}
+.sidebar ul{list-style:none;padding:0;margin:0}
+.sidebar a{display:block;padding:8px 6px;color:var(--muted);text-decoration:none;border-radius:6px}
+.sidebar a:hover{background:rgba(255,255,255,0.02);color:var(--text)}
+.content{background:var(--card);padding:18px;border-radius:8px;margin-bottom:12px}
+.content h2{margin-top:0}
+pre{background:#021224;padding:12px;border-radius:6px;overflow:auto}
+.cluster-card{border:1px solid rgba(255,255,255,0.03);padding:12px;margin-bottom:10px;border-radius:6px}
+.tech-list{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:999px;color:var(--muted);font-size:0.9rem}
+footer{padding:18px;text-align:center;color:var(--muted)}
+
+@media(max-width:900px){.container{grid-template-columns:1fr}.sidebar{position:relative;height:auto}}

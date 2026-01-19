@@ -1,0 +1,9 @@
+--- Testing Solar Activity (Empty Data) ---
+Result: 3
+
+--- Testing Earth Pulse (Null Features) ---
+Result: { mag: 0, place: 'Quiet' }
+
+--- Testing NEO Data (429 Error) ---
+[UniverseDecoder] NASA NEO API rate limit reached (429). Using fallback values.
+Result: 20

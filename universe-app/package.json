@@ -1,0 +1,36 @@
+{
+  "name": "universe-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "build:css": "tailwindcss -i src/styles.css -o src/tailwind-output.css --minify"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.14.1",
+    "three": "^0.157.0",
+    "leva": "latest",
+    "@react-three/fiber": "^8.15.12",
+    "@react-three/drei": "^9.96.1",
+    "@react-three/postprocessing": "^2.16.0",
+    "postprocessing": "^6.34.1",
+    "uuid": "^9.0.1",
+    "framer-motion": "^10.18.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.1.6",
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@types/three": "^0.160.0",
+    "@types/uuid": "^9.0.7",
+    "tailwindcss": "^3.4.8",
+    "postcss": "^8.4.21",
+    "autoprefixer": "^10.4.14"
+  }
+}

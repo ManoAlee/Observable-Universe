@@ -1,0 +1,22 @@
+src/App.tsx(2,24): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+src/App.tsx(3,77): error TS2307: Cannot find module '@react-three/postprocessing' or its corresponding type declarations.
+src/App.tsx(4,31): error TS2307: Cannot find module 'postprocessing' or its corresponding type declarations.
+src/App.tsx(6,35): error TS2307: Cannot find module 'leva' or its corresponding type declarations.
+src/App.tsx(37,11): error TS2339: Property 'ambientLight' does not exist on type 'JSX.IntrinsicElements'.
+src/App.tsx(38,11): error TS2339: Property 'pointLight' does not exist on type 'JSX.IntrinsicElements'.
+src/components/ThinkingUniverse.tsx(2,36): error TS2307: Cannot find module '@react-three/fiber' or its corresponding type declarations.
+src/components/ThinkingUniverse.tsx(3,35): error TS2307: Cannot find module '@react-three/drei' or its corresponding type declarations.
+src/components/ThinkingUniverse.tsx(50,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+src/components/ThinkingUniverse.tsx(71,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+src/components/ThinkingUniverse.tsx(96,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+src/components/ThinkingUniverse.tsx(109,7): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+src/components/ThinkingUniverse.tsx(115,9): error TS2339: Property 'icosahedronGeometry' does not exist on type 'JSX.IntrinsicElements'.
+src/components/ThinkingUniverse.tsx(116,9): error TS2339: Property 'shaderMaterial' does not exist on type 'JSX.IntrinsicElements'.
+src/components/ThinkingUniverse.tsx(144,7): error TS2339: Property 'mesh' does not exist on type 'JSX.IntrinsicElements'.
+src/components/ThinkingUniverse.tsx(145,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+src/components/ThinkingUniverse.tsx(159,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+src/components/ThinkingUniverse.tsx(161,5): error TS2339: Property 'group' does not exist on type 'JSX.IntrinsicElements'.
+src/components/UniverseScene.tsx(3,31): error TS2307: Cannot find module 'three/examples/jsm/controls/OrbitControls' or its corresponding type declarations.
+src/components/UniverseScene.tsx(4,32): error TS2307: Cannot find module 'three/examples/jsm/postprocessing/EffectComposer' or its corresponding type declarations.
+src/components/UniverseScene.tsx(5,28): error TS2307: Cannot find module 'three/examples/jsm/postprocessing/RenderPass' or its corresponding type declarations.
+src/components/UniverseScene.tsx(6,33): error TS2307: Cannot find module 'three/examples/jsm/postprocessing/UnrealBloomPass' or its corresponding type declarations.

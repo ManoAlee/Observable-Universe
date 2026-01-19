@@ -1,0 +1,1962 @@
+
+> universe-app@0.1.0 dev
+> vite
+
+The CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.
+Re-optimizing dependencies because lockfile has changed
+
+  [32m[1mVITE[22m v5.4.21[39m  [2mready in [0m[1m1554[22m[2m[0m ms[22m
+
+  [32mÔ×£[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+[2m  [32mÔ×£[39m  [1mNetwork[22m[2m: use [22m[1m--host[22m[2m to expose[22m
+[2m[32m  Ô×£[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m08:46:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ThinkingUniverse.tsx, /src/styles.css[22m
+[2m08:46:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m08:46:59[22m [36m[1m[vite][22m[39m [32mÔ£¿ new dependencies optimized: [33mframer-motion[32m[39m
+[2m08:46:59[22m [36m[1m[vite][22m[39m [32mÔ£¿ optimized dependencies changed. reloading[39m
+[2m08:48:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ClusterDetail.tsx, /src/styles.css[22m
+[2m08:52:58[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m08:55:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/GenesisScene.tsx, /src/styles.css[22m
+[2m08:57:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m08:59:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m08:59:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/CosmicWeb.tsx, /src/styles.css[22m
+[2m08:59:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:00:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:01:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/CosmicWeb.tsx, /src/styles.css[22m
+[2m09:01:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[2m09:01:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BigBang.tsx, /src/styles.css[22m
+[2m09:01:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[2m09:01:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:02:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m09:02:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m09:03:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:04:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:04:42[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:04:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:06:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:06:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:06:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:07:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/LifeSim.tsx, /src/styles.css[22m
+[2m09:07:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/LifeSim.tsx, /src/styles.css[22m
+[2m09:07:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/LifeSim.tsx, /src/styles.css[22m
+[2m09:08:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/CosmicWeb.tsx, /src/styles.css[22m
+[2m09:08:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/CosmicWeb.tsx, /src/styles.css[22m
+[2m09:08:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:09:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:09:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:11:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:12:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:13:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+09:13:15 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\components\StringTheoryUniverse.tsx: Unexpected token, expected "," (48:0)
+
+  46 |         )
+  47 |     }
+> 48 |
+     | ^
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/components/StringTheoryUniverse.tsx:48:0
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.unexpected (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6619:16)
+      at TypeScriptParserMixin.expect (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6899:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11233:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11176:29)
+      at TypeScriptParserMixin.parseSubscript (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11110:19)
+      at TypeScriptParserMixin.parseSubscript (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9272:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11084:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11075:17)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9776:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12885:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12090:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12076:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9172:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13435:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12393:14)
+      at TypeScriptParserMixin.parseFunction (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13434:10)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13897:19)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9402:18)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13818:25)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9385:20)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12868:27)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12734:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseProgram (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12612:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12602:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14478:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10116:18)
+      at parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14512:38)
+[2m09:13:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[2m09:13:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[2m09:13:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/CosmicWeb.tsx, /src/styles.css[22m
+[2m09:14:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+09:14:33 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (191:4)
+
+  189 |   <Leva fill flat titleBar={false} theme={{ colors: { highlight1: '#00ccff', highlight2: '#00ccff' } as any }} />
+  190 | </div>
+> 191 |     </div >
+      |     ^
+  192 |   )
+  193 | }
+  194 |
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:191:4
+  197|      <button
+  198|        onClick={onClick}
+  199|        className={`px-4 py-2 text-[9px] font-black tracking-widest transition-all border ${active
+     |                                                                            ^
+  200|          ? 'bg-cyan-500 text-black border-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.8)]'
+  201|          : 'bg-black/40 text-cyan-500/50 border-white/5 hover:border-cyan-500/50 hover:text-cyan-400'
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4742:18)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4762:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:39
+      at TypeScriptParserMixin.tryParse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:18)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12885:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12734:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseProgram (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12612:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12602:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14478:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10116:18)
+      at parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14512:38)
+      at parser (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\parser\index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\transformation\index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:261:32)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:273:13
+      at async.call.result.err.err (D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:223:11)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:189:28
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+      at D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:113:33
+      at step (D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:287:14)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:273:13
+      at async.call.result.err.err (D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:223:11)
+[2m09:15:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:15:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[2m09:15:27[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:15:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ThinkingUniverse.tsx, /src/styles.css[22m
+[2m09:20:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ThinkingUniverse.tsx, /src/styles.css[22m
+[2m09:20:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:20:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:21:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:21:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:21:58[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Wormhole.tsx, /src/styles.css[22m
+[2m09:23:26[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/LifeSim.tsx, /src/styles.css[22m
+[2m09:23:26[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/LifeSim.tsx, /src/styles.css[22m
+[2m09:23:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/InformationSingularity.tsx, /src/styles.css[22m
+[2m09:24:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ProceduralPlanet.tsx, /src/styles.css[22m
+[2m09:26:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+09:26:12 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Unexpected token, expected "," (202:91)
+
+  200 |             <div className="glass-panel p-2 grid grid-cols-2 gap-1">
+  201 |               <NavButton active={viewMode === 'STRING_THEORY'} onClick={() => setViewMode('STRING_THEORY')} label="STRING_11D" />
+> 202 |               <NavButton active={viewMode === 'BINARY'} onClick={() => setViewMode('BINARY'} label="BINARY_STACK" />
+      |                                                                                            ^
+  203 |               <NavButton active={viewMode === 'QUANTUM'} onClick={() => setViewMode('QUANTUM')} label="QUANTUM_FIELD" />
+  204 |               <NavButton active={viewMode === 'COSMIC_WEB'} onClick={() => setViewMode('COSMIC_WEB')} label="OBSERVABLE" />
+  205 |             </div>
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:202:91
+  202|                <NavButton active={viewMode === 'BINARY'} onClick={() => setViewMode('BINARY'} label="BINARY_STACK" />
+  203|                <NavButton active={viewMode === 'QUANTUM'} onClick={() => setViewMode('QUANTUM')} label="QUANTUM_FIELD" />
+  204|                <NavButton active={viewMode === 'COSMIC_WEB'} onClick={() => setViewMode('COSMIC_WEB')} label="OBSERVABLE" />
+     |                                                        ^
+  205|              </div>
+  206|            </div>
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.unexpected (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6619:16)
+      at TypeScriptParserMixin.expect (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6899:12)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11233:14)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11176:29)
+      at TypeScriptParserMixin.parseSubscript (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11110:19)
+      at TypeScriptParserMixin.parseSubscript (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9272:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11084:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11075:17)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9776:20)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12083:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12065:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11677:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9776:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12416:12)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4632:31)
+      at TypeScriptParserMixin.jsxParseAttributeValue (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4604:21)
+      at TypeScriptParserMixin.jsxParseAttribute (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4653:38)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4667:28)
+      at TypeScriptParserMixin.jsxParseOpeningElementAfterName (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10033:18)
+      at TypeScriptParserMixin.jsxParseOpeningElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4662:17)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4686:33)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4759:19)
+[2m09:26:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:26:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:27:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[2m09:27:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[2m09:28:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/LifeSim.tsx, /src/styles.css[22m
+[2m09:28:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:31:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Wormhole.tsx, /src/styles.css[22m
+[2m09:31:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:32:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ThinkingUniverse.tsx, /src/styles.css[22m
+[2m09:32:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:33:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/CosmicWeb.tsx, /src/styles.css[22m
+[2m09:35:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:35:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:36:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:36:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:36:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/LifeSim.tsx, /src/styles.css[22m
+[2m09:36:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/LifeSim.tsx, /src/styles.css[22m
+[2m09:37:00[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:37:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:37:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:40:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BigBang.tsx, /src/styles.css[22m
+[2m09:40:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[2m09:40:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m09:40:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:41:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:41:10[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:41:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:41:26[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:43:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:43:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:44:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:44:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:44:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:44:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[2m09:44:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[2m09:44:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:44:52[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:45:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:45:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:45:27[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:45:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:45:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m09:48:42[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:49:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:49:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:52:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:52:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/NeuralSymbiosis.tsx, /src/styles.css[22m
+[2m09:55:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:55:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m09:56:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[2m09:56:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m09:56:42[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[2m09:56:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[2m09:57:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/CosmicWeb.tsx, /src/styles.css[22m
+[2m09:57:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Wormhole.tsx, /src/styles.css[22m
+[2m09:57:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/InformationSingularity.tsx, /src/styles.css[22m
+[2m09:57:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:58:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[2m09:58:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[2m09:58:39[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:59:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m09:59:42[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m10:00:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m10:00:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[2m10:01:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[2m10:01:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[2m10:02:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Wormhole.tsx, /src/styles.css[22m
+[2m10:02:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/Wormhole.tsx, /src/styles.css[22m
+[2m10:04:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m10:05:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/FrequencyUniverse.tsx, /src/styles.css[22m
+[2m10:05:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m10:08:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m10:08:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+10:08:21 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Expected corresponding JSX closing tag for <Canvas>. (295:6)
+
+  293 |             <Leva fill flat titleBar={false} theme={{ colors: { highlight1: '#00ccff', highlight2: '#00ccff' } as any }} />
+  294 |           </div>
+> 295 |       </div>
+      |       ^
+  296 |       )
+  297 | }
+  298 |
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:295:6
+  302|            uniforms: {uTime: {value: 0 }, uChaos: {value: chaos } },
+  303|          vertexShader: `
+  304|          varying vec3 vPos;
+     |                         ^
+  305|          void main() {
+  306|            vPos = position;
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4727:16)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4759:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:39
+      at TypeScriptParserMixin.tryParse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10790:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12416:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10790:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12483:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11665:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9776:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13132:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12788:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12090:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12076:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9172:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13435:12
+[2m10:10:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m10:17:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m10:17:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m10:17:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[2m10:18:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[2m10:18:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[2m10:43:16[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+[2m10:43:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m10:44:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m10:44:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[2m10:44:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[2m10:45:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[2m10:46:00[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[2m11:07:00[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m11:07:00[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx[22m
+[2m11:07:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:08:27[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx[22m
+[2m11:09:26[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumGalaxy.tsx[22m
+[2m11:09:52[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BigBang.tsx[22m
+[2m11:10:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ProceduralPlanet.tsx[22m
+[2m11:18:39[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:18:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:18:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:36:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+11:36:47 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Expected corresponding JSX closing tag for <div>. (304:4)
+
+  302 |         {/* Footer Navigation Dock */}
+  303 |       </div>
+> 304 |     </footer>
+      |     ^
+  305 |       </div >
+  306 |
+  307 |     {/* Persistent Toggle Button */ }
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:304:4
+  309|    onClick = {() => setShowHUD(!showHUD)
+  310|  }
+  311|  className = "absolute top-6 right-6 z-50 pointer-events-auto w-12 h-12 rounded-full border border-cyan-500/30 bg-black/60 flex items-center justify-center text-cyan-500 hover:bg-cyan-500 hover:text-black transition-all group"
+     |                                                                                                                                                                                           ^
+  312|  title = { showHUD? "Hide HUD": "Show HUD" }
+  313|    >
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4727:16)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4759:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:39
+      at TypeScriptParserMixin.tryParse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10790:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12416:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10790:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12483:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11665:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9776:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13132:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12788:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12090:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12076:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9172:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13435:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12393:14)
+      at TypeScriptParserMixin.parseFunction (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13434:10)
+11:38:32 [vite] Pre-transform error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Expected corresponding JSX closing tag for <div>. (304:4)
+
+  302 |         {/* Footer Navigation Dock */}
+  303 |       </div>
+> 304 |     </footer>
+      |     ^
+  305 |       </div >
+  306 |
+  307 |     {/* Persistent Toggle Button */ }
+11:38:32 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Expected corresponding JSX closing tag for <div>. (304:4)
+
+  302 |         {/* Footer Navigation Dock */}
+  303 |       </div>
+> 304 |     </footer>
+      |     ^
+  305 |       </div >
+  306 |
+  307 |     {/* Persistent Toggle Button */ }
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:304:4
+  309|    onClick = {() => setShowHUD(!showHUD)
+  310|  }
+  311|  className = "absolute top-6 right-6 z-50 pointer-events-auto w-12 h-12 rounded-full border border-cyan-500/30 bg-black/60 flex items-center justify-center text-cyan-500 hover:bg-cyan-500 hover:text-black transition-all group"
+     |                                                                                                                                                                                           ^
+  312|  title = { showHUD? "Hide HUD": "Show HUD" }
+  313|    >
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4727:16)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4759:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:39
+      at TypeScriptParserMixin.tryParse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10790:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12416:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10790:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12483:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11665:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9776:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13132:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12788:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12090:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12076:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9172:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13435:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12393:14)
+      at TypeScriptParserMixin.parseFunction (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13434:10)
+[2m11:38:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:39:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m11:40:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:43:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:43:39[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:43:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:44:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:44:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:44:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m11:44:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m11:47:52[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m11:48:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[2m11:49:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:53:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx[22m
+[2m11:57:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m11:57:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m11:58:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m11:59:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m11:59:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m12:00:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m12:00:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m12:00:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m12:01:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m12:06:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m12:07:22[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+12:07:22 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (72:6)
+
+  70 |   }
+  71 |   <LifeSim mode={viewMode} density={lifeDensity} />
+> 72 |       </group >
+     |       ^
+  73 |     )
+  74 | }
+  75 |
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:72:6
+  74 |  }
+  75 |  
+  76 |  if (!manifest) return <div className="loading-terminal">TRANSCENDING REALITY...</div>
+     |                                                      ^
+  77 |  
+  78 |  if (viewMode === 'GENESIS') return <><GenesisScene /><ReturnButton onClick={() => setViewMode('OPERATOR')} /></>
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4742:18)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4762:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:39
+      at TypeScriptParserMixin.tryParse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:18)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12885:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12090:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12076:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9172:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13435:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12393:14)
+      at TypeScriptParserMixin.parseFunction (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13434:10)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13897:19)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9402:18)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13818:25)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9385:20)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12868:27)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12734:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseProgram (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12612:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12602:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14478:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10116:18)
+      at parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14512:38)
+      at parser (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\parser\index.js:41:34)
+      at parser.next (<anonymous>)
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+12:07:23 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (72:6)
+
+  70 |   }
+  71 |   <LifeSim mode={viewMode} density={lifeDensity} />
+> 72 |       </group >
+     |       ^
+  73 |     )
+  74 | }
+  75 |
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:72:6
+  74 |  }
+  75 |  
+  76 |  if (!manifest) return <div className="loading-terminal">TRANSCENDING REALITY...</div>
+     |                                                      ^
+  77 |  
+  78 |  if (viewMode === 'GENESIS') return <><GenesisScene /><ReturnButton onClick={() => setViewMode('OPERATOR')} /></>
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4742:18)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4762:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:39
+      at TypeScriptParserMixin.tryParse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:18)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12885:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12090:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12076:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9172:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13435:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12393:14)
+      at TypeScriptParserMixin.parseFunction (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13434:10)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13897:19)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9402:18)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13818:25)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9385:20)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12868:27)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12734:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseProgram (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12612:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12602:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14478:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10116:18)
+      at parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14512:38)
+      at parser (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\parser\index.js:41:34)
+      at parser.next (<anonymous>)
+[2m12:07:27[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+12:07:27 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (72:6)
+
+  70 |   }
+  71 |   <LifeSim mode={viewMode} density={lifeDensity} />
+> 72 |       </group >
+     |       ^
+  73 |     )
+  74 | }
+  75 |
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:72:6
+  74 |  }
+  75 |  
+  76 |  if (!manifest) return <div className="loading-terminal">TRANSCENDING REALITY...</div>
+     |                                                      ^
+  77 |  
+  78 |  if (viewMode === 'GENESIS') return <><GenesisScene /><ReturnButton onClick={() => setViewMode('OPERATOR')} /></>
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4742:18)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4762:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:39
+      at TypeScriptParserMixin.tryParse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:18)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12885:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12090:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12076:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9172:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13435:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12393:14)
+      at TypeScriptParserMixin.parseFunction (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13434:10)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13897:19)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9402:18)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13818:25)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9385:20)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12868:27)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12734:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseProgram (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12612:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12602:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14478:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10116:18)
+      at parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14512:38)
+      at parser (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\parser\index.js:41:34)
+      at parser.next (<anonymous>)
+12:07:27 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (72:6)
+
+  70 |   }
+  71 |   <LifeSim mode={viewMode} density={lifeDensity} />
+> 72 |       </group >
+     |       ^
+  73 |     )
+  74 | }
+  75 |
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:72:6
+  74 |  }
+  75 |  
+  76 |  if (!manifest) return <div className="loading-terminal">TRANSCENDING REALITY...</div>
+     |                                                      ^
+  77 |  
+  78 |  if (viewMode === 'GENESIS') return <><GenesisScene /><ReturnButton onClick={() => setViewMode('OPERATOR')} /></>
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4742:18)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4762:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:39
+      at TypeScriptParserMixin.tryParse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:18)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12885:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12090:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12076:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9172:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13435:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12393:14)
+      at TypeScriptParserMixin.parseFunction (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13434:10)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13897:19)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9402:18)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13818:25)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9385:20)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12868:27)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12734:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseProgram (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12612:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12602:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14478:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10116:18)
+      at parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14512:38)
+      at parser (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\parser\index.js:41:34)
+      at parser.next (<anonymous>)
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m12:07:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m12:08:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m12:08:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ProceduralPlanet.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+13:35:08 [vite] Pre-transform error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (72:6)
+
+  70 |   }
+  71 |   <LifeSim mode={viewMode} density={lifeDensity} />
+> 72 |       </group >
+     |       ^
+  73 |     )
+  74 | }
+  75 |
+13:35:09 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Adjacent JSX elements must be wrapped in an enclosing tag. Did you want a JSX fragment <>...</>? (72:6)
+
+  70 |   }
+  71 |   <LifeSim mode={viewMode} density={lifeDensity} />
+> 72 |       </group >
+     |       ^
+  73 |     )
+  74 | }
+  75 |
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:72:6
+  74 |  }
+  75 |  
+  76 |  if (!manifest) return <div className="loading-terminal">TRANSCENDING REALITY...</div>
+     |                                                      ^
+  77 |  
+  78 |  if (viewMode === 'GENESIS') return <><GenesisScene /><ReturnButton onClick={() => setViewMode('OPERATOR')} /></>
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4742:18)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4762:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:39
+      at TypeScriptParserMixin.tryParse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:18)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12885:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12090:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12076:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9172:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13435:12
+      at TypeScriptParserMixin.withSmartMixTopicForbiddingContext (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12393:14)
+      at TypeScriptParserMixin.parseFunction (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13434:10)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13897:19)
+      at TypeScriptParserMixin.parseExportDefaultExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9402:18)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13818:25)
+      at TypeScriptParserMixin.parseExport (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9385:20)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12868:27)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12734:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseProgram (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12612:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12602:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14478:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10116:18)
+      at parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14512:38)
+      at parser (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\parser\index.js:41:34)
+      at parser.next (<anonymous>)
+[2m13:36:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m13:47:00[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m13:51:45[22m [36m[1m[vite][22m[39m [32mvite.config.ts changed, restarting server...[39m
+[2m13:51:45[22m [36m[1m[vite][22m[39m server restarted.
+
+  [32mÔ×£[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+  [32mÔ×£[39m  [1mNetwork[22m: [36mhttp://10.0.0.18:[1m5173[22m/[39m
+  [32mÔ×£[39m  [1mNetwork[22m: [36mhttp://172.26.16.1:[1m5173[22m/[39m
+  [32mÔ×£[39m  [1mNetwork[22m: [36mhttp://172.19.112.1:[1m5173[22m/[39m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m13:59:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:01:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:05:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:05:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:06:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:08:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m14:08:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:10:52[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:11:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:11:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+14:11:35 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Expected corresponding JSX closing tag for <section>. (299:12)
+
+  297 |                 <button onClick={() => setIsCodexOpen(true)} className="w-full py-4 bg-cyan-500 bg-opacity-10 border border-cyan-500 text-[11px] font-black tracking-ultra-wide hover:bg-cyan-500 hover:text-black transition-all text-cyan-400 uppercase shadow-lg">SCAN_REALITY</button>
+  298 |               </div>
+> 299 |             </div>
+      |             ^
+  300 |           </section>
+  301 |         </div>
+  302 |
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:299:12
+  303|          <div className="absolute bottom-6 right-6 pointer-auto">
+  304|            <div className="glass-panel p-2 bg-black-60 border border-white/5 rounded backdrop-blur-md">
+  305|              <Leva isRoot={false} fill flat titleBar={false} theme={{ colors: { highlight1: '#00ccff', highlight2: '#00ccff' } as any }} />
+     |                                                                                        ^
+  306|            </div>
+  307|          </div>
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4727:16)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4759:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:39
+      at TypeScriptParserMixin.tryParse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10790:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12416:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10790:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12483:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11665:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9776:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13132:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12788:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12090:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12076:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9172:18)
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+14:11:35 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\App.tsx: Expected corresponding JSX closing tag for <section>. (299:12)
+
+  297 |                 <button onClick={() => setIsCodexOpen(true)} className="w-full py-4 bg-cyan-500 bg-opacity-10 border border-cyan-500 text-[11px] font-black tracking-ultra-wide hover:bg-cyan-500 hover:text-black transition-all text-cyan-400 uppercase shadow-lg">SCAN_REALITY</button>
+  298 |               </div>
+> 299 |             </div>
+      |             ^
+  300 |           </section>
+  301 |         </div>
+  302 |
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx:299:12
+  303|          <div className="absolute bottom-6 right-6 pointer-auto">
+  304|            <div className="glass-panel p-2 bg-black-60 border border-white/5 rounded backdrop-blur-md">
+  305|              <Leva isRoot={false} fill flat titleBar={false} theme={{ colors: { highlight1: '#00ccff', highlight2: '#00ccff' } as any }} />
+     |                                                                                        ^
+  306|            </div>
+  307|          </div>
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4727:16)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4698:32)
+      at TypeScriptParserMixin.jsxParseElement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4749:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4759:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:39
+      at TypeScriptParserMixin.tryParse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6907:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9765:18)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10790:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12416:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10790:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12483:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11665:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11321:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:4764:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11071:23)
+      at TypeScriptParserMixin.parseUpdate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11056:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:11036:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9827:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10889:61)
+      at TypeScriptParserMixin.parseExprOps (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10894:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10871:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10821:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9776:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10774:23)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:39
+      at TypeScriptParserMixin.allowInAnd (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12411:16)
+      at TypeScriptParserMixin.parseExpression (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10770:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13132:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12788:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12737:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseBlock (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13287:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12090:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12076:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9172:18)
+[2m14:11:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:12:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:18:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+14:18:24 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+179|              case 'GRAND_UNIFIED':return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />;
+180|              case 'FREQUENCY':return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />;
+181|              case 'BINARY':return <BinaryUniverseScene />;
+   |                   ^
+182|              case 'MATRIX':return <MatrixUniverse />;
+183|              case 'DECODER':return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} />;
+
+  Plugin: vite:esbuild
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx
+[2m14:20:39[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:20:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+14:20:42 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+179|              case 'GRAND_UNIFIED':return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />;
+180|              case 'FREQUENCY':return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />;
+181|              case 'BINARY':return <BinaryUniverseScene />;
+   |                   ^
+182|              case 'MATRIX':return <MatrixUniverse />;
+183|              case 'DECODER':return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} interactions={interactions} viewMode={viewMode} />;
+
+  Plugin: vite:esbuild
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx
+[2m14:21:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:21:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:22:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/InteractionEngine.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:25:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+14:25:23 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+179|              case 'GRAND_UNIFIED':return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />;
+180|              case 'FREQUENCY':return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />;
+181|              case 'BINARY':return <BinaryUniverseScene />;
+   |                   ^
+182|              case 'MATRIX':return <MatrixUniverse chaos={chaos} />;
+183|              case 'DECODER':return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} interactions={interactions} viewMode={viewMode} />;
+
+  Plugin: vite:esbuild
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:25:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/MatrixUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:25:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:26:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:27:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:27:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[2m14:27:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:27:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[2m14:27:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+14:27:18 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+179|              case 'GRAND_UNIFIED':return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />;
+180|              case 'FREQUENCY':return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />;
+181|              case 'BINARY':return <BinaryUniverseScene />;
+   |                   ^
+182|              case 'MATRIX':return <MatrixUniverse chaos={chaos} />;
+183|              case 'DECODER':return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} interactions={interactions} viewMode={viewMode} />;
+
+  Plugin: vite:esbuild
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+14:27:20 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+179|              case 'GRAND_UNIFIED':return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />;
+180|              case 'FREQUENCY':return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />;
+181|              case 'BINARY':return <BinaryUniverseScene />;
+   |                   ^
+182|              case 'MATRIX':return <MatrixUniverse chaos={chaos} />;
+183|              case 'DECODER':return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} interactions={interactions} viewMode={viewMode} />;
+
+  Plugin: vite:esbuild
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx
+[2m14:27:22[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/GenesisScene.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:27:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ProceduralPlanet.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:29:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/GenesisScene.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:29:15[22m [36m[1m[vite][22m[39m [33mhmr invalidate [39m[2m/src/components/GenesisScene.tsx[22m Could not Fast Refresh (new export)
+[2m14:29:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+14:29:15 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+179|              case 'GRAND_UNIFIED':return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />;
+180|              case 'FREQUENCY':return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />;
+181|              case 'BINARY':return <BinaryUniverseScene />;
+   |                   ^
+182|              case 'MATRIX':return <MatrixUniverse chaos={chaos} />;
+183|              case 'DECODER':return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} interactions={interactions} viewMode={viewMode} />;
+
+  Plugin: vite:esbuild
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:29:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+14:29:18 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+194|              case 'GRAND_UNIFIED':return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />;
+195|              case 'FREQUENCY':return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />;
+196|              case 'BINARY':return <BinaryUniverseScene />;
+   |                   ^
+197|              case 'MATRIX':return <MatrixUniverse chaos={chaos} />;
+198|              case 'DECODER':return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} interactions={interactions} viewMode={viewMode} />;
+
+  Plugin: vite:esbuild
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:29:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:29:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+14:29:35 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+195|              case 'GRAND_UNIFIED':return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />;
+196|              case 'FREQUENCY':return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />;
+197|              case 'BINARY':return <BinaryUniverseScene />;
+   |                   ^
+198|              case 'MATRIX':return <MatrixUniverse chaos={chaos} />;
+199|              case 'DECODER':return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} interactions={interactions} viewMode={viewMode} />;
+
+  Plugin: vite:esbuild
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx
+[2m14:29:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+14:29:56 [vite] warning: This case clause will never be evaluated because it duplicates an earlier case clause
+195|              case 'GRAND_UNIFIED':return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />;
+196|              case 'FREQUENCY':return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />;
+197|              case 'BINARY':return <BinaryUniverseScene />;
+   |                   ^
+198|              case 'MATRIX':return <MatrixUniverse chaos={chaos} />;
+199|              case 'DECODER':return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} interactions={interactions} viewMode={viewMode} />;
+
+  Plugin: vite:esbuild
+  File: D:/IA/UBUNTU IA/universe-app/src/App.tsx
+[2m14:30:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:30:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:31:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:32:42[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:35:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:38:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:39:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:39:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/DigitalRain.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:39:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/MatrixUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:40:52[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:41:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/StringTheoryUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:41:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:42:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BigBang.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:42:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ProceduralPlanet.tsx, /src/styles.css[22m
+[2m14:42:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ProceduralPlanet.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:43:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/BinaryUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m14:44:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniversalAgentOverlay.tsx, /src/styles.css[22m
+[2m14:44:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniversalAgentOverlay.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m15:18:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m15:26:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m15:26:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m15:51:42[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m15:51:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:16:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:16:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/CosmicWeb.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:30:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:30:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:34:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:34:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:34:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:35:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:39:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:39:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[2m16:39:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:39:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:48:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:48:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:48:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:59:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m16:59:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:00:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {

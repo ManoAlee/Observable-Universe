@@ -1,0 +1,6 @@
+npm warn ERESOLVE overriding peer dependency
+npm error code ETARGET
+npm error notarget No matching version found for leva@^0.10.15.
+npm error notarget In most cases you or one of your dependencies are requesting
+npm error notarget a package version that doesn't exist.
+npm error A complete log of this run can be found in: C:\Users\alessandro.meneses.Automotion\AppData\Local\npm-cache\_logs\2026-01-19T11_41_14_324Z-debug-0.log

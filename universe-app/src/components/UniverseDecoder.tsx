@@ -105,9 +105,12 @@ function DataNode({ position }: { position: number[] }) {
     const [hovered, set] = React.useState(false)
     const [active, setActive] = React.useState(false)
 
-    useFrame((state) => {
-        if (active && Math.random() > 0.95) setActive(false)
-    })
+    // Setup random timer for decrypt effect instead of useFrame state thrash
+    React.useEffect(() => {
+        if (!active) return
+        const timeout = setTimeout(() => setActive(false), 2000 + Math.random() * 2000)
+        return () => clearTimeout(timeout)
+    }, [active])
 
     return (
         <group position={new THREE.Vector3(...position)}>
@@ -208,7 +211,7 @@ function SpacetimeMetric({ observer, entropy, lssi }: { observer: THREE.Vector2;
 
     return (
         <mesh ref={meshRef} rotation={[-Math.PI / 2, 0, 0]} position={[0, -25, 0]}>
-            <planeGeometry args={[200, 200, 100, 100]} />
+            <planeGeometry args={[200, 200, 64, 64]} />
             <primitive object={material} attach="material" />
         </mesh>
     )

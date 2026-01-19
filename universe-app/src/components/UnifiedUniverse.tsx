@@ -232,7 +232,7 @@ function QuantumOrbital({ observer, entropy, isDecoding }: { observer: THREE.Vec
 }
 
 function UnifiedStrings({ observer }: { observer: THREE.Vector2 }) {
-    const count = 60
+    const count = 40
     const instancedRef = useRef<THREE.InstancedMesh>(null)
 
     const strings = useMemo(() => {

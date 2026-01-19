@@ -116,7 +116,7 @@ function WaveFunctionCore({ observer, entropy, isDecoding }: QuantumRealmProps) 
 
     return (
         <mesh ref={meshRef}>
-            <sphereGeometry args={[12, 64, 64]} />
+            <sphereGeometry args={[25, 64, 64]} />
             <primitive object={material} attach="material" />
         </mesh>
     )
@@ -151,11 +151,12 @@ function ProbabilityCloud({ count, chaos }: { count: number, chaos: number }) {
                 <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
             </bufferGeometry>
             <pointsMaterial
-                size={0.15}
+                size={0.2}
                 color={chaos > 0.7 ? "#ff00ff" : "#00ffff"}
                 transparent
-                opacity={0.4}
+                opacity={0.8}
                 blending={THREE.AdditiveBlending}
+                sizeAttenuation={true}
             />
         </points>
     )

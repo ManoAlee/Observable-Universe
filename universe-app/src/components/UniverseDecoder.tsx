@@ -258,8 +258,8 @@ function DecoderLabels({ lssi }: { lssi: number }) {
                 </Billboard>
             </Float>
             <Float speed={3} rotationIntensity={0.5} floatIntensity={0.5}>
-                <Billboard position={[0, 25, -20]}>
-                    <Text fontSize={1.2} color="#00ffcc" font="https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff">UNIFICATION_ALGORITHM: Z = ∫Dg Dφ e^(iS/h)</Text>
+                <Billboard position={[0, 25, 10]}>
+                    <Text fontSize={2.5} color="#00ffcc" font="https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff">UNIFICATION_ALGORITHM: Z = ∫Dg Dφ e^(iS/h)</Text>
                 </Billboard>
             </Float>
         </group>

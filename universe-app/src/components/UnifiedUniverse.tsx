@@ -148,9 +148,9 @@ function Singularity({ observer, entropy, isDecoding, speed }: { observer: THREE
 
     return (
         <mesh ref={meshRef}>
-            <sphereGeometry args={[5, 64, 64]} />
+            <sphereGeometry args={[15, 64, 64]} />
             <primitive object={material} attach="material" />
-            <pointLight intensity={10} distance={50} color="#00ffff" />
+            <pointLight intensity={20} distance={100} color="#00ffff" />
         </mesh>
     )
 }
@@ -224,20 +224,20 @@ function QuantumOrbital({ observer, entropy, isDecoding }: { observer: THREE.Vec
     })
 
     return (
-        <mesh ref={meshRef} scale={3}>
-            <sphereGeometry args={[10, 32, 32]} />
+        <mesh ref={meshRef} scale={8}>
+            <sphereGeometry args={[10, 64, 64]} />
             <primitive object={material} attach="material" />
         </mesh>
     )
 }
 
 function UnifiedStrings({ observer }: { observer: THREE.Vector2 }) {
-    const count = 30
+    const count = 60
     const instancedRef = useRef<THREE.InstancedMesh>(null)
 
     const strings = useMemo(() => {
         return Array.from({ length: count }).map((_, i) => ({
-            radius: 15 + Math.random() * 20,
+            radius: 20 + Math.random() * 30,
             angle: (i / count) * Math.PI * 2,
             speed: 0.2 + Math.random() * 0.5,
             offset: Math.random() * 10
@@ -253,10 +253,10 @@ function UnifiedStrings({ observer }: { observer: THREE.Vector2 }) {
             const angle = s.angle + t * s.speed
             const x = Math.cos(angle) * s.radius
             const z = Math.sin(angle) * s.radius
-            const y = Math.sin(t + s.offset) * 5
+            const y = Math.sin(t + s.offset) * 8
 
             dummy.position.set(x, y, z)
-            dummy.scale.setScalar(0.5 + Math.sin(t * 2 + i) * 0.2)
+            dummy.scale.setScalar(1.0 + Math.sin(t * 2 + i) * 0.5)
             dummy.rotation.set(t, t * 0.5, angle)
             dummy.updateMatrix()
             instancedRef.current!.setMatrixAt(i, dummy.matrix)
@@ -265,7 +265,7 @@ function UnifiedStrings({ observer }: { observer: THREE.Vector2 }) {
     })
 
     return (
-        <instancedMesh ref={instancedRef} args={[new THREE.TorusGeometry(1, 0.05, 16, 100), new THREE.MeshBasicMaterial({ color: '#00ccff', transparent: true, opacity: 0.4 }), count]} />
+        <instancedMesh ref={instancedRef} args={[new THREE.TorusGeometry(1.5, 0.2, 16, 100), new THREE.MeshBasicMaterial({ color: '#00ffff', transparent: true, opacity: 0.8 }), count]} />
     )
 }
 

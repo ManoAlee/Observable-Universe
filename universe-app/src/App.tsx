@@ -211,7 +211,7 @@ export default function App() {
           gl={{ powerPreference: 'high-performance', antialias: false }}
           style={{ touchAction: 'none' }}
         >
-          <PerspectiveCamera makeDefault position={viewMode === 'WORMHOLE' ? [0, 0, 50] : [0, 0, 100]} fov={viewMode === 'WORMHOLE' ? 70 : 50} />
+          <PerspectiveCamera makeDefault position={viewMode === 'WORMHOLE' ? [0, 0, 50] : [0, 0, 60]} fov={viewMode === 'WORMHOLE' ? 70 : 60} />
           <OrbitControls makeDefault enablePan enableZoom enableRotate autoRotate={viewMode === 'OPERATOR'} />
           <ambientLight intensity={0.2} />
           <pointLight position={[20, 20, 20]} intensity={1.5} />

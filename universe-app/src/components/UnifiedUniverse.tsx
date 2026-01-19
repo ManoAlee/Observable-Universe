@@ -337,7 +337,7 @@ function HolographicMarkers({ observer }: { observer: THREE.Vector2 }) {
                     <icosahedronGeometry args={[1.2]} />
                     <meshBasicMaterial color="#00ff44" transparent opacity={0.4} wireframe />
                 </mesh>
-                <Text position={[0, -2, 0]} fontSize={0.6} color="#00ff44" fillOpacity={0.5} font="/fonts/Inter-Bold.ttf">
+                <Text position={[0, -2, 0]} fontSize={0.6} color="#00ff44" fillOpacity={0.5} font="https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff">
                     BIT_DENSITY: LANDAUER_LIMIT_SYNC
                 </Text>
             </Billboard>
@@ -347,7 +347,7 @@ function HolographicMarkers({ observer }: { observer: THREE.Vector2 }) {
                     <torusGeometry args={[1, 0.1, 16, 32]} />
                     <meshBasicMaterial color="#ff00ff" transparent opacity={0.4} />
                 </mesh>
-                <Text position={[0, -2, 0]} fontSize={0.6} color="#ff00ff" fillOpacity={0.5} font="/fonts/Inter-Bold.ttf">
+                <Text position={[0, -2, 0]} fontSize={0.6} color="#ff00ff" fillOpacity={0.5} font="https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff">
                     STRING_TENSION: M_THEORY_STABLE
                 </Text>
             </Billboard>

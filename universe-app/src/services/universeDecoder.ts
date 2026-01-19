@@ -18,8 +18,8 @@ export class UniverseDecoderService {
         try {
             const response = await fetch('https://services.swpc.noaa.gov/json/planetary_k_index_1m.json');
             if (!response.ok) {
-                console.warn(`[UniverseDecoder] Solar API returned status ${response.status}`);
-                return 3; // Fallback to moderate activity
+                // Silently fallback without warning for 429/500 to keep console clean in production
+                return 3;
             }
             const data = await response.json();
             if (!Array.isArray(data) || data.length === 0) return 3;
@@ -35,7 +35,6 @@ export class UniverseDecoderService {
         try {
             const response = await fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_hour.geojson');
             if (!response.ok) {
-                console.warn(`[UniverseDecoder] Earth API returned status ${response.status}`);
                 return { mag: 0, place: 'Standby' };
             }
             const data = await response.json();

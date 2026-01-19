@@ -15,13 +15,13 @@ export default function QuantumRealm({ observer = new THREE.Vector2(0, 0), entro
             <WaveFunctionCore observer={observer} entropy={entropy} isDecoding={isDecoding} />
 
             {/* Probability Density Clouds */}
-            <ProbabilityCloud count={2000} chaos={entropy} />
+            <ProbabilityCloud count={4000} chaos={entropy} />
 
             {/* Entanglement Web */}
-            <EntanglementWeb count={8} chaos={entropy} />
+            <EntanglementWeb count={12} chaos={entropy} />
 
             {/* Ambient Quantum Fluctuations */}
-            <QuantumFluctuations count={500} />
+            <QuantumFluctuations count={1000} />
         </group>
     )
 }
@@ -229,7 +229,7 @@ function QuantumFluctuations({ count }: { count: number }) {
             <bufferGeometry>
                 <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
             </bufferGeometry>
-            <pointsMaterial size={0.05} color="#fff" transparent opacity={0.1} />
+            <pointsMaterial size={0.08} color="#fff" transparent opacity={0.3} />
         </points>
     )
 }

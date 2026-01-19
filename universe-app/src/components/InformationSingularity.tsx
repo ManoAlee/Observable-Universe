@@ -51,12 +51,12 @@ export default function InformationSingularity({ isDecoding = false }: Singulari
               }
               
               // Color based on field intensity and distance
-              vec3 colorA = vec3(0.05, 0.0, 0.1); // Void
-              vec3 colorB = vec3(0.0, 0.8, 1.0); // Active Inflation
-              vec3 colorC = vec3(1.0, 0.4, 0.8); // Reality Birth
+              vec3 colorA = vec3(0.02, 0.0, 0.05); // Deeper Void
+              vec3 colorB = vec3(0.0, 0.6, 1.0); // Smoother Inflation
+              vec3 colorC = vec3(1.0, 0.2, 0.5); // Radiant Reality Birth
               
-              vec3 finalColor = mix(colorA, colorB, clamp(bubbleField, 0.0, 1.0));
-              finalColor = mix(finalColor, colorC, clamp(bubbleField - 1.0, 0.0, 1.0));
+              vec3 finalColor = mix(colorA, colorB, smoothstep(0.0, 1.0, bubbleField));
+              finalColor = mix(finalColor, colorC, smoothstep(1.0, 2.0, bubbleField));
               
               // Add a rim glow effect
               float rim = pow(1.0 - abs(dot(vNormal, vec3(0,0,1))), 3.0);

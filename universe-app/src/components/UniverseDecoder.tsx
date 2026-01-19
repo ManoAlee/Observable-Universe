@@ -259,7 +259,7 @@ function DecoderLabels({ lssi }: { lssi: number }) {
             </Float>
             <Float speed={3} rotationIntensity={0.5} floatIntensity={0.5}>
                 <Billboard position={[0, 25, -20]}>
-                    <Text fontSize={1.2} color="#00ffcc" font="/fonts/Inter-Bold.ttf">UNIFICATION_ALGORITHM: Z = ∫Dg Dφ e^(iS/h)</Text>
+                    <Text fontSize={1.2} color="#00ffcc" font="https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff">UNIFICATION_ALGORITHM: Z = ∫Dg Dφ e^(iS/h)</Text>
                 </Billboard>
             </Float>
         </group>
@@ -270,7 +270,7 @@ function MultiverseStatus({ currentMode }: { currentMode: string }) {
 
     return (
         <group position={[-50, 0, -30]}>
-            <Text position={[0, 15, 0]} fontSize={1.5} color="#00ffff" font="/fonts/Inter-Bold.ttf">MULTIVERSE_SYNC_STATUS</Text>
+            <Text position={[0, 15, 0]} fontSize={1.5} color="#00ffff" font="https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff">MULTIVERSE_SYNC_STATUS</Text>
             {modes.map((mode, i) => (
                 <group key={mode} position={[0, 10 - i * 2.5, 0]}>
                     <mesh position={[-2, 0, 0]}>
@@ -281,7 +281,7 @@ function MultiverseStatus({ currentMode }: { currentMode: string }) {
                             opacity={mode === currentMode ? 1 : 0.2}
                         />
                     </mesh>
-                    <Text position={[8, 0, 0]} fontSize={1} color={mode === currentMode ? "#00ff00" : "#cccccc"} textAlign="left" font="/fonts/Inter-Bold.ttf">
+                    <Text position={[8, 0, 0]} fontSize={1} color={mode === currentMode ? "#00ff00" : "#cccccc"} textAlign="left" font="https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff">
                         {mode} {mode === currentMode ? '>> ACTIVE' : '>> STANDBY'}
                     </Text>
                 </group>
@@ -293,11 +293,11 @@ function MultiverseStatus({ currentMode }: { currentMode: string }) {
 function InteractionVisualizer({ interactions }: { interactions: any[] }) {
     return (
         <group position={[50, 0, -30]}>
-            <Text position={[0, 15, 0]} fontSize={1.5} color="#ff3366" font="/fonts/Inter-Bold.ttf">REALTIME_INTERACTION_STREAM</Text>
+            <Text position={[0, 15, 0]} fontSize={1.5} color="#ff3366" font="https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff">REALTIME_INTERACTION_STREAM</Text>
             {interactions.slice(0, 5).map((int, i) => (
                 <Float key={i} speed={2} rotationIntensity={0.2} floatIntensity={0.5}>
                     <Billboard position={[0, 10 - i * 4, 0]}>
-                        <Text fontSize={0.8} color="#ff3366" font="/fonts/Inter-Bold.ttf">
+                        <Text fontSize={0.8} color="#ff3366" font="https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4.woff">
                             {`[${int.name}] ${int.type} @ DIST:${int.distance?.toFixed(2)}`}
                         </Text>
                     </Billboard>

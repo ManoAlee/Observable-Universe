@@ -36,7 +36,9 @@ import PerceptionUniverse from './components/PerceptionUniverse';
 import LegendresUniverse from './components/LegendresUniverse';
 import DualMindUniverse from './components/DualMindUniverse';
 import DarkForestUniverse from './components/DarkForestUniverse';
+import TheGreatSilence from './components/TheGreatSilence';
 import UniversalHUD from './components/interface/UniversalHUD';
+
 
 // ... (inside the component return)
 
@@ -45,7 +47,8 @@ import UniversalHUD from './components/interface/UniversalHUD';
 {/* Universal Agent Tracker UI */ }
 import './styles.css'
 
-type ViewMode = 'OPERATOR' | 'GRAND_UNIFIED' | 'WORMHOLE' | 'STRING_THEORY' | 'BINARY' | 'QUANTUM' | 'COSMIC_WEB' | 'GENESIS' | 'SINGULARITY' | 'FREQUENCY' | 'DECODER' | 'MATRIX' | 'DARK_MATTER' | 'NEURAL_NETWORK' | 'BIOLOGIC' | 'PERCEPTION' | 'LEGENDRE' | 'EPISTEMIC_WAR' | 'DUAL_MIND' | 'DARK_FOREST'
+type ViewMode = 'OPERATOR' | 'GRAND_UNIFIED' | 'WORMHOLE' | 'STRING_THEORY' | 'BINARY' | 'QUANTUM' | 'COSMIC_WEB' | 'GENESIS' | 'SINGULARITY' | 'FREQUENCY' | 'DECODER' | 'MATRIX' | 'DARK_MATTER' | 'NEURAL_NETWORK' | 'BIOLOGIC' | 'PERCEPTION' | 'LEGENDRE' | 'EPISTEMIC_WAR' | 'DUAL_MIND' | 'DARK_FOREST' | 'GREAT_SILENCE'
+
 
 export default function App() {
   const [manifest, setManifest] = useState<any>(null)
@@ -200,7 +203,6 @@ export default function App() {
             case 'GRAND_UNIFIED': return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />
             case 'FREQUENCY': return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />
             case 'MATRIX': return <MatrixUniverse chaos={chaos} />
-            case 'MATRIX': return <MatrixUniverse chaos={chaos} />
             case 'DARK_MATTER': return <DarkMatterUniverse observer={mouse} entropy={universeState.entropy} />
             case 'NEURAL_NETWORK': return <NeuralNetworkUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData as any} />
             case 'BIOLOGIC': return <BiologicUniverse observer={mouse} entropy={universeState.entropy} />
@@ -209,6 +211,8 @@ export default function App() {
             case 'EPISTEMIC_WAR': return <EpistemicWarUniverse onNavigate={setViewMode} />
             case 'DUAL_MIND': return <DualMindUniverse />
             case 'DARK_FOREST': return <DarkForestUniverse />
+            case 'GREAT_SILENCE': return <TheGreatSilence entropy={universeState.entropy} />
+
             case 'DECODER': return (
               <UniverseDecoder
                 observer={mouse}

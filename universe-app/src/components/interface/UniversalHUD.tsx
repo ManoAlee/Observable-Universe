@@ -120,7 +120,9 @@ export default function UniversalHUD({
                         <NavPill label="DUAL MIND" active={viewMode === 'DUAL_MIND'} onClick={() => onNavigate('DUAL_MIND')} />
                         <NavPill label="EPISTEMIC WAR" active={viewMode === 'EPISTEMIC_WAR'} onClick={() => onNavigate('EPISTEMIC_WAR')} />
                         <NavPill label="DARK FOREST" active={viewMode === 'DARK_FOREST'} onClick={() => onNavigate('DARK_FOREST')} />
+                        <NavPill label="SILENCE" active={viewMode === 'GREAT_SILENCE'} onClick={() => onNavigate('GREAT_SILENCE')} />
                     </div>
+
                 )}
 
                 {/* Toggle Bar */}

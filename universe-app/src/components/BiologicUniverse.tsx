@@ -6,9 +6,11 @@ import * as THREE from 'three'
 interface BiologicUniverseProps {
     observer: THREE.Vector2
     entropy: number
+    neuralActivity?: number
 }
 
-export default function BiologicUniverse({ observer, entropy }: BiologicUniverseProps) {
+export default function BiologicUniverse({ observer, entropy, neuralActivity = 0.1 }: BiologicUniverseProps) {
+
     return (
         <group>
             {/* Cellular Atmosphere (Nucleus Interior) */}
@@ -21,11 +23,12 @@ export default function BiologicUniverse({ observer, entropy }: BiologicUniverse
             <spotLight position={[0, 50, 0]} angle={0.5} penumbra={1} intensity={2} color="#ffffff" />
 
             {/* The Code of Life */}
-            <DoubleHelix />
-            <OrganicParticulates />
-            <CellularMembranes />
-            <NeuralPathways />
+            <DoubleHelix activity={neuralActivity} />
+            <OrganicParticulates density={entropy} />
+            <CellularMembranes activity={neuralActivity} />
+            <NeuralPathways active={neuralActivity > 0.5} />
             <PulsatingOrganelles />
+
 
             {/* Label */}
             <Float speed={2} rotationIntensity={0.1} floatIntensity={0.5}>
@@ -38,11 +41,12 @@ export default function BiologicUniverse({ observer, entropy }: BiologicUniverse
     )
 }
 
-function DoubleHelix() {
+function DoubleHelix({ activity = 0.1 }) {
     const groupRef = useRef<THREE.Group>(null)
     const count = 60
     const radius = 5
     const height = 60
+
 
     // Organic Material (Subsurface Scattering / Gelatinous)
     const dnaMaterial = useMemo(() => new THREE.MeshPhysicalMaterial({
@@ -73,9 +77,10 @@ function DoubleHelix() {
 
     useFrame((state) => {
         if (groupRef.current) {
-            groupRef.current.rotation.y = state.clock.elapsedTime * 0.1
+            groupRef.current.rotation.y = state.clock.elapsedTime * (0.1 + activity * 0.5)
         }
     })
+
 
     return (
         <group ref={groupRef} rotation={[0, 0, Math.PI / 6]}>
@@ -126,8 +131,9 @@ function BackboneHelix({ radius, height, count, offset, material }: any) {
     )
 }
 
-function OrganicParticulates() {
-    const count = 300
+function OrganicParticulates({ density = 0.5 }) {
+    const count = Math.floor(density * 500)
+
     const meshRef = useRef<THREE.InstancedMesh>(null)
     const dummy = useMemo(() => new THREE.Object3D(), [])
 
@@ -178,26 +184,31 @@ function OrganicParticulates() {
         </instancedMesh>
     )
 }
-function CellularMembranes() {
+function CellularMembranes({ activity = 0.1 }) {
     // Large wobbling semi-transparent surfaces
+
     const meshRef = useRef<THREE.Mesh>(null);
     const shader = useMemo(() => ({
         uniforms: {
             uTime: { value: 0 },
+            uActivity: { value: activity },
             uColor: { value: new THREE.Color('#005577') }
         },
+
         vertexShader: `
-            varying vec2 vUv;
-            varying float vDisp;
-            uniform float uTime;
-            void main() {
-                vUv = uv;
-                vec3 pos = position;
-                float noise = sin(pos.x * 0.1 + uTime) * cos(pos.y * 0.1 + uTime * 0.5) * 5.0;
-                pos.z += noise;
-                vDisp = noise;
-                gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-            }
+                varying vec2 vUv;
+                varying float vDisp;
+                uniform float uTime;
+                uniform float uActivity;
+                void main() {
+                    vUv = uv;
+                    vec3 pos = position;
+                    float noise = sin(pos.x * 0.1 + uTime * uActivity * 2.0) * cos(pos.y * 0.1 + uTime * 0.5) * (5.0 + uActivity * 10.0);
+                    pos.z += noise;
+                    vDisp = noise;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
+                }
+
         `,
         fragmentShader: `
             varying vec2 vUv;
@@ -213,8 +224,10 @@ function CellularMembranes() {
     useFrame((state) => {
         if (meshRef.current) {
             (meshRef.current.material as THREE.ShaderMaterial).uniforms.uTime.value = state.clock.elapsedTime;
+            (meshRef.current.material as THREE.ShaderMaterial).uniforms.uActivity.value = activity;
         }
     });
+
 
     return (
         <group>
@@ -230,9 +243,10 @@ function CellularMembranes() {
     );
 }
 
-function NeuralPathways() {
+function NeuralPathways({ active = false }) {
     // Glowing fiber-like structures
-    const count = 10;
+    const count = active ? 20 : 5;
+
     const curves = useMemo(() => {
         return Array.from({ length: count }).map(() => {
             const start = new THREE.Vector3((Math.random() - 0.5) * 100, (Math.random() - 0.5) * 100, (Math.random() - 0.5) * 100);
@@ -247,7 +261,8 @@ function NeuralPathways() {
             {curves.map((curve, i) => (
                 <mesh key={i}>
                     <tubeGeometry args={[curve, 64, 0.1, 8, false]} />
-                    <meshBasicMaterial color="#00ffff" transparent opacity={0.3} blending={THREE.AdditiveBlending} />
+                    <meshBasicMaterial color={active ? "#00ffff" : "#005577"} transparent opacity={active ? 0.6 : 0.2} blending={THREE.AdditiveBlending} />
+
                 </mesh>
             ))}
         </group>

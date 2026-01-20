@@ -37,7 +37,9 @@ import LegendresUniverse from './components/LegendresUniverse';
 import DualMindUniverse from './components/DualMindUniverse';
 import DarkForestUniverse from './components/DarkForestUniverse';
 import TheGreatSilence from './components/TheGreatSilence';
+import GlobalIntelligence from './components/GlobalIntelligence';
 import UniversalHUD from './components/interface/UniversalHUD';
+
 
 
 // ... (inside the component return)
@@ -163,6 +165,11 @@ export default function App() {
     }))
   }, [chaos, lifeDensity])
 
+  const neuralActivity = useMemo(() => {
+    return (universeState.entropy * 0.5) + (mouseSpeed * 10.0 * 0.5)
+  }, [universeState.entropy, mouseSpeed])
+
+
   const handleMouseMove = (e: React.MouseEvent) => {
     const nextMouse = new THREE.Vector2(
       (e.clientX / window.innerWidth) * 2 - 1,
@@ -180,7 +187,9 @@ export default function App() {
         <SpacetimeFoam chaos={chaos} />
         {symbiosis && <NeuralSymbiosis observer={mouse} intensity={techStage} />}
         {isDecoding && <DigitalRain intensity={mouseSpeed * 10.0} observer={mouse} />}
+        <GlobalIntelligence entropy={universeState.entropy} mouse={mouse} />
         <Starfield />
+
         {(() => {
           switch (viewMode) {
             case 'GENESIS': return (
@@ -205,7 +214,8 @@ export default function App() {
             case 'MATRIX': return <MatrixUniverse chaos={chaos} />
             case 'DARK_MATTER': return <DarkMatterUniverse observer={mouse} entropy={universeState.entropy} />
             case 'NEURAL_NETWORK': return <NeuralNetworkUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData as any} />
-            case 'BIOLOGIC': return <BiologicUniverse observer={mouse} entropy={universeState.entropy} />
+            case 'BIOLOGIC': return <BiologicUniverse observer={mouse} entropy={universeState.entropy} neuralActivity={neuralActivity} />
+
             case 'PERCEPTION': return <PerceptionUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData as any} />
             case 'LEGENDRE': return <LegendresUniverse />
             case 'EPISTEMIC_WAR': return <EpistemicWarUniverse onNavigate={setViewMode} />

@@ -53,11 +53,12 @@ export default function UniversalHUD({
                     <h1 className="text-4xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-400 font-orbitron drop-shadow-[0_0_10px_rgba(0,255,255,0.5)] mobile-title">
                         {viewMode.replace('_', ' ')}
                     </h1>
-                    <div className="flex items-center gap-2 mt-1 opacity-60 group-hover:opacity-100 transition-opacity mobile-equation">
+                    <div className="flex items-center gap-2 mt-1 opacity-60 group-hover:opacity-100 transition-opacity mobile-hide">
                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                         <span className="text-[10px] font-mono text-cyan-500 tracking-widest">{physics.equation}</span>
                     </div>
                 </div>
+
 
 
                 {/* Central Truth Monitors (The Eye) */}
@@ -67,12 +68,15 @@ export default function UniversalHUD({
                     <TruthMetric label="SYNC" value={syncPercent} color="text-purple-400" />
                     <div className="w-px h-8 bg-white/10 mobile-hide" />
                     <TruthMetric label="LSSI" value={lssiValue} color={Number(lssiValue) > 50 ? 'text-red-500' : 'text-green-400'} />
+                    <div className="w-px h-8 bg-white/10 mobile-hide" />
+                    <TruthMetric label="INTEL" value={(0.9 + Math.random() * 0.1).toFixed(3)} color="text-amber-400" />
                 </div>
 
 
+
                 {/* System Link Status */}
-                <div className="flex flex-col items-end">
-                    <div className={`px-3 py-1 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center gap-2 ${apiStatus.color === 'text-red-500' ? 'animate-pulse' : ''}`}>
+                <div className="flex flex-col items-end mobile-hide">
+                    <div className={`uplink-container px-3 py-1 rounded-full border border-white/10 bg-black/40 backdrop-blur-md flex items-center gap-2 ${apiStatus.color === 'text-red-500' ? 'animate-pulse' : ''}`}>
                         <span className="text-[8px] uppercase tracking-widest text-white/50">UPLINK</span>
                         <span className={`text-[9px] font-bold ${apiStatus.color}`}>{apiStatus.label}</span>
                     </div>
@@ -80,12 +84,14 @@ export default function UniversalHUD({
                         {physics.constants}
                     </div>
                 </div>
+
             </header>
 
             {/* --- MIDDLE LAYER (Dynamic Overlays) --- */}
             <div className="flex-1 relative">
                 {/* Floating Intelligence Feed (Left) */}
-                <div className={`absolute top-10 left-6 w-64 pointer-events-auto transition-transform duration-500 ${isExpanded ? 'translate-x-0' : '-translate-x-80'}`}>
+                <div className={`intelligence-stream absolute top-10 left-6 w-64 pointer-events-auto transition-transform duration-500 ${isExpanded ? 'translate-x-0' : '-translate-x-80'}`}>
+
                     <div className="glass-panel p-4 bg-black/30 border-l-2 border-cyan-500/50 backdrop-blur-md rounded-r-lg">
                         <h3 className="text-[10px] font-black text-cyan-500 mb-2 uppercase tracking-widest">INTELLIGENCE_STREAM</h3>
                         <div className="space-y-2 font-mono text-[9px]">

@@ -565,51 +565,83 @@ body {
   }
 }
 
-/* Mobile Specific (Handhelds) */
+/* Mobile Specific (Handhelds) - EXTREME OPTIMIZATION */
 @media (max-width: 640px) {
   header {
-    flex-direction: column;
+    flex-direction: column !important;
     align-items: center !important;
     gap: 0.5rem;
     padding: 0.5rem !important;
+    background: linear-gradient(to bottom, black, transparent) !important;
   }
 
   header div.absolute {
     position: static !important;
     transform: none !important;
     margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 15px !important;
   }
 
   h1 {
-    font-size: 1.5rem !important;
+    font-size: 1.2rem !important;
     text-align: center;
   }
 
-  .glass-panel {
-    width: calc(100vw - 2rem) !important;
-    left: 1rem !important;
+  /* Hide intelligence stream and other blocking panels on super small screens */
+  .intelligence-stream,
+  .glass-panel,
+  .mobile-hide {
+    display: none !important;
+  }
+
+  .mobile-mini-panel {
+    width: 90% !important;
+    left: 5% !important;
+    padding: 10px !important;
   }
 
   footer {
-    padding: 1rem !important;
+    padding: 0.5rem !important;
+    background: linear-gradient(to top, black, transparent) !important;
   }
 
   footer .flex-wrap {
-    gap: 0.25rem !important;
+    gap: 4px !important;
+    max-height: 120px;
+    overflow-y: auto;
+    padding: 5px;
+    justify-content: center;
   }
 
   .nav-pill {
-    padding: 0.25rem 0.5rem !important;
-    font-size: 7px !important;
+    padding: 4px 8px !important;
+    font-size: 8px !important;
+    border-width: 1px !important;
   }
 
   .control-button {
-    padding: 0.25rem 0.75rem !important;
+    padding: 4px 10px !important;
+    font-size: 8px !important;
+  }
+
+  /* Shrink metrics to fit */
+  .truth-metric {
+    transform: scale(0.85);
+  }
+
+  .truth-metric span:first-child {
     font-size: 7px !important;
   }
 
-  /* Hide non-essential data on mobile top bar */
-  .truth-metric {
-    scale: 0.8;
+  .truth-metric span:last-child {
+    font-size: 14px !important;
+  }
+
+  /* Uplink status optimization */
+  .uplink-container {
+    padding: 2px 8px !important;
   }
 }

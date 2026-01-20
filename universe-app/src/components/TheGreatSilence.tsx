@@ -19,10 +19,11 @@ export default function TheGreatSilence({ entropy = 0 }: { entropy?: number }) {
       void main() {
         vUv = uv;
         vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
-        gl_PointSize = 2.0 * (1.0 / -mvPosition.z);
+        gl_PointSize = 4.0 * (1.0 / -mvPosition.z);
         gl_Position = projectionMatrix * mvPosition;
       }
     `,
+
         fragmentShader: `
       varying vec2 vUv;
       uniform float uTime;
@@ -35,10 +36,11 @@ export default function TheGreatSilence({ entropy = 0 }: { entropy?: number }) {
 
       void main() {
         float noise = random(vUv + uTime * 0.1);
-        float threshold = 0.99 - (uEntropy * 0.05);
+        float threshold = 0.95 - (uEntropy * 0.1);
         if (noise < threshold) discard;
-        gl_FragColor = vec4(uColor, 1.0);
+        gl_FragColor = vec4(uColor, 0.8);
       }
+
     `,
         transparent: true,
         depthWrite: false,
@@ -107,13 +109,19 @@ export default function TheGreatSilence({ entropy = 0 }: { entropy?: number }) {
                 <primitive object={voidShader} attach="material" />
             </mesh>
 
+            <mesh scale={[0.5, 0.5, 0.5]}>
+                <sphereGeometry args={[10, 32, 32]} />
+                <meshBasicMaterial color="#00ffff" transparent opacity={0.8} blending={THREE.AdditiveBlending} />
+                <pointLight intensity={10} distance={100} color="#00ffff" />
+            </mesh>
+
             {/* Floating Labels */}
             <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5}>
                 <Billboard position={[0, 50, 0]}>
                     <Text
                         fontSize={6}
                         color="#ff4444"
-                        font="/fonts/Orbitron-Bold.ttf"
+                        font="/fonts/static/Roboto-Bold.ttf"
                         maxWidth={200}
                         textAlign="center"
                     >
@@ -123,14 +131,14 @@ export default function TheGreatSilence({ entropy = 0 }: { entropy?: number }) {
                         position={[0, -5, 0]}
                         fontSize={2}
                         color="#ffffff"
-                        fillOpacity={0.5}
-                        font="/fonts/JetBrainsMono-Bold.ttf"
+                        fillOpacity={0.8}
+                        font="/fonts/static/Roboto-Bold.ttf"
                     >
-
                         FERMI_PARADOX // ERROR_NO_RESPONSE
                     </Text>
                 </Billboard>
             </Float>
+
 
             <ambientLight intensity={0.1} />
             <pointLight position={[0, 0, 0]} intensity={2} color="#00ffff" />

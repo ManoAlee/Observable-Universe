@@ -84,77 +84,77 @@ function MetricBox({ label, value, unit, color }: { label: string, value: string
 }
 
 function CarbonCivilization({ lssiData, integrityColor }: { lssiData: LSSIData | null | undefined, integrityColor: string }) {
-    // Derive chaos level from multiple sources
-    const solarChaos = (lssiData?.solarKp || 0) / 9
-    const seismicChaos = (lssiData?.earthMag || 0) / 9
-    const neoDistance = lssiData?.neoDist || 20
-
     // Pulse speed = Processing Cycle Speed
     const processingSpeed = 1.0 + (lssiData?.lssi || 0) * 8.0
 
     return (
         <group>
-            {/* INPUT SECTORS (The Senses) */}
+            {/* BRAIN ANATOMY: Compacted Clusters */}
+
+            {/* FRONT LOBE (Logic / Future Planning) */}
             <CivilizationSector
-                count={60} x={-35} yOffset={15}
-                baseColor={solarChaos > 0.4 ? '#ff4400' : '#00aaff'}
-                label="SOLAR_ARRAYS"
-                subLabel={`Kp Index: ${lssiData?.solarKp || 'Waiting...'}`}
-                infectionRate={solarChaos}
-                pulseSpeed={1 + solarChaos * 5}
-            />
-            <CivilizationSector
-                count={60} x={-35} yOffset={0}
-                baseColor={neoDistance < 5 ? '#ff0000' : '#00ffee'}
-                label="NEO_SENSORS"
-                subLabel={`Min Dist: ${lssiData?.neoDist?.toFixed(1) || '-'} LD`}
-                infectionRate={neoDistance < 5 ? 0.8 : 0.0}
-                pulseSpeed={neoDistance < 10 ? 3 : 1}
-            />
-            <CivilizationSector
-                count={60} x={-35} yOffset={-15}
-                baseColor={seismicChaos > 0.4 ? '#ff0055' : '#4400ff'}
-                label="SEISMIC_GRID"
-                subLabel={`Max Mag: ${lssiData?.earthMag || '0.0'}`}
-                infectionRate={seismicChaos}
-                pulseSpeed={1 + seismicChaos * 5}
+                count={150} position={[0, 5, 20]} radius={15}
+                baseColor="#00aaff"
+                label="FRONT_LOBE // LOGIC"
+                infectionRate={(lssiData?.lssi || 0)}
+                pulseSpeed={processingSpeed}
             />
 
-            {/* PROCESSING CLUSTERS (The Population) */}
+            {/* PARIETAL (Coordination / Sync) */}
             <CivilizationSector
-                count={250} x={-10}
+                count={150} position={[0, 15, 0]} radius={12}
                 baseColor="#aa00ff"
-                label="CORTEX_L1"
-                infectionRate={0.1 + (lssiData?.lssi || 0)}
+                label="PARIETAL // SYNC"
+                infectionRate={(lssiData?.lssi || 0) * 0.5}
+                pulseSpeed={processingSpeed * 1.1}
+            />
+
+            {/* OCCIPITAL (Sensory / Vision) */}
+            <CivilizationSector
+                count={150} position={[0, 5, -20]} radius={12}
+                baseColor="#ff00aa"
+                label="OCCIPITAL // SENSES"
+                infectionRate={(lssiData?.lssi || 0) * 0.8}
+                pulseSpeed={processingSpeed * 0.9}
+            />
+
+            {/* TEMPORAL SIDES (Memory / Speech) */}
+            <CivilizationSector
+                count={100} position={[15, 0, 0]} radius={10}
+                baseColor="#00ffee"
+                label="TEMPORAL_R"
+                infectionRate={0}
                 pulseSpeed={processingSpeed}
             />
             <CivilizationSector
-                count={250} x={10}
-                baseColor="#ff00aa"
-                label="CORTEX_L2"
-                infectionRate={0.1 + (lssiData?.lssi || 0)}
-                pulseSpeed={processingSpeed * 1.2}
+                count={100} position={[-15, 0, 0]} radius={10}
+                baseColor="#00ffee"
+                label="TEMPORAL_L"
+                infectionRate={0}
+                pulseSpeed={processingSpeed}
             />
 
-            {/* OUTPUT (System Decisions) */}
+            {/* CENTRAL NUCLEUS (Vital OS) */}
             <CivilizationSector
-                count={80} x={35}
+                count={80} position={[0, -5, 0]} radius={6}
                 baseColor={integrityColor}
-                label="GLOBAL_OUTPUT"
-                subLabel={`Status: ${lssiData?.status?.split('.')[0] || 'ONLINE'}`}
-                infectionRate={0.0}
-                pulseSpeed={1}
+                label="CORTEX_STEM"
+                subLabel={`Integrity: ${(100 - (lssiData?.lssi || 0) * 100).toFixed(0)}%`}
+                infectionRate={0}
+                pulseSpeed={2}
             />
 
-            {/* DATA FLOW (The Economy) */}
-            <DataHighways layerFrom={{ x: -35 }} layerTo={{ x: -10 }} speed={processingSpeed} color="#ffffff" count={300} />
-            <DataHighways layerFrom={{ x: -10 }} layerTo={{ x: 10 }} speed={processingSpeed} color="#aa00ff" count={500} />
-            <DataHighways layerFrom={{ x: 10 }} layerTo={{ x: 35 }} speed={processingSpeed} color={integrityColor} count={300} />
+            {/* SYNAPTIC DATA HIGHWAYS (Inter-Lobe Connections) */}
+            <DataHighways from={[0, 5, 20]} to={[0, 15, 0]} speed={processingSpeed} color="#ffffff" count={100} />
+            <DataHighways from={[0, 15, 0]} to={[0, 5, -20]} speed={processingSpeed} color="#aa00ff" count={100} />
+            <DataHighways from={[15, 0, 0]} to={[0, -5, 0]} speed={processingSpeed} color="#00ffff" count={50} />
+            <DataHighways from={[-15, 0, 0]} to={[0, -5, 0]} speed={processingSpeed} color="#00ffff" count={50} />
         </group>
     )
 }
 
-function CivilizationSector({ count, x, baseColor, label, subLabel, yOffset = 0, infectionRate, pulseSpeed = 1 }: { count: number, x: number, baseColor: string, label?: string, subLabel?: string, yOffset?: number, infectionRate: number, pulseSpeed?: number }) {
+
+function CivilizationSector({ count, position, radius, baseColor, label, subLabel, infectionRate, pulseSpeed = 1 }: { count: number, position: [number, number, number], radius: number, baseColor: string, label?: string, subLabel?: string, infectionRate: number, pulseSpeed?: number }) {
     const meshRef = useRef<THREE.InstancedMesh>(null)
     const dummy = useMemo(() => new THREE.Object3D(), [])
     const colorHelper = useMemo(() => new THREE.Color(), [])
@@ -164,22 +164,25 @@ function CivilizationSector({ count, x, baseColor, label, subLabel, yOffset = 0,
         new Array(count).fill('HEALTHY').map(() => Math.random() < 0.1 ? 'ZOMBIE' : 'HEALTHY')
     )
 
-    // Initial Positions
-    const positions = useMemo(() => {
-        const pos = []
+    // Initial Positions (Spherical / Brain-like)
+    const nodes = useMemo(() => {
+        const n = []
         for (let i = 0; i < count; i++) {
-            const yRange = 12
-            const yBase = (Math.random() - 0.5) * yRange + yOffset
-            pos.push({
-                y: yBase,
-                z: (Math.random() - 0.5) * 50,
+            const phi = Math.acos(-1 + (2 * i) / count)
+            const theta = Math.sqrt(count * Math.PI) * phi
+
+            n.push({
+                x: Math.cos(theta) * Math.sin(phi) * radius,
+                y: Math.sin(theta) * Math.sin(phi) * radius,
+                z: Math.cos(phi) * radius,
                 speed: 0.2 + Math.random() * 0.8,
                 phase: Math.random() * Math.PI * 2,
-                orbitR: 2 + Math.random() * 8
+                baseRadius: radius
             })
         }
-        return pos
-    }, [count, yOffset])
+        return n
+    }, [count, radius])
+
 
     const [pulses, setPulses] = useState<{ id: number, position: THREE.Vector3 }[]>([])
 
@@ -198,34 +201,31 @@ function CivilizationSector({ count, x, baseColor, label, subLabel, yOffset = 0,
             }
         }
 
-        positions.forEach((pos, i) => {
+        nodes.forEach((pos, i) => {
             const nodeState = nodeStates[i]
 
-            // Movement Logic (Swarm)
+            // Movement Logic (Subtle brain throb)
             const speed = pos.speed * pulseSpeed
-            let posX = x + Math.cos(t * speed * 0.3 + pos.phase) * pos.orbitR * 0.2
-            let posY = pos.y + Math.sin(t * speed * 0.5 + pos.phase) * 2
-            let posZ = pos.z + Math.cos(t * speed * 0.2 + pos.phase) * 2
+            const throb = 1.0 + Math.sin(t * speed + pos.phase) * 0.05
+
+            let posX = position[0] + pos.x * throb
+            let posY = position[1] + pos.y * throb
+            let posZ = position[2] + pos.z * throb
             let scale = 1.0
 
             // State-Specific Behavior
             if (nodeState === 'INFECTED') {
                 // Glitch / Shaking
-                posX += (Math.random() - 0.5) * 0.8
-                posY += (Math.random() - 0.5) * 0.8
-                posZ += (Math.random() - 0.5) * 0.8
-                colorHelper.set('#ff0033') // Malware Red
+                posX += (Math.random() - 0.5) * 0.5
+                posY += (Math.random() - 0.5) * 0.5
+                posZ += (Math.random() - 0.5) * 0.5
+                colorHelper.set('#ff0033')
                 scale = 1.5
             } else if (nodeState === 'ZOMBIE') {
-                // Static / Slow
-                posY = pos.y
-                posZ = pos.z
                 scale = 0.5
-                colorHelper.set('#333333') // Dead Gray
+                colorHelper.set('#333333')
             } else {
-                // Healthy
-                scale = 1 + Math.sin(t * pulseSpeed * 2 + i) * 0.3
-                // Dynamic Color Pulse
+                scale = 1 + Math.sin(t * pulseSpeed * 2 + i) * 0.2
                 const hue = new THREE.Color(baseColor).getHSL({ h: 0, s: 0, l: 0 }).h
                 colorHelper.setHSL(hue, 1, 0.5 + Math.sin(t * pulseSpeed + i) * 0.2)
             }
@@ -236,6 +236,7 @@ function CivilizationSector({ count, x, baseColor, label, subLabel, yOffset = 0,
             meshRef.current!.setMatrixAt(i, dummy.matrix)
             meshRef.current!.setColorAt(i, colorHelper)
         })
+
 
         meshRef.current.instanceMatrix.needsUpdate = true
         if (meshRef.current.instanceColor) meshRef.current.instanceColor.needsUpdate = true
@@ -282,7 +283,7 @@ function CivilizationSector({ count, x, baseColor, label, subLabel, yOffset = 0,
             </instancedMesh>
 
             {label && (
-                <Billboard position={[x, yOffset + 15, 0]}>
+                <Billboard position={[position[0], position[1] + radius + 5, position[2]]}>
                     <Text fontSize={2.5} color={baseColor} anchorY="bottom" font="/fonts/static/Roboto-Bold.ttf">
                         {label}
                     </Text>
@@ -293,6 +294,7 @@ function CivilizationSector({ count, x, baseColor, label, subLabel, yOffset = 0,
                     )}
                 </Billboard>
             )}
+
         </group>
     )
 }
@@ -314,18 +316,15 @@ function PulseEffect({ position, color }: { position: THREE.Vector3, color: stri
     )
 }
 
-function DataHighways({ layerFrom, layerTo, speed, color, count }: { layerFrom: { x: number }, layerTo: { x: number }, speed: number, color: string, count: number }) {
+function DataHighways({ from, to, speed, color, count }: { from: [number, number, number], to: [number, number, number], speed: number, color: string, count: number }) {
     const linesRef = useRef<THREE.InstancedMesh>(null)
     const dummy = useMemo(() => new THREE.Object3D(), [])
 
     const packets = useMemo(() => {
         return new Array(count).fill(0).map(() => ({
-            y1: (Math.random() - 0.5) * 40,
-            z1: (Math.random() - 0.5) * 40,
-            y2: (Math.random() - 0.5) * 40,
-            z2: (Math.random() - 0.5) * 40,
+            offset: Math.random(),
             speed: 0.5 + Math.random(),
-            offset: Math.random() * 10
+            randomOffset: new THREE.Vector3((Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5, (Math.random() - 0.5) * 5)
         }))
     }, [count])
 
@@ -334,22 +333,23 @@ function DataHighways({ layerFrom, layerTo, speed, color, count }: { layerFrom: 
         const t = state.clock.elapsedTime
 
         packets.forEach((p, i) => {
-            const progress = (t * p.speed * speed + p.offset) % 1.0
-            const curX = THREE.MathUtils.lerp(layerFrom.x, layerTo.x, progress)
-            // Curved path using Sine for more organic flow
-            const yArc = Math.sin(progress * Math.PI) * 5
-            const curY = THREE.MathUtils.lerp(p.y1, p.y2, progress) + yArc
-            const curZ = THREE.MathUtils.lerp(p.z1, p.z2, progress)
+            const progress = (t * p.speed * speed * 0.2 + p.offset) % 1.0
 
-            dummy.position.set(curX, curY, curZ)
-            // Stretch based on speed
-            dummy.scale.set(3.0 * speed, 0.05, 0.05)
-            dummy.lookAt(layerTo.x, p.y2, p.z2)
+            const curPos = new THREE.Vector3().lerpVectors(
+                new THREE.Vector3(...from).add(p.randomOffset),
+                new THREE.Vector3(...to).add(p.randomOffset),
+                progress
+            )
+
+            dummy.position.copy(curPos)
+            dummy.scale.set(1.0 * speed, 0.1, 0.1)
+            dummy.lookAt(new THREE.Vector3(...to).add(p.randomOffset))
             dummy.updateMatrix()
             linesRef.current!.setMatrixAt(i, dummy.matrix)
         })
         linesRef.current.instanceMatrix.needsUpdate = true
     })
+
 
     return (
         <instancedMesh ref={linesRef} args={[undefined, undefined, count]}>

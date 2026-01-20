@@ -25,29 +25,33 @@ export default function PerceptionUniverse({ observer, entropy, lssiData }: Perc
             {/* Stage 1: The Raw Data Stream (Cosmic Noise) - Driven by Solar Wind */}
             <RawDataStream speed={1.0 + solarNoise * 5.0} density={1.0 + neoDanger} />
 
-            {/* Stage 2: The Filter (Dimensionality Reduction) - Driven by LSSI Risk */}
+            {/* Stage 2: Dimensional Manifolds (Higher Reason) */}
+            <DimensionalManifolds stress={stress} />
+
+            {/* Stage 3: The Filter (Dimensionality Reduction) */}
             <DimensionalityFilter stress={stress} />
 
-            {/* Stage 3: Pattern Recognition (Construct) - Glitches with Seismic Activity */}
-            <HolographicObject position={[15, 0, 0]} glitchFactor={seismicShake} />
+            {/* Stage 4: Pattern Recognition (Multi-Scale Construct) */}
+            <HolographicObject position={[0, 0, 0]} glitchFactor={seismicShake} stress={stress} />
 
-            {/* Stage 4: Semantic Encoding */}
-            <SemanticLabels position={[15, 0, 0]} label={stress > 0.5 ? "ANOMALY_DETECTED" : "STRUCTURE_STABLE"} />
+            {/* Stage 5: Semantic Encoding */}
+            <SemanticLabels position={[15, 10, 0]} label={stress > 0.5 ? "DIMENSIONAL_COLLAPSE" : "MULTIVERSE_STABLE"} />
 
-            {/* Stage 5: Latent Ghost - Shows Prediction Lag */}
-            <LatentGhost position={[15, 0, 0]} lag={80 + stress * 50} />
+            {/* Stage 6: Dimensional Echoes (Prediction Lag across folds) */}
+            <DimensionalEchoes position={[0, 0, 0]} lag={80 + stress * 50} count={3} />
 
-            {/* Stage 6: Panpsychism - The Neural-Cosmic Bridge */}
+            {/* Stage 7: Panpsychism - The Neural-Cosmic Bridge */}
             <PanpsychismField stress={stress} />
 
             <Float speed={1} rotationIntensity={0.1} floatIntensity={0.2}>
-                <Text position={[0, 30, -50]} fontSize={3} color={stress > 0.8 ? "#ff0000" : "#00ff88"} font="/fonts/Roboto-VariableFont_wdth,wght.ttf" anchorX="center" anchorY="bottom">
-                    {`PERCEPTION // ${stress > 0.8 ? 'CRITICAL_OVERLOAD' : 'NOMINAL'}`}
+                <Text position={[0, 35, -50]} fontSize={4} color={stress > 0.8 ? "#ff00ff" : "#00ffff"} font="/fonts/static/Roboto-Bold.ttf" anchorX="center" anchorY="bottom">
+                    {`HYPER_PERCEPTION // DIMENSIONS: ${Math.floor(4 + stress * 7)}D`}
                 </Text>
             </Float>
         </group>
     )
 }
+
 
 function RawDataStream({ speed, density }: { speed: number, density: number }) {
     const count = Math.floor(2000 * density)
@@ -93,29 +97,68 @@ function DimensionalityFilter({ stress }: { stress: number }) {
     const gridRef = useRef<THREE.Group>(null)
     useFrame((state) => {
         if (gridRef.current) {
-            gridRef.current.rotation.z = state.clock.elapsedTime * (0.1 + stress * 0.5)
+            gridRef.current.rotation.z = state.clock.elapsedTime * (0.05 + stress * 0.2)
+            gridRef.current.rotation.y = state.clock.elapsedTime * 0.1
         }
     })
 
-    const color = stress > 0.5 ? "#ff0044" : "#00ffff"
+    const color = stress > 0.5 ? "#ff00ff" : "#00ffff"
 
     return (
         <group position={[0, 0, 0]}>
             <group ref={gridRef}>
-                <gridHelper args={[80, 40, color, 0x004444]} rotation={[0, 0, Math.PI / 2]} />
+                <gridHelper args={[100, 50, color, 0x111111]} rotation={[Math.PI / 2, 0, 0]} />
             </group>
-            <mesh position={[0, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
-                <ringGeometry args={[0, 40, 64]} />
-                <meshBasicMaterial color="#000000" transparent opacity={0.2 + stress * 0.3} side={THREE.DoubleSide} />
+            <mesh position={[0, 0, 0]}>
+                <sphereGeometry args={[50, 32, 32]} />
+                <meshBasicMaterial color="#000" transparent opacity={0.1} wireframe />
             </mesh>
-            <Text position={[0, 35, 0]} fontSize={2} color={color} font="/fonts/Roboto-VariableFont_wdth,wght.ttf" anchorX="center">
-                {`FILTER // ${stress > 0.5 ? 'HIGH_LOAD' : 'OPTIMAL'}`}
-            </Text>
         </group>
     )
 }
 
-function HolographicObject({ position, glitchFactor }: { position: [number, number, number], glitchFactor: number }) {
+function DimensionalManifolds({ stress }: { stress: number }) {
+    const ref = useRef<THREE.Group>(null)
+
+    useFrame((state) => {
+        if (ref.current) {
+            ref.current.rotation.y = state.clock.elapsedTime * 0.2
+            ref.current.rotation.x = state.clock.elapsedTime * 0.1
+        }
+    })
+
+    return (
+        <group ref={ref}>
+            <Float speed={2} rotationIntensity={2} floatIntensity={1}>
+                {/* Torus Knot - Representing complex dimensions */}
+                <mesh position={[20, 0, -10]}>
+                    <torusKnotGeometry args={[5, 1.5, 128, 16]} />
+                    <meshPhysicalMaterial
+                        color="#ff00ff"
+                        emissive="#ff00ff"
+                        emissiveIntensity={0.5 + stress}
+                        metalness={1}
+                        roughness={0}
+                        transmission={0.8}
+                        thickness={2}
+                    />
+                </mesh>
+                <mesh position={[-20, 10, 5]}>
+                    <octahedronGeometry args={[6]} />
+                    <meshPhysicalMaterial
+                        color="#00ffff"
+                        wireframe
+                        emissive="#00ffff"
+                        emissiveIntensity={1}
+                    />
+                </mesh>
+            </Float>
+        </group>
+    )
+}
+
+function HolographicObject({ position, glitchFactor, stress }: { position: [number, number, number], glitchFactor: number, stress: number }) {
+
     const pointsRef = useRef<THREE.Points>(null)
 
     // Shader for the "Construct" effect
@@ -209,30 +252,37 @@ function SemanticLabels({ position, label }: { position: [number, number, number
     )
 }
 
-function LatentGhost({ position, lag }: { position: [number, number, number], lag: number }) {
-    const meshRef = useRef<THREE.Mesh>(null)
+function DimensionalEchoes({ position, lag, count }: { position: [number, number, number], lag: number, count: number }) {
+    const groupRef = useRef<THREE.Group>(null)
 
     useFrame((state) => {
-        if (!meshRef.current) return
+        if (!groupRef.current) return
         const t = state.clock.elapsedTime
-        meshRef.current.rotation.y = (t + 0.2) * 0.2
-        // Ghost pulses opacity
-        const opacity = 0.1 + Math.sin(t * 10) * 0.05
-            ; (meshRef.current.material as THREE.MeshBasicMaterial).opacity = opacity
+
+        groupRef.current.children.forEach((child, i) => {
+            const mesh = child as THREE.Mesh
+            mesh.rotation.y = (t + i * 0.5) * 0.2
+            mesh.rotation.x = (t + i * 0.3) * 0.1
+            const mat = mesh.material as THREE.MeshBasicMaterial
+            mat.opacity = (0.1 + Math.sin(t * 5 + i) * 0.05) / (i + 1)
+        })
     })
 
     return (
-        <group position={position}>
-            <mesh ref={meshRef}>
-                <sphereGeometry args={[6.2, 32, 32]} />
-                <meshBasicMaterial color="#aa00ff" wireframe transparent opacity={0.15} blending={THREE.AdditiveBlending} />
-                <Text position={[0, -8, 0]} fontSize={1} color="#aa00ff" font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
-                    {`LATENT_PREDICTION (+${lag.toFixed(0)}ms)`}
-                </Text>
-            </mesh>
+        <group ref={groupRef} position={position}>
+            {Array.from({ length: count }).map((_, i) => (
+                <mesh key={i}>
+                    <torusKnotGeometry args={[8 + i * 4, 0.5, 128, 16]} />
+                    <meshBasicMaterial color={i % 2 === 0 ? "#aa00ff" : "#00ffff"} wireframe transparent opacity={0.1} blending={THREE.AdditiveBlending} />
+                </mesh>
+            ))}
+            <Text position={[0, -20, 0]} fontSize={1.2} color="#aa00ff" font="/fonts/static/Roboto-Bold.ttf">
+                {`DIMENSIONAL_ECHOES (+${lag.toFixed(0)}ms)`}
+            </Text>
         </group>
     )
 }
+
 
 function PanpsychismField({ stress }: { stress: number }) {
     // Connects the "Brain" (Center) to the "Cosmos" (Background)

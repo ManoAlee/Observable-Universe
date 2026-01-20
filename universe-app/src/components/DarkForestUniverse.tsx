@@ -4,44 +4,54 @@ import { Text, Billboard, Sparkles, Stars, Float, Environment, Ring, Line } from
 import * as THREE from 'three'
 import { EffectComposer, Bloom, Vignette, Noise } from '@react-three/postprocessing'
 
-// Types for our Dark Forest residents
+// Types for our Universal Forest residents
 type HunterState = 'HIDDEN' | 'SUSPICIOUS' | 'BROADCASTING' | 'DESTROYED'
+type CivType = 'SPHERE' | 'TORUS' | 'OCTAHEDRON' | 'ICOSAHEDRON'
 
 interface HunterAgent {
     id: string
     position: THREE.Vector3
     state: HunterState
-    fear: number // 0-1, affects flickering/movement
-    stealth: number // 0-1, how hard to see
+    fear: number
+    stealth: number
     civilizationName: string
+    type: CivType
     lastBroadcastTime: number
 }
 
-const FOREST_DENSITY = 40
-const FIELD_SIZE = 80
+const FOREST_DENSITY = 100
+const GALACTIC_RADIUS = 120
 
 export default function DarkForestUniverse() {
     const { camera } = useThree()
 
     // -- STATE --
     const [hunters, setHunters] = useState<HunterAgent[]>(() => {
-        return new Array(FOREST_DENSITY).fill(0).map((_, i) => ({
-            id: `CIV-${i}`,
-            position: new THREE.Vector3(
-                (Math.random() - 0.5) * FIELD_SIZE,
-                (Math.random() - 0.5) * FIELD_SIZE,
-                (Math.random() - 0.5) * FIELD_SIZE
-            ),
-            state: 'HIDDEN',
-            fear: Math.random(),
-            stealth: 0.8 + Math.random() * 0.2,
-            civilizationName: `Civilization ${i}`,
-            lastBroadcastTime: 0
-        }))
+        return new Array(FOREST_DENSITY).fill(0).map((_, i) => {
+            // Spiral Galaxy Arrangement
+            const angle = (i / FOREST_DENSITY) * Math.PI * 15
+            const radius = (i / FOREST_DENSITY) * GALACTIC_RADIUS
+            const x = Math.cos(angle) * radius + (Math.random() - 0.5) * 20
+            const y = (Math.random() - 0.5) * 15
+            const z = Math.sin(angle) * radius + (Math.random() - 0.5) * 20
+
+            const types: CivType[] = ['SPHERE', 'TORUS', 'OCTAHEDRON', 'ICOSAHEDRON']
+            return {
+                id: `CIV-${i}`,
+                position: new THREE.Vector3(x, y, z),
+                state: 'HIDDEN',
+                fear: Math.random(),
+                stealth: 0.8 + Math.random() * 0.2,
+                civilizationName: `Civilization ${i}`,
+                type: types[Math.floor(Math.random() * types.length)],
+                lastBroadcastTime: 0
+            }
+        })
     })
 
     // Photoid Projectiles (The Strike)
     const [photoids, setPhotoids] = useState<{ targetId: string, start: THREE.Vector3, current: THREE.Vector3, active: boolean }[]>([])
+
 
     // -- LOGIC --
 
@@ -155,7 +165,7 @@ export default function DarkForestUniverse() {
     )
 }
 
-// --- SUB-COMPONENT: HUNTER NODE ---
+// --- SUB-COMPONENT: HUNTER NODE (FOREST TREE) ---
 function HunterNode({ data, onBroadcast }: { data: HunterAgent, onBroadcast: () => void }) {
     const mesh = useRef<THREE.Group>(null)
     const sonarRef = useRef<THREE.Group>(null)
@@ -167,9 +177,10 @@ function HunterNode({ data, onBroadcast }: { data: HunterAgent, onBroadcast: () 
 
         const t = state.clock.elapsedTime
 
-        // Fluid idle breathing - Damped for smoothness
-        const yTarget = Math.sin(t + data.position.x) * 0.5
-        mesh.current.position.y = THREE.MathUtils.damp(mesh.current.position.y, data.position.y + yTarget, 2, delta)
+        // Individual throb based on "Fear"
+        const speed = 1 + data.fear * 3
+        const throb = 1 + Math.sin(t * speed + data.position.x) * 0.1
+        mesh.current.scale.set(throb, throb, throb)
 
         mesh.current.lookAt(camera.position)
 
@@ -182,22 +193,19 @@ function HunterNode({ data, onBroadcast }: { data: HunterAgent, onBroadcast: () 
     if (data.state === 'DESTROYED') {
         return (
             <group position={data.position}>
-                <Sparkles count={50} scale={5} color="orange" speed={5} size={6} />
-                <pointLight color="orange" intensity={2} distance={10} />
+                <Sparkles count={50} scale={5} color="#ffaa00" speed={5} size={6} />
+                <pointLight color="#ffaa00" intensity={5} distance={10} />
                 <mesh>
-                    <sphereGeometry args={[0.1, 8, 8]} />
-                    <meshBasicMaterial color="gray" wireframe />
+                    <sphereGeometry args={[0.2, 8, 8]} />
+                    <meshBasicMaterial color="#333" wireframe />
                 </mesh>
             </group>
         )
     }
 
-    // Material props - High Performance Liquid Metal
     const isExposed = data.state === 'BROADCASTING'
-    const color = isExposed ? '#ff0000' : (hovered ? '#00ffff' : '#222')
-
-    // Scale animation
-    const pulseScale = isExposed ? 1.5 : 1
+    const color = isExposed ? '#ff0044' : (hovered ? '#00ffff' : '#111111')
+    const emissiveInt = isExposed ? 5.0 : (hovered ? 1.0 : 0.1)
 
     return (
         <group
@@ -207,58 +215,53 @@ function HunterNode({ data, onBroadcast }: { data: HunterAgent, onBroadcast: () 
             onPointerOut={() => setHover(false)}
             onDoubleClick={(e) => { e.stopPropagation(); onBroadcast() }}
         >
-            <Float speed={2} rotationIntensity={0.2} floatIntensity={0.2}>
-                {/* The "Civilization" Bubble */}
-                <mesh scale={[pulseScale, pulseScale, pulseScale]}>
-                    <sphereGeometry args={[0.7, 32, 32]} />
-                    {/* OPTIMIZATION: MeshPhysicalMaterial is much faster than MeshTransmissionMaterial */}
+            <Float speed={2} rotationIntensity={0.5} floatIntensity={0.5}>
+                {/* Varied Civilization Geometry */}
+                <mesh>
+                    {data.type === 'SPHERE' && <sphereGeometry args={[1, 32, 32]} />}
+                    {data.type === 'TORUS' && <torusGeometry args={[0.8, 0.2, 16, 32]} />}
+                    {data.type === 'OCTAHEDRON' && <octahedronGeometry args={[1]} />}
+                    {data.type === 'ICOSAHEDRON' && <icosahedronGeometry args={[1]} />}
+
                     <meshPhysicalMaterial
                         color={color}
                         emissive={color}
-                        emissiveIntensity={isExposed ? 2 : (hovered ? 0.5 : 0)}
-                        metalness={0.9}
-                        roughness={0.1}
+                        emissiveIntensity={emissiveInt}
+                        metalness={1.0}
+                        roughness={0.05}
                         clearcoat={1}
-                        clearcoatRoughness={0.1}
-                        reflectivity={1}
+                        transmission={0.5}
+                        thickness={1}
                     />
                 </mesh>
 
-                {/* CREATIVE FRONT: Sonar System */}
+                {/* Tactical HUD and Sonar */}
                 {(hovered || isExposed) && (
-                    <group ref={sonarRef}>
-                        {/* Radar Sweep Line */}
-                        <mesh rotation={[0, 0, 0]}>
-                            <circleGeometry args={[2, 32, 0, 0.5]} />
-                            <meshBasicMaterial color={color} transparent opacity={0.2} side={THREE.DoubleSide} />
-                        </mesh>
-                        {/* Static Rings */}
-                        <Ring args={[1.9, 1.95, 32]} >
-                            <meshBasicMaterial color={color} transparent opacity={0.5} side={THREE.DoubleSide} />
-                        </Ring>
-                        <Ring args={[1.0, 1.02, 32]} >
-                            <meshBasicMaterial color={color} transparent opacity={0.3} side={THREE.DoubleSide} />
-                        </Ring>
-                    </group>
-                )}
-
-                {/* AR HUD Overlay */}
-                {(hovered || isExposed) && (
-                    <Billboard position={[0, 2.5, 0]}>
-                        <group scale={0.5}>
-                            <Text fontSize={0.5} color={color} anchorY="bottom" font="/fonts/Roboto-VariableFont_wdth,wght.ttf" letterSpacing={0.1}>
-                                {isExposed ? '!!! BROADCAST DETECTED !!!' : `// ${data.civilizationName} //`}
-                            </Text>
-                            <Text position={[0, -0.3, 0]} fontSize={0.25} color="#aaaaaa" anchorY="top" font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
-                                {isExposed ? `IMPACT: ${((Date.now() - data.lastBroadcastTime) / 1000).toFixed(1)}s` : `STEALTH: ${(data.stealth * 100).toFixed(0)}% | FEAR: ${(data.fear * 100).toFixed(0)}%`}
-                            </Text>
-                            <Text position={[0, -0.6, 0]} fontSize={0.2} color="#ffaa00" anchorY="top" font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
-                                {isExposed ? '' : 'DOUBLE CLICK TO BROADCAST'}
-                            </Text>
+                    <group>
+                        <group ref={sonarRef}>
+                            <Ring args={[2, 2.05, 64]} >
+                                <meshBasicMaterial color={color} transparent opacity={0.6} side={THREE.DoubleSide} />
+                            </Ring>
+                            <mesh rotation={[0, 0, 0]}>
+                                <circleGeometry args={[2, 32, 0, 0.5]} />
+                                <meshBasicMaterial color={color} transparent opacity={0.1} side={THREE.DoubleSide} />
+                            </mesh>
                         </group>
-                    </Billboard>
+
+                        <Billboard position={[0, 3, 0]}>
+                            <group scale={0.5}>
+                                <Text fontSize={0.6} color={color} font="/fonts/static/Roboto-Bold.ttf" letterSpacing={0.2} anchorY="bottom">
+                                    {isExposed ? 'TERMINATION_PENDING' : data.civilizationName}
+                                </Text>
+                                <Text position={[0, -0.5, 0]} fontSize={0.3} color="#ffffff" font="/fonts/static/Roboto-Regular.ttf" anchorY="top">
+                                    {`THREAT_LEVEL: ${(data.fear * 100).toFixed(0)}%`}
+                                </Text>
+                            </group>
+                        </Billboard>
+                    </group>
                 )}
             </Float>
         </group>
     )
 }
+

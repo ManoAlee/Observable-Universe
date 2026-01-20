@@ -79,6 +79,10 @@ export default function UnifiedUniverse({ observer, entropy, depth, isDecoding =
             {/* NEW: Observer Interaction Field */}
             <InteractionField observer={observer} />
 
+            {/* Dimensional Manifolds (High-D Folds) */}
+            <DimensionalManifolds entropy={entropy} />
+
+
             {/* Event Notification */}
             <Float speed={5} rotationIntensity={0} floatIntensity={0}>
                 <Text position={[0, -20, 0]} fontSize={2} color={cosmicEvent === 'SUPERNOVA' ? "#ffaa00" : (cosmicEvent === 'VOID_COLLAPSE' ? "#aa00ff" : "#00000000")} font="/fonts/Roboto-VariableFont_wdth,wght.ttf" anchorX="center">
@@ -488,6 +492,45 @@ function HolographicMarkers({ observer }: { observer: THREE.Vector2 }) {
                     STRING_TENSION: M_THEORY_STABLE
                 </Text>
             </Billboard>
+        </group>
+    )
+}
+function DimensionalManifolds({ entropy }: { entropy: number }) {
+    const ref = useRef<THREE.Group>(null)
+    useFrame((state) => {
+        if (ref.current) {
+            const t = state.clock.elapsedTime
+            ref.current.rotation.x = t * 0.1
+            ref.current.rotation.y = t * 0.15
+            ref.current.scale.setScalar(1 + Math.sin(t * 0.5) * 0.1)
+        }
+    })
+
+    return (
+        <group ref={ref}>
+            <Float speed={3} rotationIntensity={2} floatIntensity={2}>
+                <mesh position={[25, 15, -10]}>
+                    <torusKnotGeometry args={[4, 1.2, 128, 32]} />
+                    <meshPhysicalMaterial
+                        color="#00ffff"
+                        emissive="#00ffff"
+                        emissiveIntensity={0.5 + entropy}
+                        metalness={1}
+                        roughness={0}
+                        transmission={0.5}
+                        thickness={2}
+                    />
+                </mesh>
+                <mesh position={[-30, -10, 5]}>
+                    <octahedronGeometry args={[5]} />
+                    <meshPhysicalMaterial
+                        color="#ff00ff"
+                        emissive="#ff00ff"
+                        emissiveIntensity={1}
+                        wireframe
+                    />
+                </mesh>
+            </Float>
         </group>
     )
 }

@@ -6,6 +6,22 @@ import * as THREE from 'three';
 export default function TheGreatSilence({ entropy = 0 }: { entropy?: number }) {
     const meshRef = useRef<THREE.Mesh>(null);
     const staticRef = useRef<THREE.Points>(null);
+    const monolithsRef = useRef<THREE.Group>(null);
+
+    // Monolith Data
+    const monoliths = useMemo(() => {
+        return new Array(20).fill(0).map((_, i) => ({
+            position: new THREE.Vector3(
+                (Math.random() - 0.5) * 150,
+                (Math.random() - 0.5) * 100,
+                (Math.random() - 0.5) * 150
+            ),
+            rotation: [Math.random() * Math.PI, Math.random() * Math.PI, 0] as [number, number, number],
+            scale: 2 + Math.random() * 8,
+            id: i
+        }))
+    }, []);
+
 
     // Shader for the "Static/Noise" of the void
     const staticMaterial = useMemo(() => new THREE.ShaderMaterial({
@@ -93,7 +109,11 @@ export default function TheGreatSilence({ entropy = 0 }: { entropy?: number }) {
         if (staticRef.current) {
             (staticRef.current.material as THREE.ShaderMaterial).uniforms.uTime.value = t;
         }
+        if (monolithsRef.current) {
+            monolithsRef.current.rotation.y = t * 0.02;
+        }
     });
+
 
     return (
         <group>
@@ -110,34 +130,51 @@ export default function TheGreatSilence({ entropy = 0 }: { entropy?: number }) {
             </mesh>
 
             <mesh scale={[0.5, 0.5, 0.5]}>
-                <sphereGeometry args={[10, 32, 32]} />
-                <meshBasicMaterial color="#00ffff" transparent opacity={0.8} blending={THREE.AdditiveBlending} />
-                <pointLight intensity={10} distance={100} color="#00ffff" />
+                <sphereGeometry args={[8, 32, 32]} />
+                <meshBasicMaterial color="#00ffff" transparent opacity={0.4} blending={THREE.AdditiveBlending} />
+                <pointLight intensity={20} distance={150} color="#00ffff" />
             </mesh>
 
+            {/* Monoliths of Dead Civilizations */}
+            <group ref={monolithsRef}>
+                {monoliths.map((m) => (
+                    <Monolith key={m.id} {...m} />
+                ))}
+            </group>
+
+            {/* Fading Signals */}
+            <FadingSignals count={50} />
+
+            {/* Haunted Broadcasts (Last Gasps) */}
+            <HauntedBroadcasts count={5} />
+
+
+
             {/* Floating Labels */}
-            <Float speed={1} rotationIntensity={0.5} floatIntensity={0.5}>
-                <Billboard position={[0, 50, 0]}>
+            <Float speed={2} rotationIntensity={0.2} floatIntensity={1}>
+                <Billboard position={[0, 60, 0]}>
                     <Text
-                        fontSize={6}
-                        color="#ff4444"
+                        fontSize={8}
+                        color="#ffffff"
                         font="/fonts/static/Roboto-Bold.ttf"
                         maxWidth={200}
                         textAlign="center"
+                        letterSpacing={0.5}
                     >
-                        THE GREAT SILENCE
+                        EMPTY_STRETCH
                     </Text>
                     <Text
-                        position={[0, -5, 0]}
-                        fontSize={2}
-                        color="#ffffff"
+                        position={[0, -6, 0]}
+                        fontSize={2.5}
+                        color="#ff0044"
                         fillOpacity={0.8}
                         font="/fonts/static/Roboto-Bold.ttf"
                     >
-                        FERMI_PARADOX // ERROR_NO_RESPONSE
+                        WHERE IS EVERYBODY?
                     </Text>
                 </Billboard>
             </Float>
+
 
 
             <ambientLight intensity={0.1} />
@@ -145,3 +182,118 @@ export default function TheGreatSilence({ entropy = 0 }: { entropy?: number }) {
         </group>
     );
 }
+function Monolith({ position, rotation, scale }: { position: THREE.Vector3, rotation: [number, number, number], scale: number }) {
+    return (
+        <group position={position} rotation={rotation}>
+            <mesh scale={[0.5 * scale, 2 * scale, 0.2 * scale]}>
+                <boxGeometry />
+                <meshPhysicalMaterial
+                    color="#050505"
+                    metalness={1}
+                    roughness={0.05}
+                    reflectivity={1}
+                    emissive="#00ffff"
+                    emissiveIntensity={0.05}
+                />
+            </mesh>
+            {/* Faint blue line across the monolith */}
+            <mesh position={[0, 0, 0.11 * scale]} scale={[0.4 * scale, 0.02 * scale, 0.01 * scale]}>
+                <boxGeometry />
+                <meshBasicMaterial color="#00ffff" />
+            </mesh>
+        </group>
+    )
+}
+
+function FadingSignals({ count }: { count: number }) {
+    const meshRef = useRef<THREE.InstancedMesh>(null);
+    const dummy = useMemo(() => new THREE.Object3D(), []);
+
+    const signals = useMemo(() => {
+        return new Array(count).fill(0).map(() => ({
+            position: new THREE.Vector3(
+                (Math.random() - 0.5) * 200,
+                (Math.random() - 0.5) * 200,
+                (Math.random() - 0.5) * 200
+            ),
+            speed: 0.1 + Math.random() * 0.5,
+            phase: Math.random() * Math.PI * 2
+        }))
+    }, [count]);
+
+    useFrame((state) => {
+        const t = state.clock.getElapsedTime();
+        if (!meshRef.current) return;
+
+        signals.forEach((s, i) => {
+            const opacity = Math.max(0, Math.sin(t * s.speed + s.phase));
+            dummy.position.copy(s.position);
+            dummy.scale.setScalar(opacity * 0.5);
+            dummy.updateMatrix();
+            meshRef.current?.setMatrixAt(i, dummy.matrix);
+        });
+        meshRef.current.instanceMatrix.needsUpdate = true;
+    });
+
+    return (
+        <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
+            <sphereGeometry args={[1, 16, 16]} />
+            <meshBasicMaterial color="#00ffff" transparent opacity={0.3} blending={THREE.AdditiveBlending} />
+        </instancedMesh>
+    )
+}
+
+function HauntedBroadcasts({ count }: { count: number }) {
+    const broadcasts = useMemo(() => {
+        const texts = [
+            "ARE YOU THERE?",
+            "WE WERE HERE",
+            "THE VOID IS GROWING",
+            "SIGNAL_LOST",
+            "NO_RESPONSE_FOUND",
+            "THEY_ARE_COMING"
+        ]
+        return new Array(count).fill(0).map((_, i) => ({
+            text: texts[Math.floor(Math.random() * texts.length)],
+            position: new THREE.Vector3(
+                (Math.random() - 0.5) * 100,
+                (Math.random() - 0.5) * 100,
+                (Math.random() - 0.5) * 100
+            ),
+            id: i
+        }))
+    }, [count])
+
+    return (
+        <group>
+            {broadcasts.map(b => (
+                <FlickerText key={b.id} text={b.text} position={b.position} />
+            ))}
+        </group>
+    )
+}
+
+function FlickerText({ text, position }: { text: string, position: THREE.Vector3 }) {
+    const ref = useRef<THREE.Group>(null)
+    useFrame((state) => {
+        if (ref.current) {
+            const t = state.clock.elapsedTime
+            const visible = Math.random() > 0.95 + Math.sin(t) * 0.04
+            ref.current.visible = visible
+        }
+    })
+
+    return (
+        <Billboard ref={ref} position={position}>
+            <Text
+                fontSize={1.5}
+                color="#00ffff"
+                font="/fonts/static/Roboto-Bold.ttf"
+                fillOpacity={0.2}
+            >
+                {text}
+            </Text>
+        </Billboard>
+    )
+}
+

@@ -32,11 +32,12 @@ import NeuralNetworkUniverse from './components/NeuralNetworkUniverse';
 import BiologicUniverse from './components/BiologicUniverse';
 import PerceptionUniverse from './components/PerceptionUniverse';
 import LegendresUniverse from './components/LegendresUniverse';
+import EpistemicWarUniverse from './components/EpistemicWarUniverse';
 
 import { Leva, useControls } from 'leva'
 import './styles.css'
 
-type ViewMode = 'OPERATOR' | 'GRAND_UNIFIED' | 'WORMHOLE' | 'STRING_THEORY' | 'BINARY' | 'QUANTUM' | 'COSMIC_WEB' | 'GENESIS' | 'SINGULARITY' | 'FREQUENCY' | 'DECODER' | 'MATRIX' | 'DARK_MATTER' | 'NEURAL_NETWORK' | 'BIOLOGIC' | 'PERCEPTION' | 'LEGENDRE'
+type ViewMode = 'OPERATOR' | 'GRAND_UNIFIED' | 'WORMHOLE' | 'STRING_THEORY' | 'BINARY' | 'QUANTUM' | 'COSMIC_WEB' | 'GENESIS' | 'SINGULARITY' | 'FREQUENCY' | 'DECODER' | 'MATRIX' | 'DARK_MATTER' | 'NEURAL_NETWORK' | 'BIOLOGIC' | 'PERCEPTION' | 'LEGENDRE' | 'EPISTEMIC_WAR'
 
 export default function App() {
   const [manifest, setManifest] = useState<any>(null)
@@ -190,10 +191,11 @@ export default function App() {
             case 'MATRIX': return <MatrixUniverse chaos={chaos} />
             case 'MATRIX': return <MatrixUniverse chaos={chaos} />
             case 'DARK_MATTER': return <DarkMatterUniverse observer={mouse} entropy={universeState.entropy} />
-            case 'NEURAL_NETWORK': return <NeuralNetworkUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData} />
+            case 'NEURAL_NETWORK': return <NeuralNetworkUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData as any} />
             case 'BIOLOGIC': return <BiologicUniverse observer={mouse} entropy={universeState.entropy} />
-            case 'PERCEPTION': return <PerceptionUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData} />
+            case 'PERCEPTION': return <PerceptionUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData as any} />
             case 'LEGENDRE': return <LegendresUniverse />
+            case 'EPISTEMIC_WAR': return <EpistemicWarUniverse onNavigate={setViewMode} />
             case 'DECODER': return (
               <UniverseDecoder
                 observer={mouse}
@@ -387,6 +389,7 @@ export default function App() {
               <NavButton active={viewMode === 'DECODER'} onClick={() => setViewMode('DECODER')} label="DECODE" />
               <NavButton active={viewMode === 'PERCEPTION'} onClick={() => setViewMode('PERCEPTION')} label="EYE" />
               <NavButton active={viewMode === 'LEGENDRE'} onClick={() => setViewMode('LEGENDRE')} label="MATH" />
+              <NavButton active={viewMode === 'EPISTEMIC_WAR'} onClick={() => setViewMode('EPISTEMIC_WAR')} label="WAR" />
               <button
                 onClick={() => setViewMode('SINGULARITY')}
                 className={`px-4 py-1.5 rounded-full text-[9px] font-bold tracking-widest transition-all ${viewMode === 'SINGULARITY' ? 'bg-amber-500 text-black shadow-[0_0_15px_rgba(245,158,11,0.5)]' : 'text-amber-500/70 hover:text-amber-500 hover:bg-amber-500/10'}`}

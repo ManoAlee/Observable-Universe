@@ -1,4 +1,6 @@
 import React, { useEffect, useState, Suspense, useMemo, useRef } from 'react'
+import { Leva, useControls } from 'leva'
+import EpistemicWarUniverse from './components/EpistemicWarUniverse'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { EffectComposer, Bloom, Noise, Vignette, ChromaticAberration, Glitch } from '@react-three/postprocessing'
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei'
@@ -32,15 +34,22 @@ import NeuralNetworkUniverse from './components/NeuralNetworkUniverse';
 import BiologicUniverse from './components/BiologicUniverse';
 import PerceptionUniverse from './components/PerceptionUniverse';
 import LegendresUniverse from './components/LegendresUniverse';
-import EpistemicWarUniverse from './components/EpistemicWarUniverse';
+import DualMindUniverse from './components/DualMindUniverse';
+import DarkForestUniverse from './components/DarkForestUniverse';
+import UniversalHUD from './components/interface/UniversalHUD';
 
-import { Leva, useControls } from 'leva'
+// ... (inside the component return)
+
+// ... (removed misplaced code)
+
+{/* Universal Agent Tracker UI */ }
 import './styles.css'
 
-type ViewMode = 'OPERATOR' | 'GRAND_UNIFIED' | 'WORMHOLE' | 'STRING_THEORY' | 'BINARY' | 'QUANTUM' | 'COSMIC_WEB' | 'GENESIS' | 'SINGULARITY' | 'FREQUENCY' | 'DECODER' | 'MATRIX' | 'DARK_MATTER' | 'NEURAL_NETWORK' | 'BIOLOGIC' | 'PERCEPTION' | 'LEGENDRE' | 'EPISTEMIC_WAR'
+type ViewMode = 'OPERATOR' | 'GRAND_UNIFIED' | 'WORMHOLE' | 'STRING_THEORY' | 'BINARY' | 'QUANTUM' | 'COSMIC_WEB' | 'GENESIS' | 'SINGULARITY' | 'FREQUENCY' | 'DECODER' | 'MATRIX' | 'DARK_MATTER' | 'NEURAL_NETWORK' | 'BIOLOGIC' | 'PERCEPTION' | 'LEGENDRE' | 'EPISTEMIC_WAR' | 'DUAL_MIND' | 'DARK_FOREST'
 
 export default function App() {
   const [manifest, setManifest] = useState<any>(null)
+
   const [selectedCluster, setSelectedCluster] = useState<any>(null)
   const [viewMode, setViewMode] = useState<ViewMode>('OPERATOR')
   const [showHUD, setShowHUD] = useState(false)
@@ -49,11 +58,12 @@ export default function App() {
   const [isInfiniteZoom, setIsInfiniteZoom] = useState(false)
   const [interactions, setInteractions] = useState<any[]>([])
   const [eventLog, setEventLog] = useState<string[]>(["SYSTEM_INITIALIZED", "QUANTUM_LINK_STABLE"])
-  const [isDecoding, setIsDecoding] = useState(true)
+  const [isDecoding, setIsDecoding] = useState(false)
   const [mouseSpeed, setMouseSpeed] = useState(0)
   const lastMouse = useRef(new THREE.Vector2(0, 0))
   const [techStage, setTechStage] = useState(0)
-  const [symbiosis, setSymbiosis] = useState(true)
+  const [symbiosis, setSymbiosis] = useState(false)
+
   const [lssiData, setLssiData] = useState<LSSIData | null>(null)
   const [selectedAgent, setSelectedAgent] = useState<AgentData | null>(null)
 
@@ -107,6 +117,7 @@ export default function App() {
       case 'DECODER': return { equation: "Gμν + Λgμν = 8πG/c^4 Tμν", constants: "S = Akc^3/4Għ, Z = ∫DgDφ e^iS/ħ" }
       case 'PERCEPTION': return { equation: "P(A|B) = [P(B|A)P(A)]/P(B)", constants: "Latency = 80ms, Filter = 99%" }
       case 'LEGENDRE': return { equation: "∃p ∈ (n², (n+1)²) ∀n ≥ 1", constants: "Gap < O(p^0.525)" }
+      case 'DARK_FOREST': return { equation: "lim(t→∞) P(Survival | Silence) = 1", constants: "Hunters = ∞, Trust = 0" }
       default: return { equation: "S_neural = -Σ p log p", constants: "Ψ_sync = 1.0" }
     }
   }, [viewMode])
@@ -196,6 +207,8 @@ export default function App() {
             case 'PERCEPTION': return <PerceptionUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData as any} />
             case 'LEGENDRE': return <LegendresUniverse />
             case 'EPISTEMIC_WAR': return <EpistemicWarUniverse onNavigate={setViewMode} />
+            case 'DUAL_MIND': return <DualMindUniverse />
+            case 'DARK_FOREST': return <DarkForestUniverse />
             case 'DECODER': return (
               <UniverseDecoder
                 observer={mouse}
@@ -233,6 +246,7 @@ export default function App() {
 
       <div className="absolute-full z-0">
         <Canvas
+          dpr={[1, 2]}
           gl={{ powerPreference: 'high-performance', antialias: false }}
           style={{ touchAction: 'none' }}
         >
@@ -247,7 +261,7 @@ export default function App() {
             <InfiniteZoomManager active={isInfiniteZoom} onComplete={() => setIsInfiniteZoom(false)} />
           </Suspense>
 
-          <EffectComposer multisampling={8}>
+          <EffectComposer multisampling={0}>
             <Bloom luminanceThreshold={0.15} luminanceSmoothing={0.9} height={512} intensity={bloom * 2.0} />
             <Noise opacity={0.1 + chaos * 0.2} />
             <Vignette eskil={false} offset={0.05} darkness={1.15} />
@@ -262,144 +276,21 @@ export default function App() {
         </Canvas>
       </div>
 
-      <div className={`fixed-full z-10 pointer-none transition-opacity duration-700 ${showHUD ? 'opacity-100' : 'opacity-0'}`}>
-        <header className="absolute top-0 left-0 right-0 p-6 flex justify-between items-start">
-          <div className={`flex flex-col gap-2 pointer-auto group ${chaos > 0.7 ? 'animate-glitch' : ''}`}>
-            <h1 className="text-3xl font-black tracking-tighter uppercase text-white font-orbitron drop-shadow-[0_0_15px_rgba(0,242,255,0.4)]">
-              {viewMode.replace('_', ' ')}
-            </h1>
-            <div className="glass-panel px-4 py-2 border border-cyan-500/20 rounded shadow-lg bg-black-60">
-              <code className="text-[12px] text-cyan-400 font-mono tracking-widest">{physics.equation}</code>
-            </div>
-          </div>
-
-          <div className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 pointer-auto">
-            <div className="glass-panel px-6 py-3 bg-black-80 backdrop-blur-2xl border border-white/10 rounded-full flex gap-8 items-center shadow-2xl">
-              <HUDStat label="ENTROPY" value={(universeState.entropy * 100).toFixed(0) + '%'} color="text-red-400" />
-              <div className="w-px h-5 bg-white/10" />
-              <HUDStat label="SYNC" value={(universeState.sync * 100).toFixed(0) + '%'} color="text-green-400" />
-              <div className="w-px h-5 bg-white/10" />
-              <HUDStat label="LSSI" value={lssiData ? lssiData.lssi.toFixed(1) : '...'} color={lssiData && lssiData.lssi > 50 ? 'text-red-500' : 'text-cyan-400'} />
-            </div>
-            <div className={`flex gap-2 items-center bg-black-60 px-3 py-1 rounded-full border border-white/5 backdrop-blur-md ${chaos > 0.8 ? 'animate-pulse' : ''}`}>
-              <span className="text-[8px] text-white/30 font-bold tracking-ultra-wide uppercase">SYSTEM_LINK:</span>
-              <span className={`text-[8px] font-bold tracking-ultra-wide uppercase ${apiStatus.color}`}>{apiStatus.label}</span>
-            </div>
-          </div>
-
-          <div className={`w-72 pointer-auto bg-black-60 p-3 rounded border border-white/5 backdrop-blur-md ${chaos > 0.9 ? 'animate-glitch' : ''}`}>
-            <div className="flex flex-col items-end gap-2">
-              <p className="text-[8px] text-cyan-500 font-black tracking-ultra-wide uppercase mb-1 border-b border-cyan-500/20 w-full text-right pb-1">INTELLIGENCE_FEED</p>
-              {eventLog.slice(0, 3).map((log, i) => (
-                <div key={i} className={`text-[10px] font-mono text-right transition-all duration-500 ${i === 0 ? 'text-white' : 'text-white/20'}`}>
-                  {`[${new Date().toLocaleTimeString().split(' ')[0]}] ${log}`}
-                </div>
-              ))}
-            </div>
-          </div>
-        </header>
-
-        <div className="absolute left-6 top-48 bottom-48 w-[320px] pointer-auto transition-transform duration-700 delay-100" style={{ transform: showHUD ? 'translateX(0)' : 'translateX(-400px)' }}>
-          <section className="glass-panel p-6 h-full flex flex-col bg-black-60 border border-white/10">
-            <div className="hud-accent accent-tl" />
-            <div className="hud-accent accent-bl" />
-            <p className="text-[11px] text-cyan-400 font-black mb-8 tracking-tight-wide border-b border-cyan-400/20 pb-2">REALITY_MODULATORS</p>
-            <div className="space-y-8 overflow-y-auto pr-3 custom-scrollbar flex-1">
-              <Modulator label="DIMENSIONAL_DEPTH" value={depth} />
-              <Modulator label="QUANTUM_DENSITY" value={lifeDensity} />
-              <Modulator label="ENTROPY_GAP" value={chaos} />
-              <Modulator label="NEURAL_SATURATION" value={bloom / 5} />
-              <div className="pt-8 space-y-3">
-                <Toggle active={symbiosis} onClick={() => setSymbiosis(!symbiosis)} label="NEURAL_SYMBIOSIS" />
-                <Toggle active={isDecoding} onClick={() => setIsDecoding(!isDecoding)} label="UNIVERSE_DECODER" />
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <div className="absolute right-6 top-48 bottom-48 w-[320px] pointer-auto transition-transform duration-700 delay-200" style={{ transform: showHUD ? 'translateX(0)' : 'translateX(400px)' }}>
-          <section className="h-full flex flex-col gap-6">
-            <div className="flex-1 min-h-0"><EvolutionaryTerminal /></div>
-            <div className="glass-panel p-6 bg-black-80 border border-white/10 rounded-sm">
-              <div className="hud-accent accent-tr" /><div className="hud-accent accent-br" />
-              <p className="text-[11px] text-cyan-400 font-bold mb-4 tracking-widest border-b border-cyan-400/20 pb-2 uppercase text-white-glow">Local_Coordinates</p>
-              <div className="font-mono text-[10px] text-cyan-300/40 space-y-2">
-                <p className="flex justify-between"><span>SDSS_HASH</span> <span className="text-cyan-400">0x{Math.random().toString(16).slice(2, 8).toUpperCase()}</span></p>
-                <p className="flex justify-between"><span>LAYER_ID</span> <span className="text-cyan-400">01</span></p>
-                <p className="flex justify-between"><span>VECTOR_X</span> <span className="text-white">{mouse.x.toFixed(6)}</span></p>
-                <p className="flex justify-between"><span>VECTOR_Y</span> <span className="text-white">{mouse.y.toFixed(6)}</span></p>
-              </div>
-              <div className="mt-8 pt-4 border-t border-cyan-400/10 h-32 overflow-hidden">
-                <p className="text-[9px] text-cyan-500/50 mb-2 uppercase tracking-tighter">Interaction_Stream</p>
-                <div className="space-y-1">
-                  {interactions.map((int, i) => (
-                    <p key={i} className="text-[9px] flex justify-between">
-                      <span className="text-white-glow">{int.name}</span>
-                      <span className="text-cyan-500/40">[{int.type}]</span>
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div className="mt-8">
-                <button onClick={() => setIsCodexOpen(true)} className="w-full py-4 bg-cyan-500 bg-opacity-10 border border-cyan-500 text-[11px] font-black tracking-ultra-wide hover:bg-cyan-500 hover:text-black transition-all text-cyan-400 uppercase shadow-lg">SCAN_REALITY</button>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <div className="absolute bottom-6 right-6 pointer-auto">
-          <div className="glass-panel p-2 bg-black-60 border border-white/5 rounded backdrop-blur-md">
-            <Leva isRoot={false} fill flat titleBar={false} theme={{ colors: { highlight1: '#00ccff', highlight2: '#00ccff' } as any }} />
-          </div>
-        </div>
-      </div>
-
-      <button
-        onClick={() => setShowHUD(!showHUD)}
-        className="absolute top-6 right-6 z-50 pointer-auto w-12 h-12 rounded-full border border-cyan-500 bg-black-60 flex items-center justify-center text-cyan-500 hover:bg-cyan-500 hover:text-black transition-all group shadow-2xl"
-        title={showHUD ? "Hide HUD" : "Show HUD"}
-      >
-        <div className="relative w-6 h-6">
-          <span className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${showHUD ? 'opacity-0 scale-50 rotate-90' : 'opacity-100 scale-100 rotate-0'}`}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><line x1="9" y1="3" x2="9" y2="21" /></svg>
-          </span>
-          <span className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${showHUD ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-50 -rotate-90'}`}>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
-          </span>
-        </div>
-      </button>
-
-      {
-        !showHUD && (
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3 pointer-auto animate-fade-in">
-            <div className="text-[10px] text-cyan-400 font-bold tracking-ultra-wide uppercase pointer-none">Navigation Matrix</div>
-            <div className="glass-panel p-2 flex gap-1 bg-black-60 px-3 rounded-full border border-white border-opacity-10 backdrop-blur-xl shadow-2xl">
-              <NavButton active={viewMode === 'OPERATOR'} onClick={() => setViewMode('OPERATOR')} label="UNIVERSE" />
-              <div className="w-px h-4 bg-white/10 mx-1 self-center" />
-              <NavButton active={viewMode === 'GRAND_UNIFIED'} onClick={() => setViewMode('GRAND_UNIFIED')} label="UNITY" />
-              <NavButton active={viewMode === 'WORMHOLE'} onClick={() => setViewMode('WORMHOLE')} label="PORTAL" />
-              <NavButton active={viewMode === 'COSMIC_WEB'} onClick={() => setViewMode('COSMIC_WEB')} label="NET" />
-              <NavButton active={viewMode === 'QUANTUM'} onClick={() => setViewMode('QUANTUM')} label="ATOM" />
-              <NavButton active={viewMode === 'MATRIX'} onClick={() => setViewMode('MATRIX')} label="MATRIX" />
-              <button
-                onClick={() => setIsInfiniteZoom(!isInfiniteZoom)}
-                className={`px-4 py-1.5 rounded-full text-[9px] font-bold tracking-widest transition-all ${isInfiniteZoom ? 'bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.5)]' : 'text-white/70 hover:text-white hover:bg-white/10 border border-white/20'}`}
-              >∞ ZOOM</button>
-              <div className="w-px h-4 bg-white/10 mx-1 self-center" />
-              <NavButton active={viewMode === 'DECODER'} onClick={() => setViewMode('DECODER')} label="DECODE" />
-              <NavButton active={viewMode === 'PERCEPTION'} onClick={() => setViewMode('PERCEPTION')} label="EYE" />
-              <NavButton active={viewMode === 'LEGENDRE'} onClick={() => setViewMode('LEGENDRE')} label="MATH" />
-              <NavButton active={viewMode === 'EPISTEMIC_WAR'} onClick={() => setViewMode('EPISTEMIC_WAR')} label="WAR" />
-              <button
-                onClick={() => setViewMode('SINGULARITY')}
-                className={`px-4 py-1.5 rounded-full text-[9px] font-bold tracking-widest transition-all ${viewMode === 'SINGULARITY' ? 'bg-amber-500 text-black shadow-[0_0_15px_rgba(245,158,11,0.5)]' : 'text-amber-500/70 hover:text-amber-500 hover:bg-amber-500/10'}`}
-              >CORE</button>
-              <div className="w-px h-4 bg-white/10 mx-1 self-center" />
-              <NavButton active={viewMode === 'GENESIS'} onClick={() => setViewMode('GENESIS')} label="BIG BANG" />
-            </div>
-          </div>
-        )
-      }
+      {/* UNIVERSAL INTERFACE CONVERGENCE - PHASE 25 */}
+      <UniversalHUD
+        viewMode={viewMode}
+        onNavigate={(m) => setViewMode(m as ViewMode)}
+        universeState={universeState}
+        lssiData={lssiData}
+        apiStatus={apiStatus}
+        eventLog={eventLog}
+        interactions={interactions}
+        physics={physics}
+        symbiosis={symbiosis}
+        onToggleSymbiosis={() => setSymbiosis(!symbiosis)}
+        isDecoding={isDecoding}
+        onToggleDecoder={() => setIsDecoding(!isDecoding)}
+      />
 
       <UniverseCodex mode={viewMode} isOpen={isCodexOpen} onClose={() => setIsCodexOpen(false)} />
 
@@ -409,7 +300,7 @@ export default function App() {
           running={genesisRunning}
           setRunning={setGenesisRunning}
           viewState={genesisViewState}
-          setViewState={setGenesisViewState}
+          setViewState={genesisViewState}
         />
       )}
 
@@ -525,88 +416,6 @@ function CameraDrift() {
     state.camera.lookAt(0, 0, 0)
   })
   return null
-}
-
-function NavButton({ active, onClick, label }: any) {
-  return (
-    <button
-      onClick={onClick}
-      className={`nav-matrix-button px-4 py-2 text-[9px] font-black tracking-widest transition-all border rounded-full ${active ? 'nav-matrix-active text-black' : 'bg-black/20 text-cyan-500/40 border-white/5 hover:border-cyan-500/30 hover:text-cyan-400'}`}
-    >
-      {label}
-    </button>
-  )
-}
-
-function ReturnButton({ onClick }: any) {
-  return (
-    <div className="absolute top-4 right-4 z-50 pointer-events-auto">
-      <button onClick={onClick} className="glass-panel px-6 py-2 text-xs font-bold hover:bg-cyan-500 hover:text-black transition-all">
-        RETURN_TO_SINGULARITY
-      </button>
-    </div>
-  )
-}
-
-function HUDStat({ label, value, color }: any) {
-  return (
-    <div className="flex flex-col border-r border-white border-opacity-10 pr-6 last:border-0 items-center">
-      <span className="text-8px opacity-40 font-bold tracking-widest">{label}</span>
-      <span className={`text-[16px] font-black ${color} tracking-tighter`}>{value}</span>
-    </div>
-  )
-}
-
-function EvolutionaryTerminal() {
-  const [logs, setLogs] = useState<string[]>(['NEURAL_LINK: INITIALIZING...'])
-  useEffect(() => {
-    const messages = ["DECODING_STRING_VIBRATIONS...", "QUANTUM_STATE_MAPPING: STABLE", "LANDAUER_THRESHOLD_REACHED", "OBSERVER_PERTURBATION_DETECTED", "FLRW_EXPANSION_CALIBRATED", "DATA_SINGULARITY_EMERGENT", "NEURAL_INTERCEPT: ACTIVE"]
-    const interval = setInterval(() => {
-      setLogs(prev => [messages[Math.floor(Math.random() * messages.length)], ...prev.slice(0, 5)])
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
-  return (
-    <div className="glass-panel p-6 h-full border border-amber-500/30 bg-black/60 font-mono flex flex-col rounded-sm">
-      <div className="hud-accent accent-tl" />
-      <div className="hud-accent accent-bl" />
-      <div className="text-[11px] text-amber mb-4 border-b border-amber/20 pb-2 font-black tracking-[0.4em] uppercase">Evolutionary_Stream</div>
-      <div className="space-y-3 overflow-hidden flex-1">
-        {logs.map((log, i) => (
-          <div key={i} className={`text-[10px] ${i === 0 ? 'text-amber' : 'text-amber/20'} tracking-widest transition-all duration-500 ${i === 0 ? 'translate-x-1 font-bold' : ''}`}>
-            {i === 0 ? '>>> ' : '  '}{log}
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
-function Modulator({ label, value }: { label: string; value: number }) {
-  return (
-    <div className="flex flex-col gap-2">
-      <div className="flex justify-between text-8px font-bold tracking-widest px-1">
-        <span className="text-white opacity-40">{label}</span>
-        <span className="text-cyan-400">{value.toFixed(2)}</span>
-      </div>
-      <div className="h-1 bg-white bg-opacity-5 rounded-full relative overflow-hidden group">
-        <div className="h-full bg-cyan-400 shadow-2xl transition-all duration-500" style={{ width: `${value * 100}%`, boxShadow: '0 0 10px #00f2ff' }} />
-      </div>
-    </div>
-  )
-}
-
-function Toggle({ active, onClick, label }: any) {
-  return (
-    <button
-      onClick={onClick}
-      className={`w-full px-4 py-3 text-[9px] font-black tracking-widest transition-all border flex justify-between items-center relative group ${active ? 'bg-cyan-500/10 text-white border-cyan-400/30' : 'bg-black/40 text-white/20 border-white/5 hover:border-white/10'}`}
-    >
-      <div className={`absolute left-0 top-0 bottom-0 w-0.5 bg-cyan-500 transition-all ${active ? 'opacity-100' : 'opacity-0'}`} />
-      <span>{label}</span>
-      <span className={`text-[8px] ${active ? 'text-cyan-400' : 'text-white/10'}`}>{active ? 'ON' : 'OFF'}</span>
-    </button>
-  )
 }
 
 function AgentTrackerHUD({ agent, onClose }: { agent: AgentData, onClose: () => void }) {

@@ -1,5 +1,6 @@
 import React, { useMemo, useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
+import { Text, Billboard } from '@react-three/drei'
 import * as THREE from 'three'
 
 interface StringTheoryProps {
@@ -10,23 +11,44 @@ interface StringTheoryProps {
 }
 
 export default function StringTheoryUniverse({ observer, speed = 0, isDecoding = false, chaos = 0 }: StringTheoryProps) {
+    return (
+        <group>
+            {/* Calabi-Yau Manifolds (Compactified Dimensions) */}
+            <CalabiYauField observer={observer} chaos={chaos} count={80} />
+
+            {/* Dimensional Branes (The Bulk) */}
+            <DimensionalBranes chaos={chaos} />
+
+            {/* MULTIVERSE BUBBLES: Floating spheres representing alternate realities */}
+            <MultiverseBubbles count={20} />
+
+            {/* 11D Label */}
+            <Billboard position={[0, 20, 0]}>
+                <Text fontSize={2} color="#00ffff" font="/fonts/static/Roboto-Bold.ttf" fillOpacity={0.5}>
+                    11TH DIMENSION // M-THEORY
+                </Text>
+            </Billboard>
+        </group>
+    )
+}
+
+function CalabiYauField({ observer, chaos, count }: { observer: THREE.Vector2, chaos: number, count: number }) {
     const meshRef = useRef<THREE.InstancedMesh>(null)
     const linesRef = useRef<THREE.InstancedMesh>(null)
-    const count = 80 // Increased count slightly for density
 
     const manifolds = useMemo(() => {
         return Array.from({ length: count }).map(() => ({
             position: new THREE.Vector3(
-                (Math.random() - 0.5) * 100,
-                (Math.random() - 0.5) * 100,
-                (Math.random() - 0.5) * 100
+                (Math.random() - 0.5) * 120,
+                (Math.random() - 0.5) * 120,
+                (Math.random() - 0.5) * 120
             ),
             rotation: new THREE.Euler(Math.random() * Math.PI, Math.random() * Math.PI, 0),
             scale: Math.random() * 2 + 1,
             speed: Math.random() * 0.2 + 0.1,
             phase: Math.random() * Math.PI * 2
         }))
-    }, [])
+    }, [count])
 
     useFrame((state) => {
         if (!meshRef.current || !linesRef.current) return
@@ -75,8 +97,8 @@ export default function StringTheoryUniverse({ observer, speed = 0, isDecoding =
     const manifoldMaterial = useMemo(() => new THREE.ShaderMaterial({
         uniforms: {
             uTime: { value: 0 },
-            uObserver: { value: observer },
-            uChaos: { value: chaos }
+            uObserver: { value: new THREE.Vector2() },
+            uChaos: { value: 0 }
         },
         vertexShader: `
             varying vec3 vNormal;
@@ -87,9 +109,15 @@ export default function StringTheoryUniverse({ observer, speed = 0, isDecoding =
 
             void main() {
                 vec3 p = position;
-                // Vibrating membrane effect
+                // Vibrating membrane effect (High dimension ripple)
                 float wave = sin(p.x * 5.0 + uTime * 10.0) * cos(p.y * 5.0 + uTime * 8.0);
                 p += normal * wave * (0.05 + uChaos * 0.2);
+                
+                // 4D Rotation simulation (Warping)
+                float theta = uTime * 0.5;
+                float c = cos(theta);
+                float s = sin(theta);
+                p.xy = mat2(c, -s, s, c) * p.xy;
 
                 vNormal = normalize(normalMatrix * normal);
                 vec4 worldPos = modelMatrix * instanceMatrix * vec4(p, 1.0);
@@ -139,7 +167,7 @@ export default function StringTheoryUniverse({ observer, speed = 0, isDecoding =
     const lineMaterial = useMemo(() => new THREE.ShaderMaterial({
         uniforms: {
             uTime: { value: 0 },
-            uChaos: { value: chaos }
+            uChaos: { value: 0 }
         },
         vertexShader: `
             varying float vGlow;
@@ -182,5 +210,83 @@ export default function StringTheoryUniverse({ observer, speed = 0, isDecoding =
             {/* String Harmonics (Wireframe overlay) */}
             <instancedMesh ref={linesRef} args={[new THREE.TorusKnotGeometry(2, 0.65, 64, 16), lineMaterial, count]} />
         </group>
+    )
+}
+
+function DimensionalBranes({ chaos }: { chaos: number }) {
+    // Large, floating planes representing D-Branes (Membranes in the Bulk)
+    const count = 5
+    const mesh = useRef<THREE.InstancedMesh>(null)
+    const dummy = useMemo(() => new THREE.Object3D(), [])
+
+    useFrame((state) => {
+        if (!mesh.current) return
+        const t = state.clock.elapsedTime
+
+        for (let i = 0; i < count; i++) {
+            dummy.position.set(0, (i - count / 2) * 10, 0)
+            dummy.rotation.x = Math.PI / 2 + Math.sin(t * 0.1 + i) * 0.1
+            dummy.rotation.z = Math.cos(t * 0.05 + i) * 0.05
+
+            // Interaction with chaos: Branes ripple violently
+            const warp = Math.sin(t * 2.0) * chaos
+            dummy.scale.set(50, 50, 1 + warp)
+
+            dummy.updateMatrix()
+            mesh.current.setMatrixAt(i, dummy.matrix)
+        }
+        mesh.current.instanceMatrix.needsUpdate = true
+    })
+
+    return (
+        <instancedMesh ref={mesh} args={[new THREE.PlaneGeometry(1, 1, 32, 32), undefined, count]}>
+            <meshPhysicalMaterial
+                color="#220033"
+                transparent
+                opacity={0.1}
+                side={THREE.DoubleSide}
+                metalness={0.8}
+                roughness={0.2}
+                clearcoat={1.0}
+            />
+        </instancedMesh>
+    )
+}
+
+function MultiverseBubbles({ count = 20 }) {
+    const mesh = useRef<THREE.InstancedMesh>(null)
+    const dummy = useMemo(() => new THREE.Object3D(), [])
+    const particles = useMemo(() => {
+        return new Array(count).fill(0).map(() => ({
+            position: new THREE.Vector3((Math.random() - 0.5) * 150, (Math.random() - 0.5) * 150, (Math.random() - 0.5) * 150),
+            scale: Math.random() * 5 + 2,
+            speed: Math.random() * 0.05
+        }))
+    }, [count])
+
+    useFrame((state) => {
+        if (!mesh.current) return
+        particles.forEach((p, i) => {
+            p.position.y += Math.sin(state.clock.elapsedTime * p.speed + i) * 0.1
+            dummy.position.copy(p.position)
+            dummy.scale.setScalar(p.scale)
+            dummy.updateMatrix()
+            mesh.current!.setMatrixAt(i, dummy.matrix)
+        })
+        mesh.current.instanceMatrix.needsUpdate = true
+    })
+
+    return (
+        <instancedMesh ref={mesh} args={[new THREE.SphereGeometry(1, 32, 32), undefined, count]}>
+            <meshPhysicalMaterial
+                transmission={0.9}
+                roughness={0}
+                thickness={2}
+                ior={1.5}
+                color="#aaccff"
+                emissive="#4400ff"
+                emissiveIntensity={0.2}
+            />
+        </instancedMesh>
     )
 }

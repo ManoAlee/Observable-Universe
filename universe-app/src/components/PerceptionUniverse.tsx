@@ -37,6 +37,9 @@ export default function PerceptionUniverse({ observer, entropy, lssiData }: Perc
             {/* Stage 5: Latent Ghost - Shows Prediction Lag */}
             <LatentGhost position={[15, 0, 0]} lag={80 + stress * 50} />
 
+            {/* Stage 6: Panpsychism - The Neural-Cosmic Bridge */}
+            <PanpsychismField stress={stress} />
+
             <Float speed={1} rotationIntensity={0.1} floatIntensity={0.2}>
                 <Text position={[0, 30, -50]} fontSize={3} color={stress > 0.8 ? "#ff0000" : "#00ff88"} font="/fonts/Roboto-VariableFont_wdth,wght.ttf" anchorX="center" anchorY="bottom">
                     {`PERCEPTION // ${stress > 0.8 ? 'CRITICAL_OVERLOAD' : 'NOMINAL'}`}
@@ -227,6 +230,47 @@ function LatentGhost({ position, lag }: { position: [number, number, number], la
                     {`LATENT_PREDICTION (+${lag.toFixed(0)}ms)`}
                 </Text>
             </mesh>
+        </group>
+    )
+}
+
+function PanpsychismField({ stress }: { stress: number }) {
+    // Connects the "Brain" (Center) to the "Cosmos" (Background)
+    const count = 50
+    const lines = useMemo(() => {
+        const temp = []
+        for (let i = 0; i < count; i++) {
+            // Random point in "Brain Space"
+            const start = new THREE.Vector3((Math.random() - 0.5) * 20, (Math.random() - 0.5) * 20, 0)
+            // Random point in "Deep Space"
+            const angle = Math.random() * Math.PI * 2
+            const r = 50 + Math.random() * 50
+            const end = new THREE.Vector3(Math.cos(angle) * r, Math.sin(angle) * r, -50)
+            temp.push({ start, end })
+        }
+        return temp
+    }, [])
+
+    const ref = useRef<THREE.Group>(null)
+    useFrame((state) => {
+        if (!ref.current) return
+        // Pulse lines
+        ref.current.children.forEach((line, i) => {
+            const mat = (line as THREE.Line).material as THREE.LineBasicMaterial
+            mat.opacity = 0.1 + Math.sin(state.clock.elapsedTime * 2 + i) * 0.1 + stress * 0.2
+        })
+    })
+
+    return (
+        <group ref={ref}>
+            {lines.map((l, i) => (
+                <line key={i}>
+                    <bufferGeometry>
+                        <bufferAttribute attach="attributes-position" count={2} array={new Float32Array([...l.start.toArray(), ...l.end.toArray()])} itemSize={3} />
+                    </bufferGeometry>
+                    <lineBasicMaterial color="#ff00ff" transparent opacity={0.2} blending={THREE.AdditiveBlending} />
+                </line>
+            ))}
         </group>
     )
 }

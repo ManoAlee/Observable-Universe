@@ -1,5 +1,7 @@
 export interface LSSIData {
     lssi: number;
+    entropy: number;
+    coherence: number;
     solarKp: number;
     earthMag: number;
     neoDist: number;
@@ -149,8 +151,15 @@ export class UniverseDecoderService {
             const earth = { mag: 1.2, place: 'Gaia_Simulated' };
             const neo = this.getSimulatedNEOData();
             const lssi = this.calculateLSSI(solar, earth.mag, neo);
+
+            // Derived Metrics
+            const entropy = Math.min(1, lssi / 100);
+            const coherence = Math.max(0, 1 - entropy);
+
             return {
                 lssi,
+                entropy,
+                coherence,
                 solarKp: solar,
                 earthMag: earth.mag,
                 neoDist: neo,
@@ -167,8 +176,14 @@ export class UniverseDecoderService {
 
         const lssi = this.calculateLSSI(solar, earthObj.mag, neo);
 
+        // Derived Metrics
+        const entropy = Math.min(1, lssi / 100);
+        const coherence = Math.max(0, 1 - entropy);
+
         return {
             lssi,
+            entropy,
+            coherence,
             solarKp: solar,
             earthMag: earthObj.mag,
             neoDist: neo,

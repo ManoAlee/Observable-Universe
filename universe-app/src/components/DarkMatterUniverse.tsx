@@ -114,7 +114,8 @@ function LensingField({ observer, entropy }: { observer: THREE.Vector2, entropy:
                 float dist = distance(vUv, center);
                 
                 // Strong distortion near center (Event Horizon-ish)
-                float distortion = 0.05 / (dist + 0.01) * (1.0 + uEntropy);
+                float pulse = 1.0 + sin(uTime * 2.0) * 0.2;
+                float distortion = 0.1 / (dist + 0.01) * (1.0 + uEntropy) * pulse;
                 
                 // Dark Void Core
                 vec3 color = vec3(0.0);

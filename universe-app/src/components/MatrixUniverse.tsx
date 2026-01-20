@@ -1,7 +1,8 @@
 import React, { useMemo, useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-import { Text, Float, Instance, Instances } from '@react-three/drei';
+import { Text, Float, Instance, Instances, Billboard } from '@react-three/drei';
+import CodeRain from './CodeRain';
 
 export default function MatrixUniverse({ chaos = 0 }: { chaos?: number }) {
   const [anomalyDetected, setAnomalyDetected] = useState(false);
@@ -14,32 +15,239 @@ export default function MatrixUniverse({ chaos = 0 }: { chaos?: number }) {
     observer.current.set(x, y, 0);
 
     // Chaos increases if Sentinels are close (simulated state)
+    // Or if user moves mouse too fast (high chaos prop)
     if (chaos > 0.5) setAnomalyDetected(true);
     else setAnomalyDetected(false);
   });
 
   return (
     <group>
-      {/* 1. The Endless Code Tunnel */}
-      <CodeTunnel anomaly={anomalyDetected} />
+      {/* 1. The Data Cathedral (Walls of Code) */}
+      <DataCathedral anomaly={anomalyDetected} />
 
-      {/* 2. Floating Glyph Instances (Foreground Detail) */}
-      <VolumetricSymbols count={200} anomaly={anomalyDetected} />
+      {/* 2. The Architect (Central Interface) */}
+      <TheArchitect anomaly={anomalyDetected} observer={observer} />
 
-      {/* 3. The Sentinel System (Hunters) */}
+      {/* 3. Logic Glitches (Visual Corruption) */}
+      <GlitchAnomalies count={50} chaos={chaos} />
+      <CodeRain anomaly={anomalyDetected} />
+
+      {/* 4. The Sentinel System (Hunters) */}
       <SentinelSwarm target={observer} count={5} />
 
-      {/* 4. System Status */}
+      {/* 5. System Status */}
       <Float speed={2} rotationIntensity={0.1} floatIntensity={0.2}>
-        <Text position={[0, 25, -20]} fontSize={2} color={anomalyDetected ? "#ff0000" : "#00ff66"} font="/fonts/Roboto-VariableFont_wdth,wght.ttf" anchorX="center">
-          {anomalyDetected ? "SYSTEM ALERT // ANOMALY DETECTED" : "MATRIX // SIMULATION_STABLE"}
-        </Text>
+        <Billboard position={[0, 30, -40]}>
+          <Text fontSize={3} color={anomalyDetected ? "#ff0000" : "#00ff66"} font="/fonts/Roboto-VariableFont_wdth,wght.ttf" anchorX="center" outlineWidth={0.1} outlineColor="#000000">
+            {anomalyDetected ? "SYSTEM ALERT // ANOMALY DETECTED" : "MATRIX // ARCHITECT_ONLINE"}
+          </Text>
+        </Billboard>
       </Float>
 
-      {/* 5. The Fabric of Reality (Interacting with Code) */}
+      {/* 6. The Fabric of Reality (Floor) */}
       <SpacetimeFabric chaos={chaos} anomaly={anomalyDetected} />
     </group>
   );
+}
+
+function DataCathedral({ anomaly }: { anomaly: boolean }) {
+  // Massive pillars of scrolling code forming a cathedral-like structure
+  const count = 16;
+  const meshRef = useRef<THREE.InstancedMesh>(null);
+  const dummy = useMemo(() => new THREE.Object3D(), []);
+
+  useFrame((state) => {
+    if (!meshRef.current) return;
+
+    // Update shader uniforms manually via onBeforeCompile/Material prop or just rotation here
+    // For instanced mesh shader simulation, we act on the group
+
+    // Rotate the entire cathedral slowly
+    meshRef.current.rotation.y = state.clock.elapsedTime * 0.02;
+  })
+
+  const pillars = useMemo(() => {
+    return new Array(count).fill(0).map((_, i) => {
+      const angle = (i / count) * Math.PI * 2;
+      const radius = 60;
+      return {
+        position: new THREE.Vector3(Math.cos(angle) * radius, 0, Math.sin(angle) * radius),
+        rotation: new THREE.Euler(0, -angle, 0),
+        scale: new THREE.Vector3(5, 120, 5)
+      }
+    })
+  }, []);
+
+  useFrame(() => {
+    if (meshRef.current) {
+      pillars.forEach((p, i) => {
+        dummy.position.copy(p.position);
+        dummy.rotation.copy(p.rotation);
+        dummy.scale.copy(p.scale);
+        dummy.updateMatrix();
+        meshRef.current!.setMatrixAt(i, dummy.matrix);
+      });
+      meshRef.current.instanceMatrix.needsUpdate = true;
+    }
+  })
+
+  // Custom Shader for Scrolling Code on Pillars
+  const material = useMemo(() => new THREE.ShaderMaterial({
+    uniforms: {
+      uTime: { value: 0 },
+      uColor: { value: new THREE.Color(anomaly ? "#ff0000" : "#00ff44") }
+    },
+    vertexShader: `
+            varying vec2 vUv;
+            void main() {
+                vUv = uv;
+                gl_Position = projectionMatrix * modelViewMatrix * instanceMatrix * vec4(position, 1.0);
+            }
+        `,
+    fragmentShader: `
+            varying vec2 vUv;
+            uniform float uTime;
+            uniform vec3 uColor;
+
+            float random(vec2 st) {
+                return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+            }
+
+            void main() {
+                vec2 st = vUv;
+                // Scroll down
+                st.y += uTime * 0.5;
+                
+                // Grid for characters
+                vec2 grid = floor(st * vec2(10.0, 50.0));
+                float r = random(grid);
+                
+                // Active characters
+                float char = step(0.8, fract(r + uTime)); // Blinking
+                float trail = step(0.95, random(vec2(grid.x, floor(uTime * 10.0 + grid.y)))); // Rain drops
+
+                vec3 color = uColor * (char + trail * 2.0);
+                
+                // Alpha fade at top/bottom
+                float alpha = (char + trail) * smoothstep(0.0, 0.2, vUv.y) * smoothstep(1.0, 0.8, vUv.y);
+
+                gl_FragColor = vec4(color, alpha * 0.8);
+            }
+        `,
+    transparent: true,
+    side: THREE.DoubleSide,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false
+  }), [anomaly]);
+
+  useFrame((state) => {
+    if (material) {
+      material.uniforms.uTime.value = state.clock.elapsedTime;
+      material.uniforms.uColor.value.set(anomaly ? '#ff0000' : '#00ff44');
+    }
+  })
+
+  return (
+    <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
+      <boxGeometry args={[1, 1, 1]} />
+      <primitive object={material} attach="material" />
+    </instancedMesh>
+  )
+}
+
+function TheArchitect({ anomaly, observer }: { anomaly: boolean, observer: React.MutableRefObject<THREE.Vector3> }) {
+  // A giant face/grid representation of the system Intelligence
+  const groupRef = useRef<THREE.Group>(null);
+  const particles = useMemo(() => {
+    const p = [];
+    for (let i = 0; i < 500; i++) {
+      const theta = Math.random() * Math.PI * 2;
+      const phi = Math.acos(2 * Math.random() - 1);
+      const r = 15;
+      p.push({
+        pos: new THREE.Vector3(
+          r * Math.sin(phi) * Math.cos(theta),
+          r * Math.sin(phi) * Math.sin(theta),
+          r * Math.cos(phi)
+        ),
+        basePos: new THREE.Vector3(
+          r * Math.sin(phi) * Math.cos(theta),
+          r * Math.sin(phi) * Math.sin(theta),
+          r * Math.cos(phi)
+        )
+      });
+    }
+    return p;
+  }, []);
+
+  const meshRef = useRef<THREE.InstancedMesh>(null);
+  const dummy = useMemo(() => new THREE.Object3D(), []);
+
+  useFrame((state) => {
+    if (!meshRef.current || !groupRef.current) return;
+    const t = state.clock.elapsedTime;
+
+    // Look at user
+    groupRef.current.lookAt(observer.current.x, observer.current.y * 0.5, 50);
+
+    particles.forEach((p, i) => {
+      // Face Morphing Logic
+      // If normal, it's a sphere. If anomaly, it spikes.
+      const noise = Math.sin(t * 2.0 + p.basePos.x) * (anomaly ? 5.0 : 1.0);
+
+      dummy.position.copy(p.basePos).multiplyScalar(1.0 + noise * 0.05);
+      dummy.scale.setScalar(0.2 + (anomaly ? Math.random() * 0.5 : 0));
+      dummy.updateMatrix();
+      meshRef.current!.setMatrixAt(i, dummy.matrix);
+    });
+    meshRef.current.instanceMatrix.needsUpdate = true;
+  });
+
+  return (
+    <group ref={groupRef} position={[0, 10, -50]}>
+      <instancedMesh ref={meshRef} args={[undefined, undefined, 500]}>
+        <boxGeometry args={[1, 1, 1]} />
+        <meshBasicMaterial color={anomaly ? "#ff0000" : "#ffffff"} wireframe transparent opacity={0.3} />
+      </instancedMesh>
+      <pointLight color={anomaly ? "#ff0000" : "#00ff44"} distance={50} intensity={2} />
+    </group>
+  )
+}
+
+function GlitchAnomalies({ count, chaos }: { count: number, chaos: number }) {
+  // Random red blocks appearing in space
+  const meshRef = useRef<THREE.InstancedMesh>(null);
+  const dummy = useMemo(() => new THREE.Object3D(), []);
+  const [positions] = useState(() => new Array(count).fill(0).map(() => new THREE.Vector3(
+    (Math.random() - 0.5) * 100, (Math.random() - 0.5) * 50, (Math.random() - 0.5) * 50
+  )));
+
+  useFrame((state) => {
+    if (!meshRef.current) return;
+    const t = state.clock.elapsedTime;
+
+    positions.forEach((pos, i) => {
+      // Only visible sometimes based on chaos
+      const visible = Math.sin(t * 10.0 + i) > (0.9 - chaos * 0.5);
+
+      if (visible) {
+        dummy.position.copy(pos);
+        dummy.scale.set(Math.random() * 2, Math.random() * 2, Math.random() * 2);
+      } else {
+        dummy.scale.set(0, 0, 0);
+      }
+      dummy.updateMatrix();
+      meshRef.current!.setMatrixAt(i, dummy.matrix);
+    });
+    meshRef.current.instanceMatrix.needsUpdate = true;
+  })
+
+  return (
+    <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
+      <boxGeometry args={[1, 1, 1]} />
+      <meshBasicMaterial color="#ff0000" wireframe />
+    </instancedMesh>
+  )
 }
 
 function SpacetimeFabric({ chaos, anomaly }: { chaos: number, anomaly: boolean }) {
@@ -154,80 +362,6 @@ function SpacetimeFabric({ chaos, anomaly }: { chaos: number, anomaly: boolean }
   );
 }
 
-function CodeTunnel({ anomaly }: { anomaly: boolean }) {
-  const meshRef = useRef<THREE.Mesh>(null);
-
-  const shader = useMemo(() => ({
-    uniforms: {
-      uTime: { value: 0 },
-      uColor: { value: new THREE.Color(anomaly ? '#ff0000' : '#00ff44') },
-      uSpeed: { value: 1.0 }
-    },
-    vertexShader: `
-      varying vec2 vUv;
-      varying vec3 vPos;
-      void main() {
-        vUv = uv;
-        vPos = position;
-        // Curvature effect for tunnel
-        vec3 pos = position;
-        pos.z -= length(pos.xy) * 0.5; 
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
-      }
-    `,
-    fragmentShader: `
-      uniform float uTime;
-      uniform vec3 uColor;
-      varying vec2 vUv;
-      
-      float random(vec2 st) {
-        return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
-      }
-
-      void main() {
-        // Scroll Y
-        vec2 st = vUv;
-        st.y += uTime * 0.2;
-        
-        // Grid cells
-        vec2 grid = floor(st * vec2(30.0, 10.0));
-        
-        // Binary rain pattern
-        float r = random(grid);
-        float rain = step(0.9, fract(r + uTime * 0.5)); // Droplets
-        
-        // Trail
-        float trail = smoothstep(0.0, 1.0, fract(r + uTime * 0.2));
-        
-        // Glitch line
-        float glitch = step(0.98, random(vec2(0.0, floor(vUv.y * 100.0) + floor(uTime * 20.0))));
-
-        vec3 color = uColor * (rain + trail * 0.5);
-        color += vec3(1.0) * glitch; // White flash glitch
-
-        gl_FragColor = vec4(color, (rain + trail) * 0.5);
-      }
-    `
-  }), [anomaly]);
-
-  useFrame((state) => {
-    if (meshRef.current) {
-      meshRef.current.rotation.z += 0.001;
-      const mat = meshRef.current.material as THREE.ShaderMaterial;
-      mat.uniforms.uTime.value = state.clock.elapsedTime;
-      mat.uniforms.uColor.value.set(anomaly ? '#ff0000' : '#00ff44');
-    }
-  });
-
-  return (
-    <mesh ref={meshRef} position={[0, 0, -40]}>
-      {/* Huge cylinder surrounding the view */}
-      <cylinderGeometry args={[50, 50, 200, 32, 1, true]} />
-      <primitive object={new THREE.ShaderMaterial({ ...shader, side: THREE.BackSide, transparent: true, blending: THREE.AdditiveBlending })} attach="material" />
-    </mesh>
-  );
-}
-
 function SentinelSwarm({ target, count }: { target: React.MutableRefObject<THREE.Vector3>, count: number }) {
   const dummy = useMemo(() => new THREE.Object3D(), []);
   const meshRef = useRef<THREE.InstancedMesh>(null);
@@ -275,171 +409,6 @@ function SentinelSwarm({ target, count }: { target: React.MutableRefObject<THREE
     <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
       <octahedronGeometry args={[1, 0]} />
       <meshStandardMaterial color="#ff0000" emissive="#ff0000" emissiveIntensity={2} roughness={0.2} metalness={0.8} />
-    </instancedMesh>
-  );
-}
-
-function VolumetricSymbols({ count, anomaly }: { count: number, anomaly: boolean }) {
-  // 3D falling code characters
-  const groupRef = useRef<THREE.Group>(null);
-  const symbols = useMemo(() => "01XYZ<>?Matrix", []);
-
-  const parts = useMemo(() => new Array(count).fill(0).map(() => ({
-    x: (Math.random() - 0.5) * 80,
-    y: (Math.random() - 0.5) * 60,
-    z: (Math.random() - 0.5) * 40,
-    speed: 2 + Math.random() * 5,
-    char: symbols[Math.floor(Math.random() * symbols.length)]
-  })), [count]);
-
-  return (
-    <group ref={groupRef}>
-      {parts.map((p, i) => (
-        <MovingSymbol key={i} {...p} anomaly={anomaly} />
-      ))}
-    </group>
-  );
-}
-
-function MovingSymbol({ x, y, z, speed, char, anomaly }: any) {
-  const ref = useRef<THREE.Group>(null);
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.position.y -= speed * 0.1;
-      if (ref.current.position.y < -30) ref.current.position.y = 30; // Loop
-      ref.current.rotation.y = state.clock.elapsedTime;
-    }
-  });
-
-  return (
-    <group ref={ref} position={[x, y, z]}>
-      <Text
-        fontSize={1.5}
-        color={anomaly ? "#ff0000" : "#00ff44"}
-        font="/fonts/Roboto-VariableFont_wdth,wght.ttf"
-        anchorX="center"
-        anchorY="middle"
-      >
-        {char}
-      </Text>
-    </group>
-  );
-}
-
-function TheCompiler({ anomaly }: { anomaly: boolean }) {
-  // The "Source" - A wireframe sphere constructing reality
-  const ref = useRef<THREE.Group>(null);
-  useFrame((state) => {
-    if (ref.current) {
-      ref.current.rotation.y = state.clock.elapsedTime * 0.5;
-      ref.current.rotation.x = state.clock.elapsedTime * 0.2;
-    }
-  });
-
-  return (
-    <group ref={ref} position={[0, 0, -10]}>
-      {/* Core */}
-      <mesh>
-        <icosahedronGeometry args={[4, 2]} />
-        <meshBasicMaterial color={anomaly ? "#ff0000" : "#00ff44"} wireframe wireframeLinewidth={2} transparent opacity={0.3} />
-      </mesh>
-      {/* Scanning Shell */}
-      <mesh scale={1.2}>
-        <sphereGeometry args={[4, 32, 32]} />
-        <meshBasicMaterial color={anomaly ? "#ff0000" : "#00ffff"} wireframe transparent opacity={0.1} />
-      </mesh>
-      <Text position={[0, 0, 0]} fontSize={0.5} color="#ffffff" font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
-        {anomaly ? "CRITICAL ERROR" : "COMPILING..."}
-      </Text>
-    </group>
-  );
-}
-
-function SystemLogs({ anomaly }: { anomaly: boolean }) {
-  const logs = [
-    "[KERNEL] LOADING_PHYSICS_ENGINE...",
-    "[RENDER] PROCESSING_GEOMETRY...",
-    "[NET] SYNCHRONIZING_NODES...",
-    "[A.I.] SENTINEL_SYSTEM_ONLINE",
-    "[MEM] ALLOCATING_VIRTUAL_SPACE",
-    "[SYS] REALITY_CHECK: PASSED"
-  ];
-
-  return (
-    <group>
-      {logs.map((log, i) => (
-        <MovingLog key={i} text={log} index={i} anomaly={anomaly} />
-      ))}
-    </group>
-  );
-}
-
-function MovingLog({ text, index, anomaly }: { text: string, index: number, anomaly: boolean }) {
-  const ref = useRef<THREE.Group>(null);
-  const speed = 2 + Math.random() * 2;
-  const xOffset = (Math.random() - 0.5) * 40;
-
-  useFrame((state) => {
-    if (ref.current) {
-      const t = state.clock.elapsedTime;
-      // Move forward towards camera
-      ref.current.position.z = (t * speed + index * 20) % 100 - 50;
-      ref.current.position.y = Math.sin(t + index) * 5;
-      ref.current.lookAt(0, 0, 100); // Always face camera generally? Or face center?
-    }
-  });
-
-  return (
-    <group ref={ref} position={[xOffset, 0, -50]}>
-      <Billboard>
-        <Text fontSize={1} color={anomaly ? "#ff0000" : "#0088ff"} font="/fonts/Roboto-VariableFont_wdth,wght.ttf" anchorX="center">
-          {text}
-        </Text>
-      </Billboard>
-    </group>
-  );
-}
-
-function SpiralCode({ count, anomaly }: { count: number, anomaly: boolean }) {
-  // Code spiraling into the compiler
-  const meshRef = useRef<THREE.InstancedMesh>(null);
-  const dummy = useMemo(() => new THREE.Object3D(), []);
-
-  const particles = useMemo(() => new Array(count).fill(0).map((_, i) => ({
-    offset: Math.random() * 100,
-    speed: 0.5 + Math.random(),
-    radius: 10 + Math.random() * 20
-  })), [count]);
-
-  useFrame((state) => {
-    if (!meshRef.current) return;
-    const t = state.clock.elapsedTime;
-
-    particles.forEach((p, i) => {
-      // Spiral math
-      const angle = t * p.speed + p.offset;
-      const r = p.radius * (1.0 - (Math.sin(angle * 0.1) * 0.5 + 0.5)); // Radius pulse? 
-      // Better spiral: Move Inward
-      const progress = (t * p.speed * 0.2 + p.offset) % 1.0; // 0 to 1
-      const curRadius = 50 * (1.0 - progress); // Start far, go close
-
-      const x = Math.cos(angle) * curRadius;
-      const y = Math.sin(angle) * curRadius * 0.5; // Flattened spiral
-      const z = -10 + Math.sin(angle * 2) * 5; // Wiggle
-
-      dummy.position.set(x, y, z);
-      dummy.scale.set(0.2, 0.2, 0.8);
-      dummy.lookAt(0, 0, -10); // Look at compiler
-      dummy.updateMatrix();
-      meshRef.current!.setMatrixAt(i, dummy.matrix);
-    });
-    meshRef.current.instanceMatrix.needsUpdate = true;
-  });
-
-  return (
-    <instancedMesh ref={meshRef} args={[undefined, undefined, count]}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshBasicMaterial color={anomaly ? "#ff0000" : "#00ff00"} transparent opacity={0.6} />
     </instancedMesh>
   );
 }

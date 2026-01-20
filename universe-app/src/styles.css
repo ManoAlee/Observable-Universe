@@ -564,3 +564,52 @@ body {
     overflow-x: auto;
   }
 }
+
+/* Mobile Specific (Handhelds) */
+@media (max-width: 640px) {
+  header {
+    flex-direction: column;
+    align-items: center !important;
+    gap: 0.5rem;
+    padding: 0.5rem !important;
+  }
+
+  header div.absolute {
+    position: static !important;
+    transform: none !important;
+    margin-top: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem !important;
+    text-align: center;
+  }
+
+  .glass-panel {
+    width: calc(100vw - 2rem) !important;
+    left: 1rem !important;
+  }
+
+  footer {
+    padding: 1rem !important;
+  }
+
+  footer .flex-wrap {
+    gap: 0.25rem !important;
+  }
+
+  .nav-pill {
+    padding: 0.25rem 0.5rem !important;
+    font-size: 7px !important;
+  }
+
+  .control-button {
+    padding: 0.25rem 0.75rem !important;
+    font-size: 7px !important;
+  }
+
+  /* Hide non-essential data on mobile top bar */
+  .truth-metric {
+    scale: 0.8;
+  }
+}

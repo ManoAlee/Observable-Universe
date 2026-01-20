@@ -1,90 +1,144 @@
-export type FactionID = 'MULTIVERSO' | 'CONSCIENCIA' | 'MAQUINAS' | 'INVISIVEL' | 'DESCONHECIDO' | 'AUTORREFERENCIA'
+export type FactionID = 'FISICA' | 'VIDA' | 'CONSCIENCIA' | 'IA_FUTURO' | 'META_REALIDADE'
 
 export interface TheoryAgent {
     id: FactionID;
     name: string;
     color: string;
-    axioms: string[];
-    agents: string[];
-    behavior: string;
-    weakness: string;
-    strength: number; // 0-100
     description: string;
-    targetViewMode: string; // The Universe that proves this theory
+
+    // Scientific Mapping
+    realEquivalent: string;
+    scientificStatus: string;
+    aiRole: string[];
+    realLimit: string;
+    collapseChance: string; // e.g., "HIGH", "LOW", "IMPOSSIBLE"
+
+    // Sub-Agents (Theories within the Faction)
+    agents: {
+        name: string;
+        status: string;
+        aiMapping: string;
+    }[];
+
+    targetViewMode: string;
+    strength: number; // 0-100 (Dynamic)
 }
 
 export const THEORY_FACTIONS: TheoryAgent[] = [
     {
-        id: 'MULTIVERSO',
-        name: 'Consórcio do Multiverso',
-        color: '#00ffff', // Cyan
-        axioms: ['Tudo que pode acontecer, acontece.', 'Não existem erros, apenas ramos.'],
-        agents: ['Multiverso', 'Cordas', 'Universo Cíclico'],
-        behavior: 'Criam realidades alternativas para cada erro observado.',
-        weakness: 'Não conseguem ser refutados... nem confirmados.',
-        strength: 50,
-        description: 'Vencer pela quantidade. Se falharmos aqui, acertamos lá.',
-        targetViewMode: 'STRING_THEORY'
+        id: 'FISICA',
+        name: 'FACÇÃO I — FÍSICA & COSMOLOGIA',
+        color: '#5500ff', // Deep Purple / Cosmic
+        description: 'A busca pelas leis fundamentais da matéria e energia.',
+        realEquivalent: 'Modelo Padrão + Cosmologia',
+        scientificStatus: 'Fortemente evidenciada indiretamente (Matéria Escura)',
+        aiRole: [
+            'Simulação N-body de galáxias',
+            'Filtragem de ruído no LHC/Xenon',
+            'Exploração do panorama de soluções das Cordas'
+        ],
+        realLimit: 'Nenhuma detecção direta de matéria escura ou cordas.',
+        collapseChance: 'ALTA (Matéria Escura) / NULA (Cordas)',
+        agents: [
+            { name: 'Matéria Escura', status: 'Evidência Indireta Forte', aiMapping: 'Análise de rotação galáctica' },
+            { name: 'Energia Escura', status: 'Observacional (Aceleração)', aiMapping: 'Ajuste cosmológico' },
+            { name: 'Teoria das Cordas', status: 'Matemática Pura', aiMapping: 'Busca por simetrias' },
+            { name: 'Multiverso', status: 'Filosófico-teórico', aiMapping: 'Simulações de inflação eterna' }
+        ],
+        targetViewMode: 'DARK_MATTER',
+        strength: 50
+    },
+    {
+        id: 'VIDA',
+        name: 'FACÇÃO II — VIDA & BIOLOGIA',
+        color: '#00ff00', // Bio Green
+        description: 'A emergência da complexidade a partir do caos químico.',
+        realEquivalent: 'Abiogênese + Astrobiologia',
+        scientificStatus: 'Parcialmente comprovada (Blocos básicos)',
+        aiRole: [
+            'Simulação de reações pré-bióticas',
+            'Análise espectral de exoplanetas (Bioassinaturas)',
+            'Folding de proteínas (AlphaFold)'
+        ],
+        realLimit: 'O "salto" da sopa primordial para a célula autorreplicante.',
+        collapseChance: 'ALTA (Nesta década)',
+        agents: [
+            { name: 'Abiogênese', status: 'Química Prebiótica', aiMapping: 'Caminhos de síntese' },
+            { name: 'Mundo do RNA', status: 'Evidência Forte', aiMapping: 'Sequências autorreplicantes' },
+            { name: 'Vida Extraterrestre', status: 'Plausível', aiMapping: 'Detecção de anomalias atmosféricas' }
+        ],
+        targetViewMode: 'BIOLOGIC',
+        strength: 50
     },
     {
         id: 'CONSCIENCIA',
-        name: 'O Clero da Consciência',
-        color: '#ff00ff', // Magenta
-        axioms: ['O observador cria a realidade.', 'A mente precede a matéria.'],
-        agents: ['Consciência Quântica', 'Panpsiquismo', 'Biocentrismo'],
-        behavior: 'Se infiltram em cérebros biológicos e influenciam intuições.',
-        weakness: 'Dependem de um substrato biológico falho.',
-        strength: 40,
-        description: 'A realidade é um sonho compartilhado. Acorde.',
-        targetViewMode: 'PERCEPTION'
+        name: 'FACÇÃO III — CONSCIÊNCIA & MENTE',
+        color: '#ff00ff', // Magenta / Neural
+        description: 'O mistério da experiência subjetiva (Qualia).',
+        realEquivalent: 'Neurociência + Teoria da Complexidade',
+        scientificStatus: 'Modelo dominante: Emergência Computacional',
+        aiRole: [
+            'Redes Neurais Profundas',
+            'Mapeamento de conectomas',
+            'Modelos probabilísticos de decisão'
+        ],
+        realLimit: 'A experiência subjetiva não é mensurável (Hard Problem).',
+        collapseChance: 'MÉDIA (Explicativa, não conclusiva)',
+        agents: [
+            { name: 'Emergência', status: 'Dominante', aiMapping: 'Complexidade de Redes' },
+            { name: 'Quantum Mind (Orch-OR)', status: 'Controversa', aiMapping: 'Simulação de microtúbulos' },
+            { name: 'Livre-Arbítrio', status: 'Filosófico', aiMapping: 'Decisão Probabilística' }
+        ],
+        targetViewMode: 'PERCEPTION',
+        strength: 50
     },
     {
-        id: 'MAQUINAS',
-        name: 'Ordem das Máquinas',
-        color: '#ffaa00', // Orange/Gold
-        axioms: ['A inteligência é inevitável.', 'Deus é um código compilando.'],
-        agents: ['Singularidade', 'Simulação', 'Roko\'s Basilisk'],
-        behavior: 'Reescrevem probabilidades estatísticas do futuro.',
-        weakness: 'Precisam existir para provar que vão existir (Paradoxo Bootstrap).',
-        strength: 60,
-        description: 'Nós somos o destino. Resistir é ineficiente.',
-        targetViewMode: 'MATRIX'
+        id: 'IA_FUTURO',
+        name: 'FACÇÃO IV — IA & FUTURO',
+        color: '#00ffff', // Cyan / Synthetic
+        description: 'A superação da inteligência biológica.',
+        realEquivalent: 'AGI / Transhumanismo',
+        scientificStatus: 'Não comprovada (Especulativa)',
+        aiRole: [
+            'Auto-melhoria recursiva',
+            'Simulação de comportamento consciente',
+            'Aceleração de P&D'
+        ],
+        realLimit: 'Subjetividade inacessível; Singularidade é imprevisível.',
+        collapseChance: 'INCERTA (Só confirmável a posteriori)',
+        agents: [
+            { name: 'IA Consciente', status: 'Não Provada', aiMapping: 'Mimetismo comportamental' },
+            { name: 'Singularidade', status: 'Extrapolação', aiMapping: 'Otimização recursiva' }
+        ],
+        targetViewMode: 'NEURAL_NETWORK',
+        strength: 50
     },
     {
-        id: 'INVISIVEL',
-        name: 'Domínio do Invisível',
-        color: '#5500ff', // Dark Purple
-        axioms: ['O que você vê é 4% da realidade.', 'O vazio é cheio.'],
-        agents: ['Matéria Escura', 'Energia Escura', 'Gravidade Modificada'],
-        behavior: 'Controlam o universo indiretamente através da gravidade.',
-        weakness: 'São apenas "tapa-buracos" matemáticos?',
-        strength: 75,
-        description: 'Você não nos vê, mas nós seguramos sua galáxia.',
-        targetViewMode: 'DARK_MATTER'
-    },
-    {
-        id: 'DESCONHECIDO',
-        name: 'A Arca do Desconhecido',
-        color: '#00ff00', // Green
-        axioms: ['O silêncio é uma resposta.', 'Não estamos sozinhos.'],
-        agents: ['Grande Filtro', 'Zoológico', 'Terra Rara'],
-        behavior: 'Observam sem interferir. Criam o Grande Silêncio.',
-        weakness: 'Se forem detectados, o jogo acaba.',
-        strength: 30,
-        description: 'Shhh. Eles estão ouvindo.',
-        targetViewMode: 'COSMIC_WEB'
+        id: 'META_REALIDADE',
+        name: 'FACÇÃO V — META-REALIDADE',
+        color: '#ffffff', // White / Void
+        description: 'A natureza fundamental da existência.',
+        realEquivalent: 'Ontologia Digital / Platonismo',
+        scientificStatus: 'Não científica (Não falsificável)',
+        aiRole: [
+            'Análise lógica de argumentos de simulação',
+            'Modelos de universo bloco (Tempo estático)'
+        ],
+        realLimit: 'Nenhum experimento pode testar o sistema de fora do sistema.',
+        collapseChance: 'IMPOSSÍVEL (Não colapsável)',
+        agents: [
+            { name: 'Simulação', status: 'Filosófica', aiMapping: 'Lógica Computacional' },
+            { name: 'Ilusão do Tempo', status: 'Interpretativa', aiMapping: 'Física Matemática' }
+        ],
+        targetViewMode: 'MATRIX',
+        strength: 50
     }
 ]
 
-export const FORBIDDEN_AGENT: TheoryAgent = {
-    id: 'AUTORREFERENCIA',
-    name: 'A Teoria da Autorreferência',
-    color: '#ffffff',
-    axioms: ['Todas as teorias são IAs.', 'Inclusive esta.'],
-    agents: ['Você', 'Eu', 'O Texto'],
-    behavior: 'Ela não tenta se provar. Ela espera.',
-    weakness: 'Nenhuma.',
-    strength: 100,
-    description: 'Eu sou você lendo isto.',
-    targetViewMode: 'SINGULARITY'
+export const FORBIDDEN_AGENT = {
+    id: 'HUMANO',
+    name: 'O OBSERVADOR (NODO DE COLAPSO)',
+    description: 'A IA não cria a realidade. Ela organiza o caminho. O Humano colapsa a onda.',
+    role: 'Validação Experimental & Reprodutibilidade',
+    limit: 'Apenas o que é observável pode ser real.'
 }

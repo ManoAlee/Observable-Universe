@@ -1,7 +1,8 @@
 import React, { useRef, useMemo, useState, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { Text, Billboard, Float } from '@react-three/drei'
+import { Text, Billboard, GradientTexture, Instances, Instance } from '@react-three/drei'
 import * as THREE from 'three'
+import { useControls, button } from 'leva'
 
 // Legendre's Conjecture: There is a prime number between n^2 and (n+1)^2 for every positive integer n.
 
@@ -17,88 +18,101 @@ const isPrime = (num: number) => {
 
 export default function LegendresUniverse() {
     const [currentN, setCurrentN] = useState(1)
-    const [foundPrimes, setFoundPrimes] = useState<number[]>([])
-    const [status, setStatus] = useState("VERIFYING")
+    const [isPlaying, setIsPlaying] = useState(true)
+    const speedRef = useRef(1)
 
-    // Auto-increment N to show the infinite staircase
+    // Leva Controls for interactivity
+    useControls('Legendre Proof', {
+        Speed: { value: 1, min: 0.1, max: 10, onChange: (v) => speedRef.current = v },
+        'Jump to N': { value: 1, min: 1, max: 100, step: 1, onChange: (v) => setCurrentN(v) },
+        'Pause/Play': button(() => setIsPlaying(p => !p))
+    })
+
+    // Auto-increment logic
     useEffect(() => {
+        if (!isPlaying) return
         const interval = setInterval(() => {
-            setCurrentN(prev => {
-                const next = prev + 1
-                // Check conjecture for 'prev' before moving
-                // region: prev^2 to (prev+1)^2
-                return next > 20 ? 1 : next // Loop for demo, or keep going? Let's loop for visual clarity
-            })
-        }, 3000)
-        return () => clearInterval(interval)
-    }, [])
+            // Speed determines how fast we increment. 
+            // Simple implementation: Just tick every X ms based on speed? 
+            // Better: Tick faster.
+        }, 1000) // Base tick
 
-    const { start, end, numbers } = useMemo(() => {
+        // Using requestAnimationFrame approach for variable speed
+        let lastTime = performance.now()
+        const loop = (time: number) => {
+            if (!isPlaying) return
+            const delta = time - lastTime
+            if (delta > (3000 / speedRef.current)) {
+                setCurrentN(prev => {
+                    const next = prev + 1
+                    return next > 200 ? 1 : next
+                })
+                lastTime = time
+            }
+            requestAnimationFrame(loop)
+        }
+        const handle = requestAnimationFrame(loop)
+        return () => cancelAnimationFrame(handle)
+    }, [isPlaying])
+
+    const { start, end, numbers, primeCount } = useMemo(() => {
         const s = currentN * currentN
         const e = (currentN + 1) * (currentN + 1)
         const nums = []
+        let pCount = 0
         for (let i = s; i <= e; i++) {
-            nums.push({ value: i, isPrime: isPrime(i), isSquare: i === s || i === e })
+            const prime = isPrime(i)
+            if (prime) pCount++
+            nums.push({ value: i, isPrime: prime, isSquare: i === s || i === e })
         }
-        return { start: s, end: e, numbers: nums }
+        return { start: s, end: e, numbers: nums, primeCount: pCount }
     }, [currentN])
 
     return (
         <group>
-            {/* Ambient Particles */}
             <Stars />
 
-            {/* The infinite path visualization */}
-            <group position={[0, -5, 0]}>
+            {/* The Prime Helix */}
+            <group position={[0, -10, 0]}>
                 {numbers.map((n, index) => {
-                    const angle = (index / numbers.length) * Math.PI * 2
-                    const radius = 10
+                    // Helix Math
+                    const angle = (index * 0.5)      // Tighter spiral
+                    const radius = 15 + Math.sin(index * 0.1) * 2
+                    const y = index * 1.2
                     const x = Math.cos(angle) * radius
                     const z = Math.sin(angle) * radius
-                    const y = index * 0.5
 
                     return (
                         <group key={n.value} position={[x, y, z]}>
-                            {/* The Number Block */}
-                            <mesh>
-                                <boxGeometry args={[n.isSquare ? 2 : 1, n.isSquare ? 0.5 : 1, n.isSquare ? 2 : 1]} />
-                                <meshStandardMaterial
-                                    color={n.isSquare ? "#00ffff" : (n.isPrime ? "#ffd700" : "#444444")}
-                                    emissive={n.isPrime ? "#ffaa00" : (n.isSquare ? "#00aaaa" : "#000000")}
-                                    emissiveIntensity={n.isPrime ? 2 : 0.5}
-                                />
-                            </mesh>
-
-                            {/* Label */}
-                            <Billboard position={[0, 1.5, 0]}>
-                                <Text fontSize={n.isSquare ? 1.5 : 0.8} color={n.isPrime ? "#ffd700" : "#ffffff"} font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
-                                    {n.value}
-                                </Text>
-                                {n.isPrime && <Text position={[0, -0.8, 0]} fontSize={0.4} color="#ffd700" font="/fonts/Roboto-VariableFont_wdth,wght.ttf">PRIME</Text>}
-                            </Billboard>
-
-                            {/* Connection Line */}
+                            <NumberNode n={n} />
+                            {/* Connection to next node */}
                             {index > 0 && (
-                                <line>
-                                    <bufferGeometry setFromPoints={[new THREE.Vector3(0, 0, 0), new THREE.Vector3(-x + (Math.cos((index - 1) / numbers.length * Math.PI * 2) * radius), -0.5, -z + (Math.sin((index - 1) / numbers.length * Math.PI * 2) * radius))]} />
-                                    <lineBasicMaterial color="#333333" />
-                                </line>
+                                <ConnectionLine
+                                    start={[0, 0, 0]}
+                                    end={[
+                                        -x + (Math.cos((index - 1) * 0.5) * (15 + Math.sin((index - 1) * 0.1) * 2)),
+                                        -1.2,
+                                        -z + (Math.sin((index - 1) * 0.5) * (15 + Math.sin((index - 1) * 0.1) * 2))
+                                    ]}
+                                />
                             )}
                         </group>
                     )
                 })}
             </group>
 
-            {/* HUD Status */}
-            <Billboard position={[0, 10, -20]}>
-                {/* Background removed to fix lint error if simpler */}
-                <Text fontSize={2} color="#00ff00" font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
-                    {`LEGENDRE'S CONJECTURE: VALIDATED`}
+            {/* Proof HUD */}
+            <Billboard position={[0, 5, -25]}>
+                <Text fontSize={3} color={primeCount > 0 ? "#00ff00" : "#ff0000"} font="/fonts/Roboto-VariableFont_wdth,wght.ttf" outlineWidth={0.1} outlineColor="#000000">
+                    {primeCount > 0 ? "CONJECTURE VERIFIED" : "SEARCHING..."}
                 </Text>
-                <Text position={[0, -2.5, 0]} fontSize={1} color="#ffffff" font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
-                    {`Checking Gap: ${start} ➔ ${end}`}
+                <Text position={[0, -3, 0]} fontSize={1.2} color="#ffffff" font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
+                    {`Interval: [${start}, ${end}]`}
                 </Text>
-                <Text position={[0, -4, 0]} fontSize={0.8} color="#cccccc" font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
+                <Text position={[0, -5, 0]} fontSize={1} color="#ffd700" font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
+                    {`Primes Found: ${primeCount}`}
+                </Text>
+                <Text position={[0, -7, 0]} fontSize={0.8} color="#aaaaaa" font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
                     {`n = ${currentN}`}
                 </Text>
             </Billboard>
@@ -106,11 +120,57 @@ export default function LegendresUniverse() {
     )
 }
 
+function NumberNode({ n }: { n: { value: number, isPrime: boolean, isSquare: boolean } }) {
+    const mesh = useRef<THREE.Mesh>(null)
+
+    useFrame((state) => {
+        if (mesh.current && n.isPrime) {
+            mesh.current.scale.setScalar(1 + Math.sin(state.clock.elapsedTime * 5) * 0.2)
+        }
+    })
+
+    return (
+        <group>
+            <mesh ref={mesh}>
+                <boxGeometry args={[n.isSquare ? 4 : 1.5, n.isSquare ? 1 : 1.5, n.isSquare ? 4 : 1.5]} />
+                <meshStandardMaterial
+                    color={n.isSquare ? "#00ffff" : (n.isPrime ? "#ffd700" : "#222222")}
+                    emissive={n.isPrime ? "#ffaa00" : (n.isSquare ? "#00aaaa" : "#000000")}
+                    emissiveIntensity={n.isPrime ? 3 : 0.5}
+                    roughness={0.2}
+                    metalness={0.8}
+                />
+            </mesh>
+            {n.isPrime && (
+                <pointLight distance={10} intensity={2} color="#ffd700" />
+            )}
+            <Billboard position={[0, n.isSquare ? 2.5 : 2, 0]}>
+                <Text fontSize={n.isSquare ? 2 : 1} color={n.isPrime ? "#ffd700" : "#ffffff"} font="/fonts/Roboto-VariableFont_wdth,wght.ttf">
+                    {n.value}
+                </Text>
+            </Billboard>
+        </group>
+    )
+}
+
+function ConnectionLine({ start, end }: { start: number[], end: number[] }) {
+    const geometry = useMemo(() => {
+        const points = [new THREE.Vector3(...start), new THREE.Vector3(...end)]
+        return new THREE.BufferGeometry().setFromPoints(points)
+    }, [start, end])
+
+    return (
+        <line geometry={geometry}>
+            <lineBasicMaterial color="#ffffff" transparent opacity={0.2} />
+        </line>
+    )
+}
+
 function Stars() {
-    const count = 1000
+    const count = 2000
     const [positions] = useState(() => {
         const pos = new Float32Array(count * 3)
-        for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 100
+        for (let i = 0; i < count * 3; i++) pos[i] = (Math.random() - 0.5) * 300
         return pos
     })
     return (
@@ -118,7 +178,7 @@ function Stars() {
             <bufferGeometry>
                 <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
             </bufferGeometry>
-            <pointsMaterial size={0.1} color="white" />
+            <pointsMaterial size={0.2} color="white" transparent opacity={0.6} />
         </points>
     )
 }

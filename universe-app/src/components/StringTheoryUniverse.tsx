@@ -12,7 +12,7 @@ interface StringTheoryProps {
 export default function StringTheoryUniverse({ observer, speed = 0, isDecoding = false, chaos = 0 }: StringTheoryProps) {
     const meshRef = useRef<THREE.InstancedMesh>(null)
     const linesRef = useRef<THREE.InstancedMesh>(null)
-    const count = 60
+    const count = 80 // Increased count slightly for density
 
     const manifolds = useMemo(() => {
         return Array.from({ length: count }).map(() => ({
@@ -23,7 +23,8 @@ export default function StringTheoryUniverse({ observer, speed = 0, isDecoding =
             ),
             rotation: new THREE.Euler(Math.random() * Math.PI, Math.random() * Math.PI, 0),
             scale: Math.random() * 2 + 1,
-            speed: Math.random() * 0.15 + 0.05
+            speed: Math.random() * 0.2 + 0.1,
+            phase: Math.random() * Math.PI * 2
         }))
     }, [])
 
@@ -35,13 +36,22 @@ export default function StringTheoryUniverse({ observer, speed = 0, isDecoding =
         manifolds.forEach((m, i) => {
             const observerPoint = new THREE.Vector3(observer.x * 25, observer.y * 25, 0);
             const dist = m.position.distanceTo(observerPoint);
-            const attraction = Math.max(0, 30 - dist) * 0.04;
 
-            dummy.position.copy(m.position).lerp(observerPoint, attraction);
-            dummy.rotation.set(m.rotation.x + t * m.speed, m.rotation.y + t * m.speed * 0.5, t * 0.2)
+            // Interactive Attraction (Gentle)
+            const attraction = Math.max(0, 40 - dist) * 0.005;
+            m.position.lerp(observerPoint, attraction);
 
-            const tension = 1.0 + (15.0 / (dist + 5.0));
-            dummy.scale.setScalar(m.scale * (1 + Math.sin(t * 2.0 + i) * 0.05) * tension);
+            // Calabi-Yau Rotation
+            dummy.position.copy(m.position)
+            dummy.rotation.set(
+                m.rotation.x + t * m.speed,
+                m.rotation.y + t * m.speed * 0.5,
+                t * 0.1
+            )
+
+            // Vibrational Stress (Size/Scale pulse)
+            const tension = 1.0 + Math.sin(t * 5.0 + m.phase) * (0.1 + chaos * 0.5);
+            dummy.scale.setScalar(m.scale * tension);
 
             dummy.updateMatrix()
             meshRef.current!.setMatrixAt(i, dummy.matrix)
@@ -61,6 +71,7 @@ export default function StringTheoryUniverse({ observer, speed = 0, isDecoding =
         lineMat.uniforms.uChaos.value = chaos
     })
 
+    // Surface Material (Membrane)
     const manifoldMaterial = useMemo(() => new THREE.ShaderMaterial({
         uniforms: {
             uTime: { value: 0 },
@@ -75,17 +86,10 @@ export default function StringTheoryUniverse({ observer, speed = 0, isDecoding =
             uniform float uChaos;
 
             void main() {
-                // Calabi-Yau approximation math
                 vec3 p = position;
-                float t = uTime * 0.8;
-                
-                // 6D toroidal projection
-                float v1 = sin(p.x * 0.5 + t) * cos(p.y * 0.5 + t);
-                float v2 = sin(p.y * 0.5 - t) * cos(p.z * 0.5 + t);
-                p += normal * (v1 + v2) * (0.5 + uChaos * 2.0);
-                
-                // Harmonic resonance jitter
-                p += sin(p * 20.0 + uTime * 15.0) * 0.05 * uChaos;
+                // Vibrating membrane effect
+                float wave = sin(p.x * 5.0 + uTime * 10.0) * cos(p.y * 5.0 + uTime * 8.0);
+                p += normal * wave * (0.05 + uChaos * 0.2);
 
                 vNormal = normalize(normalMatrix * normal);
                 vec4 worldPos = modelMatrix * instanceMatrix * vec4(p, 1.0);
@@ -103,64 +107,80 @@ export default function StringTheoryUniverse({ observer, speed = 0, isDecoding =
             uniform float uChaos;
 
             void main() {
-                // Fresnel effect for iridescence
+                // Iridescent Fresnel
                 float fresnel = pow(1.0 - max(dot(vNormal, vViewDir), 0.0), 3.0);
                 
-                vec3 colorA = vec3(0.0, 0.5, 1.0); // Electric Blue
-                vec3 colorB = vec3(1.0, 0.0, 0.5); // Neon Pink
-                vec3 colorC = vec3(0.2, 1.0, 0.4); // Matrix Green
-                
-                vec3 baseColor = mix(colorA, colorB, sin(uTime + vWorldPos.x * 0.1) * 0.5 + 0.5);
-                if (uChaos > 0.5) baseColor = mix(baseColor, colorC, (uChaos - 0.5) * 2.0);
-                
-                // Edge glow
-                float edge = step(0.9, fresnel);
-                vec3 finalColor = mix(baseColor, vec3(1.0), fresnel * 0.5 + edge * 0.5);
-                
-                // Dissonance flashes
-                float flash = step(0.99, sin(uTime * 30.0 + vWorldPos.y));
-                finalColor += flash * uChaos;
+                // Color Palette: Vibrating Strings (Gold/Blue/Purple)
+                vec3 colA = vec3(0.1, 0.0, 0.3); // Deep Void
+                vec3 colB = vec3(0.0, 0.5, 1.0); // Electric Blue
+                vec3 colC = vec3(1.0, 0.8, 0.2); // Energy Gold
 
-                gl_FragColor = vec4(finalColor, 0.6 + fresnel * 0.4);
+                vec3 baseColor = mix(colA, colB, fresnel);
+                
+                // Interference pattern
+                float interference = sin(vWorldPos.y * 2.0 + uTime * 5.0);
+                baseColor += colC * step(0.9, interference) * fresnel;
+
+                // Chaos injection
+                if (uChaos > 0.5) {
+                    baseColor = mix(baseColor, vec3(1.0, 0.0, 0.0), (uChaos - 0.5) * sin(uTime * 20.0));
+                }
+
+                gl_FragColor = vec4(baseColor, 0.4 + fresnel * 0.6);
             }
         `,
         transparent: true,
         side: THREE.DoubleSide,
-        depthWrite: false
+        depthWrite: false,
+        blending: THREE.AdditiveBlending
     }), [])
 
+    // Wireframe Material (String Harmonics)
     const lineMaterial = useMemo(() => new THREE.ShaderMaterial({
         uniforms: {
             uTime: { value: 0 },
             uChaos: { value: chaos }
         },
         vertexShader: `
-            varying float vAlpha;
+            varying float vGlow;
             uniform float uTime;
             void main() {
                 vec3 p = position;
-                p *= 1.1 + sin(uTime * 5.0 + position.y) * 0.1;
-                vAlpha = 0.2 + 0.2 * sin(uTime * 10.0 + position.x);
-                gl_Position = projectionMatrix * modelViewMatrix * instanceMatrix * vec4(p, 1.0);
+                // Intense high-frequency vibration
+                p += normal * sin(uTime * 50.0 + position.z * 10.0) * 0.02;
+                
+                vec4 mvPosition = modelViewMatrix * instanceMatrix * vec4(p, 1.0);
+                gl_Position = projectionMatrix * mvPosition;
+                
+                // Depth-based glow
+                vGlow = 100.0 / -mvPosition.z;
             }
         `,
         fragmentShader: `
-            varying float vAlpha;
+            varying float vGlow;
             uniform float uChaos;
+            uniform float uTime;
             void main() {
-                vec3 color = mix(vec3(1.0), vec3(1.0, 0.2, 0.0), uChaos);
-                gl_FragColor = vec4(color, vAlpha);
+                float pulse = 0.5 + 0.5 * sin(uTime * 10.0);
+                vec3 color = vec3(0.4, 0.8, 1.0);
+                if (uChaos > 0.0) color = mix(color, vec3(1.0, 1.0, 0.0), uChaos);
+                
+                gl_FragColor = vec4(color, vGlow * pulse * 0.5);
             }
         `,
         transparent: true,
         blending: THREE.AdditiveBlending,
-        depthWrite: false
+        depthWrite: false,
+        wireframe: true
     }), [])
 
     return (
         <group>
-            <instancedMesh ref={meshRef} args={[new THREE.TorusKnotGeometry(2, 0.5, 128, 32), manifoldMaterial, count]} />
-            <instancedMesh ref={linesRef} args={[new THREE.TorusKnotGeometry(2, 0.52, 64, 16), lineMaterial, count]} />
+            {/* Membranes */}
+            <instancedMesh ref={meshRef} args={[new THREE.TorusKnotGeometry(2, 0.6, 128, 32), manifoldMaterial, count]} />
+
+            {/* String Harmonics (Wireframe overlay) */}
+            <instancedMesh ref={linesRef} args={[new THREE.TorusKnotGeometry(2, 0.65, 64, 16), lineMaterial, count]} />
         </group>
     )
 }

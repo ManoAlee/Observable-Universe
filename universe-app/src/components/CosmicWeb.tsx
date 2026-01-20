@@ -3,104 +3,114 @@ import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
 interface CosmicWebProps {
-    clusters: any
+    clusters?: any
     isDecoding?: boolean
+    chaos?: number
 }
 
-export default function CosmicWeb({ clusters, isDecoding = false }: CosmicWebProps) {
-    const groupRef = useRef<THREE.Group>(null)
+export default function CosmicWeb({ isDecoding = false, chaos = 0 }: CosmicWebProps) {
+    const linesRef = useRef<THREE.LineSegments>(null)
+    const pointsRef = useRef<THREE.Points>(null)
+    const count = 1000 // Optimized count for performance
 
-    const { lines, points, clusterPositions } = useMemo(() => {
-        const nodeCount = 3000
+    // Generate stable topology once
+    const { positions, indices, colors } = useMemo(() => {
         const nodes = []
-        const cPositions: THREE.Vector3[] = []
+        const posArray = []
+        const colArray = []
 
-        // SDSS Style: Large Scale Structure Biasing (Filaments/Voids)
-        for (let i = 0; i < nodeCount; i++) {
-            const r = Math.pow(Math.random(), 0.5) * 200
+        // Generate Galaxy Nodes
+        for (let i = 0; i < count; i++) {
+            const r = Math.pow(Math.random(), 0.5) * 150
             const theta = Math.random() * Math.PI * 2
             const phi = Math.acos(2 * Math.random() - 1)
 
-            let pos = new THREE.Vector3(
-                r * Math.sin(phi) * Math.cos(theta),
-                r * Math.sin(phi) * Math.sin(theta),
-                r * Math.cos(phi)
-            )
+            const x = r * Math.sin(phi) * Math.cos(theta)
+            const y = r * Math.sin(phi) * Math.sin(theta)
+            const z = r * Math.cos(phi)
 
-            // Bias nodes towards "The Great Wall" (plane-like structure)
-            const wallBias = Math.exp(-Math.abs(pos.z) / 20.0)
-            if (Math.random() < wallBias) {
-                nodes.push(pos)
-            } else if (Math.random() > 0.95) {
-                // Occasional void nodes
-                nodes.push(pos)
-            }
+            nodes.push(new THREE.Vector3(x, y, z))
+            posArray.push(x, y, z)
+
+            // Color gradient based on depth
+            const color = new THREE.Color().setHSL(0.6 + Math.random() * 0.2, 0.8, 0.5)
+            colArray.push(color.r, color.g, color.b)
         }
 
-        // Map clusters
-        for (let i = 0; i < clusters.length; i++) {
-            cPositions.push(nodes[Math.floor(Math.random() * nodes.length)].clone())
-        }
-
-        const linePositions = []
-        const filamentColors = []
-        const c1 = new THREE.Color('#220033')
-        const c2 = new THREE.Color('#00ffff')
-
-        for (let i = 0; i < nodes.length; i++) {
-            let conns = 0
-            for (let j = i + 1; j < nodes.length; j++) {
-                const dist = nodes[i].distanceTo(nodes[j])
-                // Dark Matter Filament connections
-                if (dist < 15 && conns < 3) {
-                    linePositions.push(nodes[i].x, nodes[i].y, nodes[i].z)
-                    linePositions.push(nodes[j].x, nodes[j].y, nodes[j].z)
-                    const mix = c1.clone().lerp(c2, Math.random())
-                    filamentColors.push(mix.r, mix.g, mix.b, mix.r, mix.g, mix.b)
-                    conns++
+        // Generate Fixed Connections (The "Web")
+        const idx = []
+        for (let i = 0; i < count; i++) {
+            // Connect to 3 nearest neighbors
+            let distinctDistances: { id: number, dist: number }[] = []
+            for (let j = 0; j < count; j++) {
+                if (i === j) continue
+                const d = nodes[i].distanceTo(nodes[j])
+                if (d < 30) {
+                    distinctDistances.push({ id: j, dist: d })
                 }
             }
+            // Sort by distance and take top 3
+            distinctDistances.sort((a, b) => a.dist - b.dist)
+            distinctDistances.slice(0, 3).forEach(n => {
+                idx.push(i, n.id)
+            })
         }
 
-        const lg = new THREE.BufferGeometry()
-        lg.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3))
-        lg.setAttribute('color', new THREE.Float32BufferAttribute(filamentColors, 3))
-        const pg = new THREE.BufferGeometry().setFromPoints(nodes)
+        return {
+            positions: new Float32Array(posArray),
+            indices: idx,
+            colors: new Float32Array(colArray)
+        }
 
-        return { lines: lg, points: pg, clusterPositions: cPositions }
-    }, [clusters.length])
+    }, [])
 
     useFrame((state) => {
-        if (groupRef.current) {
-            groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.005
+        const t = state.clock.getElapsedTime()
+        if (pointsRef.current) {
+            pointsRef.current.rotation.y = t * 0.02 * (1 + chaos)
+            // Jitter shake on high entropy
+            if (chaos > 0.5) {
+                pointsRef.current.position.x = (Math.random() - 0.5) * chaos
+                pointsRef.current.position.y = (Math.random() - 0.5) * chaos
+            } else {
+                pointsRef.current.position.set(0, 0, 0)
+            }
+        }
+        if (linesRef.current) {
+            linesRef.current.rotation.y = t * 0.02 * (1 + chaos)
+            if (chaos > 0.5) {
+                linesRef.current.position.x = pointsRef.current?.position.x || 0
+                linesRef.current.position.y = pointsRef.current?.position.y || 0
+            } else {
+                linesRef.current.position.set(0, 0, 0)
+            }
         }
     })
 
     return (
-        <group ref={groupRef}>
-            <lineSegments geometry={lines}>
-                <lineBasicMaterial vertexColors transparent opacity={0.4} blending={THREE.AdditiveBlending} depthWrite={false} />
+        <group>
+            {/* The Web Strings */}
+            <lineSegments ref={linesRef}>
+                <bufferGeometry>
+                    <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
+                    <bufferAttribute attach="index" count={indices.length} array={new Uint16Array(indices)} itemSize={1} />
+                </bufferGeometry>
+                <lineBasicMaterial color="#4488ff" transparent opacity={0.15} blending={THREE.AdditiveBlending} depthWrite={false} />
             </lineSegments>
 
-            <points geometry={points}>
-                <pointsMaterial size={0.5} color="#ffffff" transparent opacity={0.6} sizeAttenuation blending={THREE.AdditiveBlending} />
+            {/* The Galaxy Nodes */}
+            <points ref={pointsRef}>
+                <bufferGeometry>
+                    <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
+                    <bufferAttribute attach="attributes-color" count={count} array={colors} itemSize={3} />
+                </bufferGeometry>
+                <pointsMaterial size={0.8} vertexColors transparent opacity={0.8} sizeAttenuation blending={THREE.AdditiveBlending} depthWrite={false} />
             </points>
 
-            {clusterPositions.map((pos, i) => (
-                <group key={i} position={pos}>
-                    <pointLight distance={10} intensity={5} color="#00ffcc" />
-                    {/* Geometric Node Marker instead of Text */}
-                    <mesh position={[0, 4, 0]} rotation={[Math.PI / 4, 0, Math.PI / 4]}>
-                        <octahedronGeometry args={[1]} />
-                        <meshBasicMaterial color="#00ffff" transparent opacity={0.6} />
-                    </mesh>
-                </group>
-            ))}
-
-            {/* Background Haze (Shader) */}
-            <mesh>
-                <sphereGeometry args={[250, 32, 32]} />
-                <meshBasicMaterial color="#050010" side={THREE.BackSide} transparent opacity={0.8} />
+            {/* Expansion Haze */}
+            <mesh scale={[200, 200, 200]}>
+                <sphereGeometry args={[1, 32, 32]} />
+                <meshBasicMaterial color="#020010" side={THREE.BackSide} transparent opacity={0.5} />
             </mesh>
         </group>
     )

@@ -91,25 +91,52 @@ export default function ProceduralPlanet({ seed = 0, type = 'TERRAN', chaos = 0 
         uniform float uTime;
         uniform float uChaos;
 
+        // Cellular Automata / Life Simulation Logic
+        float life(vec2 uv, float time) {
+            // Simulate Conway's Game of Life using noise thresholds that shift over time
+            float scale = 200.0;
+            float n = noise(vec3(uv * scale, time * 0.1));
+            float n2 = noise(vec3(uv * scale + 100.0, time * 0.05));
+            
+            // "Life" exists in a specific band of noise (Goldilocks zone of probability)
+            float biome = smoothstep(0.4, 0.6, n) * (1.0 - smoothstep(0.6, 0.8, n));
+            
+            // Evolving patterns
+            float evolution = step(0.5, fract(n2 * 10.0 + time));
+            
+            return biome * evolution;
+        }
+
         void main() {
             vec3 color = uColorWater;
             float e = vElevation;
             if (e > -0.02) color = mix(uColorSand, uColorGrass, smoothstep(-0.02, 0.05, e));
-            if (e > 0.1) color = mix(uColorGrass, uColorRock, smoothstep(0.1, 0.3, e));
+            
+            // Add Life patterning to grass areas
+            if (e > 0.05 && e < 0.4) {
+                float l = life(vWorldPos.xy + vWorldPos.zz, uTime);
+                // Life is a brighter, more vibrant "bioluminescence" or civilization structure
+                vec3 lifeColor = mix(uColorGrass, vec3(0.2, 1.0, 0.5), 0.5);
+                color = mix(color, lifeColor, l * 0.8);
+            }
+
             if (e > 0.4) color = mix(uColorRock, uColorSnow, smoothstep(0.4, 0.6, e));
 
             float diffuse = max(0.0, dot(vNormal, uLightDir));
             
-            // Night-side city lights
+            // Night-side city lights (Civilization Type I)
             float night = smoothstep(0.2, -0.2, dot(vNormal, uLightDir));
-            vec3 lights = vec3(1.0, 0.8, 0.4) * step(0.92, fract(sin(dot(vWorldPos, vec3(12.3, 45.6, 78.9))) * 43758.5453));
+            
+            // Procedural Metropolis logic
+            float cityNoise = fract(sin(dot(vWorldPos, vec3(12.3, 45.6, 78.9))) * 43758.5453);
+            vec3 lights = vec3(1.0, 0.9, 0.6) * step(0.95, cityNoise);
             
             // Chaos corruption: Red veins
             float corruption = step(0.8, fract(vElevation * 10.0 + uTime)) * uChaos;
             color = mix(color, vec4(1.0, 0.0, 0.0, 1.0).rgb, corruption);
 
             vec3 finalColor = color * (diffuse + 0.1);
-            finalColor += lights * night * (1.0 - uChaos); // Lights turn off in high chaos
+            finalColor += lights * night * (1.0 - uChaos * 0.5); // Corruption dims the lights
             
             gl_FragColor = vec4(finalColor, 1.0);
         }

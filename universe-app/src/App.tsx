@@ -18,7 +18,7 @@ import UnifiedUniverse from './components/UnifiedUniverse'
 import NeuralSymbiosis from './components/NeuralSymbiosis'
 import DigitalRain from './components/DigitalRain'
 import GenesisUniverse, { GenesisUI, GenesisController } from './components/GenesisScene'
-import UniversalAgentOverlay from './components/UniversalAgentOverlay'
+import UniversalAgentOverlay, { AgentData } from './components/UniversalAgentOverlay'
 import UniverseDecoder from './components/UniverseDecoder'
 import FrequencyUniverse from './components/FrequencyUniverse'
 import { UniverseDecoderService, LSSIData } from './services/universeDecoder';
@@ -27,11 +27,15 @@ import BinaryUniverseScene from './components/BinaryUniverseScene';
 import MatrixUniverse from './components/MatrixUniverse';
 import InteractionEngine from './components/InteractionEngine';
 import InfiniteZoomManager from './components/InfiniteZoomManager';
+import DarkMatterUniverse from './components/DarkMatterUniverse';
+import NeuralNetworkUniverse from './components/NeuralNetworkUniverse';
+import BiologicUniverse from './components/BiologicUniverse';
+import PerceptionUniverse from './components/PerceptionUniverse';
 
 import { Leva, useControls } from 'leva'
 import './styles.css'
 
-type ViewMode = 'OPERATOR' | 'GRAND_UNIFIED' | 'WORMHOLE' | 'STRING_THEORY' | 'BINARY' | 'QUANTUM' | 'COSMIC_WEB' | 'GENESIS' | 'SINGULARITY' | 'FREQUENCY' | 'DECODER' | 'MATRIX'
+type ViewMode = 'OPERATOR' | 'GRAND_UNIFIED' | 'WORMHOLE' | 'STRING_THEORY' | 'BINARY' | 'QUANTUM' | 'COSMIC_WEB' | 'GENESIS' | 'SINGULARITY' | 'FREQUENCY' | 'DECODER' | 'MATRIX' | 'DARK_MATTER' | 'NEURAL_NETWORK' | 'BIOLOGIC' | 'PERCEPTION'
 
 export default function App() {
   const [manifest, setManifest] = useState<any>(null)
@@ -43,12 +47,13 @@ export default function App() {
   const [isInfiniteZoom, setIsInfiniteZoom] = useState(false)
   const [interactions, setInteractions] = useState<any[]>([])
   const [eventLog, setEventLog] = useState<string[]>(["SYSTEM_INITIALIZED", "QUANTUM_LINK_STABLE"])
-  const [isDecoding, setIsDecoding] = useState(false)
+  const [isDecoding, setIsDecoding] = useState(true)
   const [mouseSpeed, setMouseSpeed] = useState(0)
   const lastMouse = useRef(new THREE.Vector2(0, 0))
   const [techStage, setTechStage] = useState(0)
   const [symbiosis, setSymbiosis] = useState(true)
   const [lssiData, setLssiData] = useState<LSSIData | null>(null)
+  const [selectedAgent, setSelectedAgent] = useState<AgentData | null>(null)
 
   // Genesis States (Lifting to App to avoid nested canvas)
   const [genesisAge, setGenesisAge] = useState(0)
@@ -62,7 +67,7 @@ export default function App() {
 
   // Global Universe State
   const [universeState, setUniverseState] = useState({
-    entropy: 0.1,
+    entropy: 0.0,
     sync: 0.98,
     biologicalLife: 0.5,
     civilization: 'TYPE I'
@@ -98,6 +103,7 @@ export default function App() {
       case 'MATRIX': return { equation: "Σ 2^n * b_n", constants: "Simulation = Active" }
       case 'FREQUENCY': return { equation: "E = hν (Planck-Einstein)", constants: "h = 6.626 x 10^-34 Js, CMB peak = 160.2 GHz" }
       case 'DECODER': return { equation: "Gμν + Λgμν = 8πG/c^4 Tμν", constants: "S = Akc^3/4Għ, Z = ∫DgDφ e^iS/ħ" }
+      case 'PERCEPTION': return { equation: "P(A|B) = [P(B|A)P(A)]/P(B)", constants: "Latency = 80ms, Filter = 99%" }
       default: return { equation: "S_neural = -Σ p log p", constants: "Ψ_sync = 1.0" }
     }
   }, [viewMode])
@@ -106,7 +112,7 @@ export default function App() {
     transcendence: { value: false, label: 'TRANSCENDENCE_MODE' },
     lifeDensity: { value: 0.5, min: 0, max: 1, label: 'LIFE_DENSITY' },
     depth: { value: 0.5, min: 0, max: 1, label: 'REALITY_DEPTH' },
-    chaos: { value: 0.1, min: 0, max: 1, label: 'ENTROPY' },
+    chaos: { value: 0.0, min: 0, max: 1, label: 'ENTROPY' },
     bloom: { value: 1.5, min: 0, max: 5, label: 'NEURAL_GLOW' }
   })
 
@@ -174,19 +180,33 @@ export default function App() {
               </>
             )
             case 'QUANTUM': return <QuantumRealm observer={mouse} entropy={chaos} isDecoding={isDecoding} />
-            case 'COSMIC_WEB': return <CosmicWeb clusters={manifest?.clusters} isDecoding={isDecoding} />
-            case 'WORMHOLE': return <Wormhole isDecoding={isDecoding} />
+            case 'COSMIC_WEB': return <CosmicWeb clusters={manifest?.clusters} isDecoding={isDecoding} chaos={chaos} />
+            case 'WORMHOLE': return <Wormhole isDecoding={isDecoding} chaos={chaos} />
             case 'SINGULARITY': return <InformationSingularity isDecoding={isDecoding} />
             case 'GRAND_UNIFIED': return <UnifiedUniverse observer={mouse} entropy={chaos} depth={depth} isDecoding={isDecoding} speed={mouseSpeed} />
             case 'FREQUENCY': return <FrequencyUniverse observer={mouse} entropy={chaos} isDecoding={isDecoding} />
             case 'MATRIX': return <MatrixUniverse chaos={chaos} />
-            case 'DECODER': return <UniverseDecoder observer={mouse} entropy={universeState.entropy} isDecoding={isDecoding} lssi={lssiData?.lssi || 0} interactions={interactions} viewMode={viewMode} onNavigate={setViewMode} />
+            case 'MATRIX': return <MatrixUniverse chaos={chaos} />
+            case 'DARK_MATTER': return <DarkMatterUniverse observer={mouse} entropy={universeState.entropy} />
+            case 'NEURAL_NETWORK': return <NeuralNetworkUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData} />
+            case 'BIOLOGIC': return <BiologicUniverse observer={mouse} entropy={universeState.entropy} />
+            case 'PERCEPTION': return <PerceptionUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData} />
+            case 'DECODER': return (
+              <UniverseDecoder
+                observer={mouse}
+                entropy={universeState.entropy}
+                isDecoding={isDecoding}
+                viewMode={viewMode}
+                onNavigate={setViewMode}
+                onSetEntropy={(newEntropy: number) => setUniverseState(prev => ({ ...prev, entropy: newEntropy }))}
+              />
+            )
             default:
               return <ThinkingUniverse clusters={manifest?.clusters || []} onClusterSelect={setSelectedCluster} chaosLevel={chaos} />
           }
         })() as any}
         <LifeSim mode={viewMode} density={lifeDensity} />
-        <UniversalAgentOverlay observer={mouse} />
+        <UniversalAgentOverlay observer={mouse} onSelectAgent={setSelectedAgent} selectedAgentId={selectedAgent?.id} />
         <InteractionEngine
           isDecoding={isDecoding}
           onInteraction={(data) => setInteractions(prev => [data, ...prev].slice(0, 10))}
@@ -362,6 +382,7 @@ export default function App() {
               >∞ ZOOM</button>
               <div className="w-px h-4 bg-white/10 mx-1 self-center" />
               <NavButton active={viewMode === 'DECODER'} onClick={() => setViewMode('DECODER')} label="DECODE" />
+              <NavButton active={viewMode === 'PERCEPTION'} onClick={() => setViewMode('PERCEPTION')} label="EYE" />
               <button
                 onClick={() => setViewMode('SINGULARITY')}
                 className={`px-4 py-1.5 rounded-full text-[9px] font-bold tracking-widest transition-all ${viewMode === 'SINGULARITY' ? 'bg-amber-500 text-black shadow-[0_0_15px_rgba(245,158,11,0.5)]' : 'text-amber-500/70 hover:text-amber-500 hover:bg-amber-500/10'}`}
@@ -389,6 +410,11 @@ export default function App() {
         <BinaryFrequencyUniverse equation={physics.equation} constants={physics.constants} />
       )}
       {viewMode === 'OPERATOR' && selectedCluster && <ClusterDetail cluster={selectedCluster} onClose={() => setSelectedCluster(null)} />}
+
+      {/* Universal Agent Tracker UI */}
+      {selectedAgent && (
+        <AgentTrackerHUD agent={selectedAgent} onClose={() => setSelectedAgent(null)} />
+      )}
     </div>
   )
 }
@@ -573,5 +599,73 @@ function Toggle({ active, onClick, label }: any) {
       <span>{label}</span>
       <span className={`text-[8px] ${active ? 'text-cyan-400' : 'text-white/10'}`}>{active ? 'ON' : 'OFF'}</span>
     </button>
+  )
+}
+
+function AgentTrackerHUD({ agent, onClose }: { agent: AgentData, onClose: () => void }) {
+  return (
+    <div className="absolute top-24 left-6 w-80 pointer-events-auto animate-fade-in-up z-50">
+      <div className="glass-panel p-0 bg-black/80 border border-cyan-500/30 rounded-lg overflow-hidden shadow-[0_0_30px_rgba(0,200,255,0.2)]">
+        {/* Header */}
+        <div className="bg-cyan-900/30 p-4 border-b border-cyan-500/30 flex justify-between items-center">
+          <div>
+            <h3 className="text-sm font-black text-cyan-400 tracking-widest">{agent.name}</h3>
+            <p className="text-[9px] text-cyan-300/60 uppercase tracking-wider">Class: {agent.type}</p>
+          </div>
+          <button onClick={onClose} className="text-cyan-500 hover:text-white transition-colors">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
+          </button>
+        </div>
+
+        {/* Content */}
+        <div className="p-6 space-y-4 font-mono text-[10px]">
+          <div className="flex justify-between items-center">
+            <span className="text-white/40">STATUS</span>
+            <span className={`font-bold ${agent.status === 'ACTIVE' ? 'text-green-400' : 'text-amber-400'}`}>{agent.status}</span>
+          </div>
+
+          <div className="space-y-1">
+            <div className="flex justify-between text-white/60">
+              <span>ORBIT_RADIUS</span>
+              <span className="text-cyan-300">{agent.orbitRadius.toFixed(2)} AU</span>
+            </div>
+            <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+              <div className="h-full bg-cyan-500" style={{ width: `${(agent.orbitRadius / 60) * 100}%` }} />
+            </div>
+          </div>
+
+          <div className="space-y-1">
+            <div className="flex justify-between text-white/60">
+              <span>VELOCITY</span>
+              <span className="text-cyan-300">{Math.abs(agent.speed * 1000).toFixed(0)} km/s</span>
+            </div>
+            <div className="w-full h-1 bg-white/10 rounded-full overflow-hidden">
+              <div className="h-full bg-purple-500" style={{ width: `${Math.abs(agent.speed) * 800}%` }} />
+            </div>
+          </div>
+
+          <div className="flex justify-between items-center pt-2 border-t border-white/10">
+            <span className="text-white/40">INCLINATION</span>
+            <span className="text-white">{(agent.inclination * 180 / Math.PI).toFixed(1)}°</span>
+          </div>
+
+          <div className="mt-4 p-3 bg-cyan-500/5 border border-cyan-500/20 rounded">
+            <p className="text-[9px] text-cyan-400/80 leading-relaxed">
+              &gt; AGENT_LOG: Monitoring sector activity. No anomalies detected in current orbital path. uplink_stable: true.
+            </p>
+          </div>
+        </div>
+
+        {/* Footer Actions */}
+        <div className="p-2 border-t border-white/10 bg-white/5 flex gap-2">
+          <button className="flex-1 py-2 text-[9px] font-bold text-center bg-cyan-500/10 hover:bg-cyan-500/30 text-cyan-400 border border-cyan-500/20 rounded transition-all">
+            TRACK
+          </button>
+          <button className="flex-1 py-2 text-[9px] font-bold text-center bg-purple-500/10 hover:bg-purple-500/30 text-purple-400 border border-purple-500/20 rounded transition-all">
+            HAIL
+          </button>
+        </div>
+      </div>
+    </div>
   )
 }

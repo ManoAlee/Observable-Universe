@@ -111,7 +111,7 @@ export default function FrequencyUniverse({ observer, entropy, isDecoding = fals
     return (
         <group>
             <mesh ref={meshRef} rotation={[-Math.PI / 2.5, 0, 0]} position={[0, -15, 0]}>
-                <planeGeometry args={[120, 120, count, count]} />
+                <planeGeometry args={[120, 120, 48, 48]} />
                 <primitive object={material} attach="material" />
             </mesh>
 

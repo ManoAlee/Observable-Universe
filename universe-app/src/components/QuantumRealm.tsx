@@ -14,14 +14,14 @@ export default function QuantumRealm({ observer = new THREE.Vector2(0, 0), entro
             {/* Volumetric Wave Function Core */}
             <WaveFunctionCore observer={observer} entropy={entropy} isDecoding={isDecoding} />
 
-            {/* Probability Density Clouds */}
-            <ProbabilityCloud count={2000} chaos={entropy} />
+            {/* Probability Density Clouds - Upgraded to Volumetric Clusters */}
+            <ProbabilityCloudCluster count={200} chaos={entropy} />
 
             {/* Entanglement Web */}
-            <EntanglementWeb count={6} chaos={entropy} />
+            <EntanglementWeb count={8} chaos={entropy} />
 
             {/* Ambient Quantum Fluctuations */}
-            <QuantumFluctuations count={500} />
+            <QuantumFluctuations count={1000} />
         </group>
     )
 }
@@ -42,20 +42,28 @@ function WaveFunctionCore({ observer, entropy, isDecoding }: QuantumRealmProps) 
         vertexShader: `
           varying vec3 vPos;
           varying vec3 vNormal;
+          varying vec3 vViewDir;
           uniform float uTime;
           uniform float uEntropy;
           
           void main() {
               vPos = position;
-              vNormal = normalize(normalMatrix * normal);
+              vec3 deformedPos = position;
               
-              // Stable Vertex Position
-              gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+              // Schrödinger breathing
+              float breath = sin(uTime * 2.0 + position.y * 0.2) * 2.0;
+              deformedPos += normal * breath * 0.1 * (1.0 + uEntropy);
+              
+              vNormal = normalize(normalMatrix * normal);
+              vec4 mvPos = modelViewMatrix * vec4(deformedPos, 1.0);
+              vViewDir = normalize(-mvPos.xyz);
+              gl_Position = projectionMatrix * mvPos;
           }
         `,
         fragmentShader: `
           varying vec3 vPos;
           varying vec3 vNormal;
+          varying vec3 vViewDir;
           uniform float uTime;
           uniform float uN;
           uniform float uL;
@@ -68,20 +76,28 @@ function WaveFunctionCore({ observer, entropy, isDecoding }: QuantumRealmProps) 
               float r = length(pos);
               float theta = acos(clamp(pos.z / (r + 0.001), -1.0, 1.0));
               float phi = atan(pos.y, pos.x);
-              float wave = sin(uL * theta) * cos(uM * phi + uTime);
+              float wave = sin(uL * theta + uTime) * cos(uM * phi - uTime * 0.5);
               float radial = exp(-r / uN) * pow(r, uL);
               return abs(wave * radial);
           }
 
           void main() {
-              float prob = harmonic(vPos * (0.8 + 0.2 * sin(uTime * 0.5)));
-              float rim = pow(1.0 - abs(dot(vNormal, vec3(0,0,1))), 2.5);
+              float prob = harmonic(vPos * 0.1);
+              float fresnel = pow(1.0 - max(dot(vNormal, vViewDir), 0.0), 3.0);
               
-              vec3 coreColor = mix(vec3(0.0, 0.4, 0.8), vec3(0.8, 0.1, 1.0), sin(uTime * 0.2) * 0.5 + 0.5);
-              if (uIsDecoding > 0.5) coreColor = mix(coreColor, vec3(0.0, 1.0, 0.5), sin(uTime * 10.0) * 0.5 + 0.5);
+              // Quantum superposition colors
+              vec3 stateA = vec3(0.0, 1.0, 1.0); // Cyan
+              vec3 stateB = vec3(1.0, 0.0, 1.0); // Magenta
+              vec3 color = mix(stateA, stateB, prob + sin(uTime) * 0.5 + 0.5);
+              
+              if (uIsDecoding > 0.5) {
+                  color = mix(color, vec3(0.0, 1.0, 0.0), 0.5);
+              }
 
-              float alpha = prob * (1.5 + uEntropy) + rim * 0.4;
-              gl_FragColor = vec4(coreColor * (1.0 + rim), alpha);
+              // Glow intensity based on probability density
+              float alpha = smoothstep(0.0, 1.0, prob * 2.0) + fresnel * 0.8;
+              
+              gl_FragColor = vec4(color * (1.0 + fresnel * 2.0), clamp(alpha, 0.0, 0.8));
           }
         `,
         transparent: true,
@@ -97,67 +113,54 @@ function WaveFunctionCore({ observer, entropy, isDecoding }: QuantumRealmProps) 
             mat.uniforms.uTime.value = t;
             mat.uniforms.uObserver.value.lerp(observer ?? new THREE.Vector2(0, 0), 0.1);
             mat.uniforms.uEntropy.value = entropy ?? 0.1;
-
-            // Cycle quantum orbitals
-            const cycle = Math.floor(t / 8) % 3;
-            if (cycle === 0) { // S-like
-                mat.uniforms.uN.value = THREE.MathUtils.lerp(mat.uniforms.uN.value, 1.0, 0.02);
-                mat.uniforms.uL.value = THREE.MathUtils.lerp(mat.uniforms.uL.value, 0.0, 0.02);
-            } else if (cycle === 1) { // P-like
-                mat.uniforms.uN.value = THREE.MathUtils.lerp(mat.uniforms.uN.value, 2.0, 0.02);
-                mat.uniforms.uL.value = THREE.MathUtils.lerp(mat.uniforms.uL.value, 1.0, 0.02);
-            } else { // D-like
-                mat.uniforms.uN.value = THREE.MathUtils.lerp(mat.uniforms.uN.value, 3.0, 0.02);
-                mat.uniforms.uL.value = THREE.MathUtils.lerp(mat.uniforms.uL.value, 2.0, 0.02);
-            }
         }
     })
 
     return (
         <mesh ref={meshRef}>
-            <sphereGeometry args={[25, 64, 64]} />
+            <sphereGeometry args={[20, 128, 128]} />
             <primitive object={material} attach="material" />
         </mesh>
     )
 }
 
-function ProbabilityCloud({ count, chaos }: { count: number, chaos: number }) {
-    const pointsRef = useRef<THREE.Points>(null)
-    const positions = useMemo(() => {
-        const pos = new Float32Array(count * 3)
-        for (let i = 0; i < count; i++) {
-            const r = 5 + Math.random() * 20
-            const theta = Math.random() * Math.PI * 2
-            const phi = Math.acos(2 * Math.random() - 1)
-            pos[i * 3] = r * Math.sin(phi) * Math.cos(theta)
-            pos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta)
-            pos[i * 3 + 2] = r * Math.cos(phi)
-        }
-        return pos
-    }, [])
+// Replaces point cloud with "Volumetric" sprites for better density visualization
+function ProbabilityCloudCluster({ count, chaos }: { count: number, chaos: number }) {
+    const instancedRef = useRef<THREE.InstancedMesh>(null)
+    const particleData = useMemo(() => Array.from({ length: count }).map(() => ({
+        pos: new THREE.Vector3().randomDirection().multiplyScalar(15 + Math.random() * 30),
+        scale: Math.random() * 5 + 2,
+        phase: Math.random() * Math.PI * 2
+    })), [])
 
     useFrame((state) => {
-        if (pointsRef.current) {
-            const t = state.clock.getElapsedTime();
-            pointsRef.current.rotation.y = t * 0.1;
-            pointsRef.current.rotation.z = t * 0.05;
-        }
+        if (!instancedRef.current) return
+        const t = state.clock.getElapsedTime()
+        const dummy = new THREE.Object3D()
+
+        particleData.forEach((p, i) => {
+            // Orbital drift
+            const angle = p.phase + t * 0.1 * (chaos + 0.5)
+            const r = p.pos.length()
+            dummy.position.set(
+                Math.cos(angle) * r,
+                Math.sin(angle * 0.8) * r * 0.5,
+                Math.sin(angle) * r
+            )
+            dummy.rotation.set(t * 0.2, t * 0.1, 0)
+            const pulsate = 1.0 + Math.sin(t * 2.0 + p.phase) * 0.3
+            dummy.scale.setScalar(p.scale * pulsate)
+            dummy.updateMatrix()
+            instancedRef.current.setMatrixAt(i, dummy.matrix)
+        })
+        instancedRef.current.instanceMatrix.needsUpdate = true
     })
 
     return (
-        <points ref={pointsRef}>
-            <bufferGeometry>
-                <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
-            </bufferGeometry>
-            <pointsMaterial
-                size={0.2}
-                color={chaos > 0.7 ? "#ff00ff" : "#00ffff"}
-                transparent
-                opacity={0.8}
-                blending={THREE.AdditiveBlending}
-                sizeAttenuation={true}
-            />
-        </points>
+        <instancedMesh ref={instancedRef} args={[undefined, undefined, count]}>
+            <sphereGeometry args={[1, 16, 16]} />
+            <meshBasicMaterial color="#4400ff" transparent opacity={0.1} blending={THREE.AdditiveBlending} depthWrite={false} />
+        </instancedMesh>
     )
 }
 
@@ -175,29 +178,39 @@ function EntanglementString({ index, chaos }: { index: number, chaos: number }) 
     const curveRef = useRef<THREE.Line>(null)
     const points = useMemo(() => {
         const p = []
-        for (let i = 0; i < 20; i++) p.push(new THREE.Vector3())
+        for (let i = 0; i < 40; i++) p.push(new THREE.Vector3())
         return p
     }, [])
 
     useFrame((state) => {
         if (curveRef.current) {
             const t = state.clock.getElapsedTime();
+            // Complex Lissajous figures for entanglement paths
             const start = new THREE.Vector3(
-                Math.sin(t * 0.5 + index) * 10,
-                Math.cos(t * 0.8 + index) * 10,
-                Math.sin(t * 0.3 + index) * 10
+                Math.sin(t * 0.3 + index) * 25,
+                Math.cos(t * 0.4 + index) * 25,
+                Math.sin(t * 0.2 + index) * 25
             );
             const end = new THREE.Vector3(
-                Math.cos(t * 0.4 + index * 2) * 12,
-                Math.sin(t * 0.6 + index * 2) * 12,
-                Math.cos(t * 0.9 + index * 2) * 12
+                Math.sin(t * 0.5 + index * 2) * 30,
+                Math.cos(t * 0.6 + index * 2) * 30,
+                Math.sin(t * 0.7 + index * 2) * 30
             );
 
-            for (let i = 0; i < 20; i++) {
-                const alpha = i / 19;
-                const pos = new THREE.Vector3().lerpVectors(start, end, alpha);
-                const jitter = Math.sin(t * 5.0 + i * 0.5) * (0.2 + chaos * 1.5);
-                pos.add(new THREE.Vector3(jitter, jitter, jitter));
+            for (let i = 0; i < 40; i++) {
+                const alpha = i / 39;
+                // Cubic Bezier interpolation logic manually
+                const p1 = start.clone().lerp(end, 0.33).add(new THREE.Vector3(Math.sin(t), Math.cos(t), 0).multiplyScalar(10))
+                const p2 = start.clone().lerp(end, 0.66).add(new THREE.Vector3(Math.cos(t), Math.sin(t), 0).multiplyScalar(-10))
+
+                // Simple Catmull-Rom spline approximation
+                const pos = new THREE.Vector3().lerpVectors(start, end, alpha)
+                pos.add(new THREE.Vector3(
+                    Math.sin(alpha * Math.PI * 2.0 + t) * 5.0,
+                    Math.cos(alpha * Math.PI * 4.0 + t) * 5.0,
+                    Math.sin(alpha * Math.PI * 3.0 + t) * 5.0
+                ))
+
                 points[i].copy(pos);
             }
             curveRef.current.geometry.setFromPoints(points);
@@ -207,7 +220,7 @@ function EntanglementString({ index, chaos }: { index: number, chaos: number }) 
     return (
         <line ref={curveRef as any}>
             <bufferGeometry />
-            <lineBasicMaterial color="#44ffff" transparent opacity={0.3} blending={THREE.AdditiveBlending} />
+            <lineBasicMaterial color="#00ffff" transparent opacity={0.4} blending={THREE.AdditiveBlending} linewidth={2} />
         </line>
     )
 }
@@ -217,19 +230,28 @@ function QuantumFluctuations({ count }: { count: number }) {
     const positions = useMemo(() => {
         const p = new Float32Array(count * 3)
         for (let i = 0; i < count; i++) {
-            p[i * 3] = (Math.random() - 0.5) * 100
-            p[i * 3 + 1] = (Math.random() - 0.5) * 100
-            p[i * 3 + 2] = (Math.random() - 0.5) * 100
+            const r = 10 + Math.random() * 50
+            const theta = Math.random() * Math.PI * 2
+            const phi = Math.acos(2 * Math.random() - 1)
+            p[i * 3] = r * Math.sin(phi) * Math.cos(theta)
+            p[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta)
+            p[i * 3 + 2] = r * Math.cos(phi)
         }
         return p
     }, [])
+
+    useFrame((state) => {
+        if (pointsRef.current) {
+            pointsRef.current.rotation.y = state.clock.getElapsedTime() * 0.05
+        }
+    })
 
     return (
         <points ref={pointsRef}>
             <bufferGeometry>
                 <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
             </bufferGeometry>
-            <pointsMaterial size={0.08} color="#fff" transparent opacity={0.3} />
+            <pointsMaterial size={0.3} color="#ccffff" transparent opacity={0.5} blending={THREE.AdditiveBlending} sizeAttenuation />
         </points>
     )
 }

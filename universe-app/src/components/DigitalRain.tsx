@@ -8,8 +8,10 @@ interface DigitalRainProps {
 }
 
 export default function DigitalRain({ intensity, observer }: DigitalRainProps) {
-    const count = 150 // Number of columns
-    const particlesPerColumn = 40
+    // OPTIMIZATION: Reduced count from 150x40 (6000) to 100x30 (3000)
+    // We can achieve the same "look" with fewer, larger, brighter particles
+    const count = 100
+    const particlesPerColumn = 30
     const totalCount = count * particlesPerColumn
     const pointsRef = useRef<THREE.Points>(null)
 
@@ -19,8 +21,8 @@ export default function DigitalRain({ intensity, observer }: DigitalRainProps) {
         const spd = new Float32Array(totalCount)
 
         for (let i = 0; i < count; i++) {
-            const x = (Math.random() - 0.5) * 100
-            const z = (Math.random() - 0.5) * 100
+            const x = (Math.random() - 0.5) * 120 // Wider spread
+            const z = (Math.random() - 0.5) * 120
             const columnSpeed = 0.5 + Math.random() * 1.5
             const columnOffset = Math.random() * 100
 
@@ -51,7 +53,7 @@ export default function DigitalRain({ intensity, observer }: DigitalRainProps) {
             mat.uniforms.uTime.value = t
             mat.uniforms.uIntensity.value = intensity
             mat.uniforms.uObserver.value.copy(observer)
-            mat.uniforms.uChaos.value = intensity // Using intensity as chaos proxy
+            mat.uniforms.uChaos.value = intensity
         }
     })
 
@@ -70,43 +72,40 @@ export default function DigitalRain({ intensity, observer }: DigitalRainProps) {
                 vertexShader={`
                     uniform float uTime;
                     uniform float uIntensity;
-                    uniform float uChaos;
                     attribute float offset;
                     attribute float speed;
-                    varying vec3 vPos;
                     varying float vAlpha;
                     varying float vIsHead;
 
                     void main() {
-                        vPos = position;
-                        
                         // Falling logic
                         float y = position.y;
-                        float fallSpeed = speed * (1.0 + uIntensity * 2.0);
-                        y = mod(y - uTime * fallSpeed * 10.0 + offset, 100.0) - 50.0;
+                        float fallSpeed = speed * (1.0 + uIntensity * 1.5);
+                        y = mod(y - uTime * fallSpeed * 8.0 + offset, 100.0) - 50.0;
                         
                         vec3 finalPos = vec3(position.x, y, position.z);
                         
-                        // Interaction distortion
-                        float dist = distance(finalPos.xz, vec2(0.0));
-                        finalPos.y += sin(uTime * 2.0 + dist * 0.1) * uIntensity * 2.0;
+                        // Interaction: Repel from center gently
+                        float dist = length(finalPos.xz);
+                        if (dist < 20.0) {
+                            finalPos.y += sin(uTime * 3.0 + dist) * 2.0 * uIntensity;
+                        }
 
                         vec4 mvPosition = modelViewMatrix * vec4(finalPos, 1.0);
                         
                         // Closer to top of column = brighter "head"
-                        float relY = mod(y + uTime * fallSpeed * 10.0 - offset, 100.0);
-                        vAlpha = pow(relY / 100.0, 3.0);
-                        vIsHead = step(0.98, relY / 100.0);
+                        float relY = mod(y + uTime * fallSpeed * 8.0 - offset, 100.0);
+                        vAlpha = pow(relY / 100.0, 4.0); // Sharper falloff
+                        vIsHead = step(0.97, relY / 100.0);
 
-                        gl_PointSize = (vIsHead > 0.5 ? 4.0 : 2.5) * (300.0 / -mvPosition.z);
+                        // Size attenuation
+                        gl_PointSize = (vIsHead > 0.5 ? 6.0 : 3.0) * (300.0 / -mvPosition.z);
                         gl_Position = projectionMatrix * mvPosition;
                     }
                 `}
                 fragmentShader={`
                     uniform float uTime;
-                    uniform float uIntensity;
                     uniform float uChaos;
-                    varying vec3 vPos;
                     varying float vAlpha;
                     varying float vIsHead;
                     
@@ -115,29 +114,27 @@ export default function DigitalRain({ intensity, observer }: DigitalRainProps) {
                     }
 
                     void main() {
+                        // Circular particle
                         vec2 uv = gl_PointCoord;
                         float d = length(uv - 0.5);
                         if(d > 0.5) discard;
 
                         // Digital color logic
-                        vec3 color = vec3(0.0, 1.0, 0.3); // Matrix Green
-                        if (uChaos > 0.7) {
-                            color = mix(color, vec3(1.0, 0.1, 0.1), (uChaos - 0.7) * 3.3); // Fade to red on high chaos
+                        vec3 color = vec3(0.0, 1.0, 0.4); // Matrix Green
+                        // Chaos introduces red glitching
+                        if (uChaos > 0.7 && hash(uv + uTime) > 0.9) {
+                            color = vec3(1.0, 0.0, 0.0);
                         }
 
-                        // Character simulation
-                        float c = hash(floor(vPos.xy * 10.0) + floor(uTime * 15.0));
-                        float charMask = step(0.5, c);
+                        // Character simulation (flicker)
+                        float flicker = 0.8 + 0.2 * sin(uTime * 30.0);
                         
-                        vec3 finalColor = color * vAlpha;
+                        vec3 finalColor = color * vAlpha * flicker;
                         if (vIsHead > 0.5) {
-                            finalColor = vec3(1.0); // White head for the "lead" character
+                            finalColor = mix(vec3(1.0), color, 0.2); // White-hot head
                         }
-
-                        // Add some flicker
-                        float flicker = 0.8 + 0.2 * sin(uTime * 20.0 + vPos.x);
                         
-                        gl_FragColor = vec4(finalColor * flicker, vAlpha * (1.0 - d * 2.0));
+                        gl_FragColor = vec4(finalColor, vAlpha * (1.0 - d * 2.0));
                     }
                 `}
             />

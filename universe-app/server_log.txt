@@ -1960,3 +1960,253 @@ Re-optimizing dependencies because lockfile has changed
    |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 6  |  
 7  |  :root {
+[2m17:26:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:26:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:26:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/styles.css, /src/App.tsx[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:33:26[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:33:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:33:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:33:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:33:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/InformationSingularity.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:37:13[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:37:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:37:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:37:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:37:22[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:37:42[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:39:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/InformationSingularity.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:42:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/App.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:42:22[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:45:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:48:37[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[2m17:48:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:49:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:49:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UniverseDecoder.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:51:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/InformationSingularity.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:51:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/QuantumRealm.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:51:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+17:51:31 [vite] Internal server error: D:\IA\UBUNTU IA\universe-app\src\components\UnifiedUniverse.tsx: Missing semicolon. (47:21)
+
+  45 |
+  46 |                 // Interference pattern
+> 47 |                 float interference = sin(dist * 12.0 - uTime * 6.0) * 0.5 + 0.5;
+     |                      ^
+  48 |
+  49 |                 // Pulsating core
+  50 |                 float pulse = sin(uTime * 4.0) * 0.15 + 0.85;
+  Plugin: vite:react-babel
+  File: D:/IA/UBUNTU IA/universe-app/src/components/UnifiedUniverse.tsx:47:21
+  45 |  
+  46 |                  // Interference pattern
+  47 |                  float interference = sin(dist * 12.0 - uTime * 6.0) * 0.5 + 0.5;
+     |                                                                     ^
+  48 |  
+  49 |                  // Pulsating core
+      at constructor (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:365:19)
+      at TypeScriptParserMixin.raise (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6599:19)
+      at TypeScriptParserMixin.semicolon (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:6895:10)
+      at TypeScriptParserMixin.parseExpressionStatement (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13275:10)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12889:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:9508:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12757:17)
+      at TypeScriptParserMixin.parseModuleItem (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12734:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13306:36)
+      at TypeScriptParserMixin.parseBlockBody (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:13299:10)
+      at TypeScriptParserMixin.parseProgram (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12612:10)
+      at TypeScriptParserMixin.parseTopLevel (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:12602:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14478:25)
+      at TypeScriptParserMixin.parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:10116:18)
+      at parse (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\parser\lib\index.js:14512:38)
+      at parser (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\parser\index.js:41:34)
+      at parser.next (<anonymous>)
+      at normalizeFile (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\transformation\normalize-file.js:64:37)
+      at normalizeFile.next (<anonymous>)
+      at run (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\transformation\index.js:22:50)
+      at run.next (<anonymous>)
+      at transform (D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\transform.js:22:33)
+      at transform.next (<anonymous>)
+      at step (D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:261:32)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:273:13
+      at async.call.result.err.err (D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:223:11)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:189:28
+      at D:\IA\UBUNTU IA\universe-app\node_modules\@babel\core\lib\gensync-utils\async.js:67:7
+      at D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:113:33
+      at step (D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:287:14)
+      at D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:273:13
+      at async.call.result.err.err (D:\IA\UBUNTU IA\universe-app\node_modules\gensync\index.js:223:11)
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {
+[2m17:52:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/UnifiedUniverse.tsx, /src/styles.css[22m
+[vite:css] @import must precede all other statements (besides @charset or empty @layer)
+3  |  @tailwind utilities;
+4  |  
+5  |  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;500;800&display=swap');
+   |  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+6  |  
+7  |  :root {

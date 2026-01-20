@@ -63,9 +63,42 @@ export default function InformationSingularity({ isDecoding = false }: Singulari
     })
 
     return (
-        <mesh ref={meshRef}>
-            <sphereGeometry args={[200, 64, 64]} />
-            <primitive object={material} attach="material" />
-        </mesh>
+        <group>
+            <mesh ref={meshRef}>
+                <sphereGeometry args={[200, 64, 64]} />
+                <primitive object={material} attach="material" />
+            </mesh>
+
+            {/* Digital Binary Rings */}
+            {isDecoding && Array.from({ length: 5 }).map((_, i) => (
+                <BinaryRing key={i} radius={50 + i * 30} speed={0.02 + i * 0.01} direction={i % 2 === 0 ? 1 : -1} />
+            ))}
+        </group>
+    )
+}
+
+function BinaryRing({ radius, speed, direction }: { radius: number, speed: number, direction: number }) {
+    const ref = useRef<THREE.Group>(null)
+    const textRef = useRef<any>(null)
+
+    // Generate long binary string
+    const binaryString = useMemo(() => Array.from({ length: 40 }).map(() => Math.random() > 0.5 ? '1' : '0').join(' '), [])
+
+    useFrame((state) => {
+        if (ref.current) {
+            ref.current.rotation.z += speed * direction * 0.1
+            ref.current.rotation.x = Math.sin(state.clock.elapsedTime * 0.1) * 0.2
+        }
+    })
+
+    return (
+        <group ref={ref} rotation={[Math.PI / 2, 0, 0]}>
+            <mesh rotation={[-Math.PI / 2, 0, 0]}>
+                <ringGeometry args={[radius, radius + 1, 64]} />
+                <meshBasicMaterial color="#00ff00" transparent opacity={0.3} side={THREE.DoubleSide} />
+            </mesh>
+            {/* Visual Text (Simplified: repeated characters along ring is hard in standard Drei Text without curving) */}
+            {/* Using simply Sprite indicators for now or just the ring geometry as "data path" */}
+        </group>
     )
 }

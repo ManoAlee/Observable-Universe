@@ -31,11 +31,12 @@ import DarkMatterUniverse from './components/DarkMatterUniverse';
 import NeuralNetworkUniverse from './components/NeuralNetworkUniverse';
 import BiologicUniverse from './components/BiologicUniverse';
 import PerceptionUniverse from './components/PerceptionUniverse';
+import LegendresUniverse from './components/LegendresUniverse';
 
 import { Leva, useControls } from 'leva'
 import './styles.css'
 
-type ViewMode = 'OPERATOR' | 'GRAND_UNIFIED' | 'WORMHOLE' | 'STRING_THEORY' | 'BINARY' | 'QUANTUM' | 'COSMIC_WEB' | 'GENESIS' | 'SINGULARITY' | 'FREQUENCY' | 'DECODER' | 'MATRIX' | 'DARK_MATTER' | 'NEURAL_NETWORK' | 'BIOLOGIC' | 'PERCEPTION'
+type ViewMode = 'OPERATOR' | 'GRAND_UNIFIED' | 'WORMHOLE' | 'STRING_THEORY' | 'BINARY' | 'QUANTUM' | 'COSMIC_WEB' | 'GENESIS' | 'SINGULARITY' | 'FREQUENCY' | 'DECODER' | 'MATRIX' | 'DARK_MATTER' | 'NEURAL_NETWORK' | 'BIOLOGIC' | 'PERCEPTION' | 'LEGENDRE'
 
 export default function App() {
   const [manifest, setManifest] = useState<any>(null)
@@ -104,6 +105,7 @@ export default function App() {
       case 'FREQUENCY': return { equation: "E = hν (Planck-Einstein)", constants: "h = 6.626 x 10^-34 Js, CMB peak = 160.2 GHz" }
       case 'DECODER': return { equation: "Gμν + Λgμν = 8πG/c^4 Tμν", constants: "S = Akc^3/4Għ, Z = ∫DgDφ e^iS/ħ" }
       case 'PERCEPTION': return { equation: "P(A|B) = [P(B|A)P(A)]/P(B)", constants: "Latency = 80ms, Filter = 99%" }
+      case 'LEGENDRE': return { equation: "∃p ∈ (n², (n+1)²) ∀n ≥ 1", constants: "Gap < O(p^0.525)" }
       default: return { equation: "S_neural = -Σ p log p", constants: "Ψ_sync = 1.0" }
     }
   }, [viewMode])
@@ -191,6 +193,7 @@ export default function App() {
             case 'NEURAL_NETWORK': return <NeuralNetworkUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData} />
             case 'BIOLOGIC': return <BiologicUniverse observer={mouse} entropy={universeState.entropy} />
             case 'PERCEPTION': return <PerceptionUniverse observer={mouse} entropy={universeState.entropy} lssiData={lssiData} />
+            case 'LEGENDRE': return <LegendresUniverse />
             case 'DECODER': return (
               <UniverseDecoder
                 observer={mouse}
@@ -383,6 +386,7 @@ export default function App() {
               <div className="w-px h-4 bg-white/10 mx-1 self-center" />
               <NavButton active={viewMode === 'DECODER'} onClick={() => setViewMode('DECODER')} label="DECODE" />
               <NavButton active={viewMode === 'PERCEPTION'} onClick={() => setViewMode('PERCEPTION')} label="EYE" />
+              <NavButton active={viewMode === 'LEGENDRE'} onClick={() => setViewMode('LEGENDRE')} label="MATH" />
               <button
                 onClick={() => setViewMode('SINGULARITY')}
                 className={`px-4 py-1.5 rounded-full text-[9px] font-bold tracking-widest transition-all ${viewMode === 'SINGULARITY' ? 'bg-amber-500 text-black shadow-[0_0_15px_rgba(245,158,11,0.5)]' : 'text-amber-500/70 hover:text-amber-500 hover:bg-amber-500/10'}`}

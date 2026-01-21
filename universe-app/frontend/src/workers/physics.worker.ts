@@ -8,7 +8,7 @@ interface Particle {
 }
 
 let particles: Particle[] = [];
-const NUM_PARTICLES = 600;
+const NUM_PARTICLES = 800;
 let modality = 'command';
 
 // Aizawa Attractor Parameters
@@ -18,11 +18,11 @@ const initParticles = () => {
     particles = [];
     for (let i = 0; i < NUM_PARTICLES; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const radius = 1 + Math.random() * 4;
+        const radius = 1 + Math.random() * 5;
         particles.push({
             x: Math.cos(angle) * radius,
             y: Math.sin(angle) * radius,
-            z: (Math.random() - 0.5) * 2,
+            z: (Math.random() - 0.5) * 4,
             color: 'hsl(210, 100%, 55%)',
         });
     }
@@ -44,32 +44,41 @@ const updateSingularity = () => {
     for (const p of particles) {
         const distSq = p.x * p.x + p.y * p.y + p.z * p.z;
         const dist = Math.sqrt(distSq);
-
-        // Gravitational center at (0,0,0)
-        const force = 0.01 / (distSq + 0.1);
+        const force = 0.015 / (distSq + 0.1);
         p.x -= (p.x / dist) * force;
         p.y -= (p.y / dist) * force;
         p.z -= (p.z / dist) * force;
-
-        // Small tangential component for rotation (accretion disk effect)
-        const rotSpeed = 0.03 / (dist + 0.5);
-        const tx = -p.y * rotSpeed;
-        const ty = p.x * rotSpeed;
-        p.x += tx;
-        p.y += ty;
-
-        // Pulse color based on proximity to event horizon
-        const hue = 0 + (dist * 20); // Event horizon red (0) to white/blue
-        p.color = `hsl(${hue}, 100%, ${Math.max(20, 100 - dist * 10)}%)`;
-
-        // Respawn if swallowed
-        if (dist < 0.1) {
+        const rotSpeed = 0.04 / (dist + 0.5);
+        p.x += -p.y * rotSpeed;
+        p.y += p.x * rotSpeed;
+        const hue = Math.max(0, 40 - dist * 10);
+        p.color = `hsl(${hue}, 100%, ${Math.max(10, 100 - dist * 15)}%)`;
+        if (dist < 0.05) {
             const angle = Math.random() * Math.PI * 2;
-            const radius = 3 + Math.random() * 2;
-            p.x = Math.cos(angle) * radius;
-            p.y = Math.sin(angle) * radius;
-            p.z = (Math.random() - 0.5);
+            const r = 4 + Math.random() * 2;
+            p.x = Math.cos(angle) * r; p.y = Math.sin(angle) * r; p.z = (Math.random() - 0.5) * 2;
         }
+    }
+};
+
+const updateCosmicWeb = () => {
+    for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        // Filament nodes: connect particles in strings
+        const targetIdx = (i + 1) % particles.length;
+        const target = particles[targetIdx];
+        const dx = target.x - p.x;
+        const dy = target.y - p.y;
+        const dz = target.z - p.z;
+        p.x += dx * 0.01;
+        p.y += dy * 0.01;
+        p.z += dz * 0.01;
+
+        // Add cosmic expansion drift
+        p.x *= 1.001; p.y *= 1.001; p.z *= 1.001;
+        p.color = 'rgba(68, 136, 255, 0.5)';
+
+        if (Math.abs(p.x) > 10) p.x *= -0.1;
     }
 };
 
@@ -81,13 +90,13 @@ const updateCommand = () => {
         p.color = 'hsl(210, 100%, 55%)';
         if (Math.abs(p.x) > 1) p.x *= 0.95;
         if (Math.abs(p.y) > 0.5) p.y *= 0.95;
-        if (Math.abs(p.z) > 0.5) p.z *= 0.95;
     }
 };
 
 const tick = () => {
     if (modality === 'transcendental') updateTranscendental();
     else if (modality === 'singularity') updateSingularity();
+    else if (modality === 'cosmicweb') updateCosmicWeb();
     else updateCommand();
 
     self.postMessage({ particles, modality });

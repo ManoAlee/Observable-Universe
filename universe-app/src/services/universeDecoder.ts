@@ -9,7 +9,8 @@ export interface LSSIData {
     lastUpdate: string;
 }
 
-const NASA_API_KEY = import.meta.env.VITE_NASA_API_KEY || 'DEMO_KEY';
+const rawKey = import.meta.env.VITE_NASA_API_KEY || 'DEMO_KEY';
+const NASA_API_KEY = (rawKey.includes('your_actual_api_key_here') || rawKey.includes('placeholder')) ? 'DEMO_KEY' : rawKey;
 
 export class UniverseDecoderService {
     private static cachedNeo: number | null = null;

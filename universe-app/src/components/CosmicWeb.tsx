@@ -231,9 +231,6 @@ function GreatFilterVoid() {
                 <sphereGeometry args={[1, 64, 64]} />
                 <meshBasicMaterial color="#ff0000" transparent opacity={0.1} side={THREE.BackSide} blending={THREE.AdditiveBlending} />
             </mesh>
-            <Billboard>
-                <Text fontSize={4} color="#330000" font="/fonts/static/Roboto-Bold.ttf">THE GREAT SILENCE</Text>
-            </Billboard>
         </mesh>
     )
 }

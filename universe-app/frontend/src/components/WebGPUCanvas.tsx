@@ -60,6 +60,13 @@ export const WebGPUCanvas: React.FC<Props> = ({ modality }) => {
                 }
 
                 ctx.fill();
+
+                // Render Hex Data in Null-Pointer Zone
+                if (currentModality === 'nullpointer' && p.data) {
+                    ctx.font = '8px monospace';
+                    ctx.fillStyle = '#ff00ff';
+                    ctx.fillText(p.data, x + 5, y);
+                }
             });
         };
 

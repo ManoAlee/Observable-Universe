@@ -78,6 +78,12 @@ export const Sidebar: React.FC<Props> = ({ modality, setModality }) => (
         >
             Transcendental Cosmic Web
         </SidebarItem>
+        <SidebarItem
+            active={modality === 'nullpointer'}
+            onClick={() => setModality('nullpointer')}
+        >
+            The Null-Pointer Zone (Abstração)
+        </SidebarItem>
 
         <SectionTitle>Systems</SectionTitle>
         <SidebarItem>User Management</SidebarItem>

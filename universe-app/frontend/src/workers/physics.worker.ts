@@ -93,10 +93,33 @@ const updateCommand = () => {
     }
 };
 
+const hexChars = '0123456789ABCDEF';
+const generateHex = () => '0x' + Array.from({ length: 4 }, () => hexChars[Math.floor(Math.random() * 16)]).join('');
+
+const updateNullPointer = () => {
+    for (const p of particles) {
+        // High-frequency jitter vs Teleportation
+        if (Math.random() > 0.98) {
+            p.x = (Math.random() - 0.5) * 8;
+            p.y = (Math.random() - 0.5) * 8;
+            p.z = (Math.random() - 0.5) * 4;
+        } else {
+            p.x += (Math.random() - 0.5) * 0.1;
+            p.y += (Math.random() - 0.5) * 0.1;
+        }
+        // Missing texture magenta or glitches
+        p.color = Math.random() > 0.9 ? '#ff00ff' : '#000000';
+        if (Math.random() > 0.95) p.color = '#ffffff';
+
+        (p as any).data = Math.random() > 0.96 ? generateHex() : null;
+    }
+};
+
 const tick = () => {
     if (modality === 'transcendental') updateTranscendental();
     else if (modality === 'singularity') updateSingularity();
     else if (modality === 'cosmicweb') updateCosmicWeb();
+    else if (modality === 'nullpointer') updateNullPointer();
     else updateCommand();
 
     self.postMessage({ particles, modality });

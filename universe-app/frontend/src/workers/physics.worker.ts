@@ -8,34 +8,32 @@ interface Particle {
 }
 
 let particles: Particle[] = [];
-const NUM_PARTICLES = 800;
+const NUM_PARTICLES = 1000;
 let modality = 'command';
+let burstTime = 0;
 
-// Aizawa Attractor Parameters
-const a = 0.95, b = 0.7, c = 0.6, d = 3.5, e = 0.25, f = 0.1, dt = 0.01;
+const hexChars = '0123456789ABCDEF';
+const generateHex = () => '0x' + Array.from({ length: 4 }, () => hexChars[Math.floor(Math.random() * 16)]).join('');
 
 const initParticles = () => {
     particles = [];
     for (let i = 0; i < NUM_PARTICLES; i++) {
-        const angle = Math.random() * Math.PI * 2;
-        const radius = 1 + Math.random() * 5;
         particles.push({
-            x: Math.cos(angle) * radius,
-            y: Math.sin(angle) * radius,
-            z: (Math.random() - 0.5) * 4,
+            x: (Math.random() - 0.5) * 5,
+            y: (Math.random() - 0.5) * 5,
+            z: (Math.random() - 0.5) * 5,
             color: 'hsl(210, 100%, 55%)',
         });
     }
 };
 
 const updateTranscendental = () => {
+    const a = 0.95, b = 0.7, c = 0.6, d = 3.5, e = 0.25, f = 0.1, dt = 0.01;
     for (const p of particles) {
         const dx = (p.z - b) * p.x - d * p.y;
         const dy = d * p.x + (p.z - b) * p.y;
         const dz = c + a * p.z - (p.z ** 3) / 3 - (p.x ** 2 + p.y ** 2) * (1 + e * p.z) + f * p.z * (p.x ** 3);
-        p.x += dx * dt;
-        p.y += dy * dt;
-        p.z += dz * dt;
+        p.x += dx * dt; p.y += dy * dt; p.z += dz * dt;
         p.color = 'hsl(260, 80%, 60%)';
     }
 };
@@ -44,82 +42,73 @@ const updateSingularity = () => {
     for (const p of particles) {
         const distSq = p.x * p.x + p.y * p.y + p.z * p.z;
         const dist = Math.sqrt(distSq);
-        const force = 0.015 / (distSq + 0.1);
-        p.x -= (p.x / dist) * force;
-        p.y -= (p.y / dist) * force;
-        p.z -= (p.z / dist) * force;
-        const rotSpeed = 0.04 / (dist + 0.5);
-        p.x += -p.y * rotSpeed;
-        p.y += p.x * rotSpeed;
-        const hue = Math.max(0, 40 - dist * 10);
-        p.color = `hsl(${hue}, 100%, ${Math.max(10, 100 - dist * 15)}%)`;
-        if (dist < 0.05) {
+        const force = 0.02 / (distSq + 0.1);
+        p.x -= (p.x / dist) * force; p.y -= (p.y / dist) * force; p.z -= (p.z / dist) * force;
+        p.x += -p.y * 0.04; p.y += p.x * 0.04;
+        p.color = `hsl(${Math.max(0, 40 - dist * 10)}, 100%, ${Math.max(10, 100 - dist * 15)}%)`;
+        if (dist < 0.05) { p.x = (Math.random() - 0.5) * 10; p.y = (Math.random() - 0.5) * 10; }
+    }
+};
+
+const updateQuasar = () => {
+    burstTime += 0.016;
+    const isBurst = Math.sin(burstTime * 2) > 0.8;
+
+    for (const p of particles) {
+        const distAxis = Math.sqrt(p.x * p.x + p.z * p.z);
+
+        // Attraction to the central vertical beam
+        p.x -= (p.x / (distAxis + 0.1)) * 0.02;
+        p.z -= (p.z / (distAxis + 0.1)) * 0.02;
+
+        // Vertical flow
+        p.y += 0.05;
+        if (p.y > 5) {
+            p.y = -5;
+            p.x = (Math.random() - 0.5) * 0.5;
+            p.z = (Math.random() - 0.5) * 0.5;
+        }
+
+        // Ex-Nihilo Energy Bursts
+        if (isBurst && Math.random() > 0.9) {
             const angle = Math.random() * Math.PI * 2;
-            const r = 4 + Math.random() * 2;
-            p.x = Math.cos(angle) * r; p.y = Math.sin(angle) * r; p.z = (Math.random() - 0.5) * 2;
+            const speed = 0.5;
+            p.x += Math.cos(angle) * speed;
+            p.z += Math.sin(angle) * speed;
+            p.color = '#ffffff'; // Flash white
+        } else {
+            p.color = 'hsl(45, 100%, 60%)'; // Electric Gold
+            if (Math.random() > 0.95) p.color = 'hsl(260, 100%, 70%)'; // Indigo sparks
         }
     }
 };
 
-const updateCosmicWeb = () => {
-    for (let i = 0; i < particles.length; i++) {
-        const p = particles[i];
-        // Filament nodes: connect particles in strings
-        const targetIdx = (i + 1) % particles.length;
-        const target = particles[targetIdx];
-        const dx = target.x - p.x;
-        const dy = target.y - p.y;
-        const dz = target.z - p.z;
-        p.x += dx * 0.01;
-        p.y += dy * 0.01;
-        p.z += dz * 0.01;
-
-        // Add cosmic expansion drift
-        p.x *= 1.001; p.y *= 1.001; p.z *= 1.001;
-        p.color = 'rgba(68, 136, 255, 0.5)';
-
-        if (Math.abs(p.x) > 10) p.x *= -0.1;
+const updateNullPointer = () => {
+    for (const p of particles) {
+        if (Math.random() > 0.98) {
+            p.x = (Math.random() - 0.5) * 8; p.y = (Math.random() - 0.5) * 8; p.z = (Math.random() - 0.5) * 4;
+        } else {
+            p.x += (Math.random() - 0.5) * 0.1; p.y += (Math.random() - 0.5) * 0.1;
+        }
+        p.color = Math.random() > 0.9 ? '#ff00ff' : '#000000';
+        if (Math.random() > 0.95) p.color = '#ffffff';
+        (p as any).data = Math.random() > 0.96 ? generateHex() : null;
     }
 };
 
 const updateCommand = () => {
     for (const p of particles) {
-        p.x += (Math.random() - 0.5) * 0.02;
-        p.y += (Math.random() - 0.5) * 0.02;
-        p.z += (Math.random() - 0.5) * 0.02;
+        p.x += (Math.random() - 0.5) * 0.02; p.y += (Math.random() - 0.5) * 0.02;
         p.color = 'hsl(210, 100%, 55%)';
-        if (Math.abs(p.x) > 1) p.x *= 0.95;
-        if (Math.abs(p.y) > 0.5) p.y *= 0.95;
-    }
-};
-
-const hexChars = '0123456789ABCDEF';
-const generateHex = () => '0x' + Array.from({ length: 4 }, () => hexChars[Math.floor(Math.random() * 16)]).join('');
-
-const updateNullPointer = () => {
-    for (const p of particles) {
-        // High-frequency jitter vs Teleportation
-        if (Math.random() > 0.98) {
-            p.x = (Math.random() - 0.5) * 8;
-            p.y = (Math.random() - 0.5) * 8;
-            p.z = (Math.random() - 0.5) * 4;
-        } else {
-            p.x += (Math.random() - 0.5) * 0.1;
-            p.y += (Math.random() - 0.5) * 0.1;
-        }
-        // Missing texture magenta or glitches
-        p.color = Math.random() > 0.9 ? '#ff00ff' : '#000000';
-        if (Math.random() > 0.95) p.color = '#ffffff';
-
-        (p as any).data = Math.random() > 0.96 ? generateHex() : null;
+        if (Math.abs(p.x) > 1) p.x *= 0.95; if (Math.abs(p.y) > 0.5) p.y *= 0.95;
     }
 };
 
 const tick = () => {
     if (modality === 'transcendental') updateTranscendental();
     else if (modality === 'singularity') updateSingularity();
-    else if (modality === 'cosmicweb') updateCosmicWeb();
     else if (modality === 'nullpointer') updateNullPointer();
+    else if (modality === 'quasar') updateQuasar();
     else updateCommand();
 
     self.postMessage({ particles, modality });

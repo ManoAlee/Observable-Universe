@@ -38,7 +38,22 @@ export const WebGPUCanvas: React.FC<Props> = ({ modality }) => {
 
             const centerX = canvas.width / 2;
             const centerY = canvas.height / 2;
-            const scale = currentModality === 'transcendental' ? 150 : 300;
+
+            // Render Quasar Beam
+            if (currentModality === 'quasar') {
+                const gradient = ctx.createLinearGradient(centerX - 50, 0, centerX + 50, 0);
+                gradient.addColorStop(0, 'rgba(255, 255, 255, 0)');
+                gradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.9)');
+                gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+                ctx.fillStyle = gradient;
+                ctx.shadowBlur = 50;
+                ctx.shadowColor = '#fff';
+                ctx.fillRect(centerX - 15, 0, 30, canvas.height);
+                ctx.shadowBlur = 0;
+            }
+
+            const scale = currentModality === 'transcendental' ? 150 : (currentModality === 'quasar' ? 200 : 300);
 
             particles.forEach((p: any) => {
                 // Perspective projection

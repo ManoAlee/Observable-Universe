@@ -55,6 +55,12 @@ export const Sidebar: React.FC<Props> = ({ modality, setModality }) => (
     <StyledSidebar>
         <SectionTitle>Realities</SectionTitle>
         <SidebarItem
+            active={modality === 'quasar'}
+            onClick={() => setModality('quasar')}
+        >
+            The Quasar Injection (The Logos)
+        </SidebarItem>
+        <SidebarItem
             active={modality === 'command'}
             onClick={() => setModality('command')}
         >

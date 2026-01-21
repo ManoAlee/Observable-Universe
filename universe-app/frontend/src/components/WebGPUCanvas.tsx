@@ -1,16 +1,24 @@
-// src/components/WebGPUCanvas.tsx
-'use client';
-
-import React, { useEffect, useRef } from 'react';
-import { theme } from '@/design-system/theme';
+import React, { useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
 
 interface Props {
     modality: string;
 }
 
-export const WebGPUCanvas: React.FC<Props> = ({ modality }) => {
+export interface WebGPUCanvasHandle {
+    triggerBurst: () => void;
+}
+
+export const WebGPUCanvas = forwardRef<WebGPUCanvasHandle, Props>(({ modality }, ref) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const workerRef = useRef<Worker | null>(null);
+
+    useImperativeHandle(ref, () => ({
+        triggerBurst: () => {
+            if (workerRef.current) {
+                workerRef.current.postMessage({ type: 'burst' });
+            }
+        }
+    }));
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -108,4 +116,4 @@ export const WebGPUCanvas: React.FC<Props> = ({ modality }) => {
             }}
         />
     );
-};
+});

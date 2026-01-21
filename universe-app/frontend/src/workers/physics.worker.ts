@@ -118,4 +118,13 @@ const tick = () => {
 self.onmessage = (e) => {
     if (e.data.type === 'start') { initParticles(); tick(); }
     if (e.data.type === 'switch') modality = e.data.value;
+    if (e.data.type === 'burst') {
+        for (const p of particles) {
+            const angle = Math.random() * Math.PI * 2;
+            const speed = 1.0 + Math.random() * 2.0;
+            p.x += Math.cos(angle) * speed;
+            p.z += Math.sin(angle) * speed;
+            p.color = '#ffffff';
+        }
+    }
 };

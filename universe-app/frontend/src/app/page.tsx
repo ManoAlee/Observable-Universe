@@ -7,7 +7,8 @@ import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
 import { HeroSection } from '@/components/HeroSection';
 import { DashboardGrid } from '@/components/DashboardGrid';
-import { Footer } from '@/components/Footer';
+import { LogosTrigger } from '@/components/LogosTrigger';
+import { WebGPUCanvasHandle } from '@/components/WebGPUCanvas';
 
 const PageContainer = styled('div', {
     display: 'flex',
@@ -30,8 +31,17 @@ const ContentArea = styled('main', {
     overflow: 'hidden',
 });
 
+import { Footer } from '@/components/Footer';
+
 export default function HomePage() {
     const [modality, setModality] = useState('command');
+    const canvasRef = React.useRef<WebGPUCanvasHandle>(null);
+
+    const onTrigger = () => {
+        if (canvasRef.current) {
+            canvasRef.current.triggerBurst();
+        }
+    };
 
     return (
         <PageContainer>
@@ -39,11 +49,12 @@ export default function HomePage() {
             <LayoutBody>
                 <Sidebar modality={modality} setModality={setModality} />
                 <ContentArea>
-                    <HeroSection modality={modality} />
+                    <HeroSection ref={canvasRef} modality={modality} />
                     <DashboardGrid modality={modality} />
                     <Footer />
                 </ContentArea>
             </LayoutBody>
+            <LogosTrigger onTrigger={onTrigger} modality={modality} />
         </PageContainer>
     );
 }

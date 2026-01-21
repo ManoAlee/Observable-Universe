@@ -1,8 +1,6 @@
 // src/components/HeroSection.tsx
 import React from 'react';
 import { styled, keyframes } from '@/design-system/theme';
-import { WebGPUCanvas } from './WebGPUCanvas';
-
 const HeroContainer = styled('section', {
     position: 'relative',
     width: '100%',
@@ -53,13 +51,15 @@ const Subtitle = styled('p', {
     color: '$muted',
 });
 
+import { WebGPUCanvas, WebGPUCanvasHandle } from './WebGPUCanvas';
+
 interface Props {
     modality: string;
 }
 
-export const HeroSection: React.FC<Props> = ({ modality }) => (
+export const HeroSection = React.forwardRef<WebGPUCanvasHandle, Props>(({ modality }, ref) => (
     <HeroContainer>
-        <WebGPUCanvas modality={modality} />
+        <WebGPUCanvas ref={ref} modality={modality} />
         <Overlay />
     </HeroContainer>
-);
+));

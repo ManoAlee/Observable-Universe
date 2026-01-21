@@ -1,6 +1,6 @@
 // src/components/HeroSection.tsx
 import React from 'react';
-import { styled } from '@/design-system/theme';
+import { styled, keyframes } from '@/design-system/theme';
 import { WebGPUCanvas } from './WebGPUCanvas';
 
 const HeroContainer = styled('section', {
@@ -10,6 +10,21 @@ const HeroContainer = styled('section', {
     overflow: 'hidden',
     borderRadius: '$lg',
     background: 'black',
+    border: '1px solid rgba(255, 255, 255, 0.05)',
+});
+
+const scanline = keyframes({
+    '0%': { transform: 'translateY(-100%)' },
+    '100%': { transform: 'translateY(100%)' },
+});
+
+const Overlay = styled('div', {
+    position: 'absolute',
+    inset: 0,
+    pointerEvents: 'none',
+    background: 'linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06))',
+    backgroundSize: '100% 2px, 3px 100%',
+    zIndex: 5,
 });
 
 const Content = styled('div', {
@@ -19,27 +34,43 @@ const Content = styled('div', {
     transform: 'translateY(-50%)',
     zIndex: 10,
     maxWidth: '500px',
+    padding: '$md',
+    background: 'rgba(5, 5, 5, 0.5)',
+    backdropFilter: 'blur(5px)',
+    borderRadius: '$md',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
 });
 
 const Title = styled('h1', {
-    fontSize: '$4xl',
+    fontSize: '$3xl',
     color: 'white',
-    marginBottom: '$md',
+    marginBottom: '$sm',
+    fontFamily: '$heading',
 });
 
 const Subtitle = styled('p', {
-    fontSize: '$lg',
+    fontSize: '$md',
     color: '$muted',
-    marginBottom: '$xl',
 });
 
-export const HeroSection: React.FC = () => (
+interface Props {
+    modality: string;
+}
+
+export const HeroSection: React.FC<Props> = ({ modality }) => (
     <HeroContainer>
-        <WebGPUCanvas />
+        <WebGPUCanvas modality={modality} />
+        <Overlay />
         <Content>
-            <Title>Neural Command Interface</Title>
+            <Title>
+                {modality === 'command'
+                    ? 'Neural Command Interface'
+                    : 'Transcendental Entropy Engine'}
+            </Title>
             <Subtitle>
-                Monitoring the quantum state of decentralized networks with extreme performance and real-time observability.
+                {modality === 'command'
+                    ? 'Monitoring the quantum state of decentralized networks with real‑time observability.'
+                    : 'Witnessing the non‑deterministic beauty of chaotic attractors and Aizawa mathematics.'}
             </Subtitle>
         </Content>
     </HeroContainer>

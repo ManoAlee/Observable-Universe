@@ -1,7 +1,7 @@
 // src/app/page.tsx
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from '@/design-system/theme';
 import { Header } from '@/components/Header';
 import { Sidebar } from '@/components/Sidebar';
@@ -27,16 +27,19 @@ const ContentArea = styled('main', {
     display: 'flex',
     flexDirection: 'column',
     gap: '$lg',
+    overflow: 'hidden',
 });
 
 export default function HomePage() {
+    const [modality, setModality] = useState('command');
+
     return (
         <PageContainer>
             <Header />
             <LayoutBody>
-                <Sidebar />
+                <Sidebar modality={modality} setModality={setModality} />
                 <ContentArea>
-                    <HeroSection />
+                    <HeroSection modality={modality} />
                     <DashboardGrid />
                     <Footer />
                 </ContentArea>

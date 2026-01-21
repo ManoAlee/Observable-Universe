@@ -66,6 +66,12 @@ export const Sidebar: React.FC<Props> = ({ modality, setModality }) => (
         >
             Transcendental Entropy
         </SidebarItem>
+        <SidebarItem
+            active={modality === 'singularity'}
+            onClick={() => setModality('singularity')}
+        >
+            Silent Singularity
+        </SidebarItem>
 
         <SectionTitle>Systems</SectionTitle>
         <SidebarItem>User Management</SidebarItem>

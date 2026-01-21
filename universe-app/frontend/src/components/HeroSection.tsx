@@ -61,17 +61,5 @@ export const HeroSection: React.FC<Props> = ({ modality }) => (
     <HeroContainer>
         <WebGPUCanvas modality={modality} />
         <Overlay />
-        <Content>
-            <Title>
-                {modality === 'command'
-                    ? 'Neural Command Interface'
-                    : 'Transcendental Entropy Engine'}
-            </Title>
-            <Subtitle>
-                {modality === 'command'
-                    ? 'Monitoring the quantum state of decentralized networks with real‑time observability.'
-                    : 'Witnessing the non‑deterministic beauty of chaotic attractors and Aizawa mathematics.'}
-            </Subtitle>
-        </Content>
     </HeroContainer>
 );

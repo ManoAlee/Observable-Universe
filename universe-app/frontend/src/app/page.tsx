@@ -40,7 +40,7 @@ export default function HomePage() {
                 <Sidebar modality={modality} setModality={setModality} />
                 <ContentArea>
                     <HeroSection modality={modality} />
-                    <DashboardGrid />
+                    <DashboardGrid modality={modality} />
                     <Footer />
                 </ContentArea>
             </LayoutBody>

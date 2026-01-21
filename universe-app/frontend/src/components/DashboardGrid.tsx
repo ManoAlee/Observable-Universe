@@ -35,23 +35,27 @@ const CardValue = styled('div', {
     color: '$text',
 });
 
-export const DashboardGrid: React.FC = () => (
+interface Props {
+    modality?: string;
+}
+
+export const DashboardGrid: React.FC<Props> = ({ modality }) => (
     <Grid>
         <Card>
             <CardTitle>System Load</CardTitle>
-            <CardValue>12.4%</CardValue>
+            <CardValue>{modality === 'nullpointer' ? 'ERR_OVERFLOW' : '12.4%'}</CardValue>
         </Card>
         <Card>
-            <CardTitle>Network Latency</CardTitle>
-            <CardValue>18ms</CardValue>
+            <CardTitle>Entropy Scale</CardTitle>
+            <CardValue>{modality === 'transcendental' ? 'MAX' : (modality === 'singularity' ? 'INFINITE' : 'STABLE')}</CardValue>
         </Card>
         <Card>
-            <CardTitle>Security Level</CardTitle>
-            <CardValue>ALPHA</CardValue>
+            <CardTitle>Logos Connection</CardTitle>
+            <CardValue>{modality === 'quasar' ? 'ESTABLISHED' : 'LOCAL'}</CardValue>
         </Card>
         <Card>
-            <CardTitle>Quantum Stability</CardTitle>
-            <CardValue>99.98%</CardValue>
+            <CardTitle>Universe State</CardTitle>
+            <CardValue>{modality ? modality.toUpperCase() : 'IDLE'}</CardValue>
         </Card>
     </Grid>
 );
